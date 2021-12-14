@@ -1,13 +1,12 @@
 ---
 layout: default
 ---
-
-<h1>{{ page.tag }}</h1>
-
+# Blogs
+{% for post in site.posts %}
+ 
 <ul>
-{% for post in site.tags[page.tag] %}
-  <li>
-    {{ post.date | date: "%B %d, %Y" }}: <a href="{{ post.url }}">{{ post.title }}</a>
-  </li>
-{% endfor %}
+ 
+<li><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3></li>
+ 
 </ul>
+{% endfor %}
