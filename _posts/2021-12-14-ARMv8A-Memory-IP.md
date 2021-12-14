@@ -14,4 +14,5 @@ order: 12
 ### Draft
 
 ARMv8A는 흔히 aarch64로도 불리며 현재 ARMv7A를 뒤로한채 널리 사용하는 아키텍처중 하나입니다. 본 글에서는 ARMv8A의 메모리 시스템을 IP단위로 보려합니다.
-![Simplifieid_Ip_Diagram](../_images/ARMv8A_IP_Simplified_Diagram.png)
+
+![Simplifieid_Ip_Diagram]({{"/images/ARMv8A_IP_Simplified_Diagram.png" | absolute_url}})
