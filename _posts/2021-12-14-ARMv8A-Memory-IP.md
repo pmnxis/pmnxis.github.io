@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: 프로그래머 입장에서의 ARMv8A Memory IP 리뷰
 subtitle: "SouthBridge? NorthBridge? In ARMv8A"
 type: "TIL"
