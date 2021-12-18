@@ -28,6 +28,7 @@ Instruction을 처리합니다.
 ### GIC
 Generic Interrupt Controller; GIC는 각종 Nested한 Interrupt를 관리하며, Interrupt발생시 CPU에서 동작중이던 PC/Register를 백업하고 해당하는 Inetrrupt Vector를 Execution하도록 합니다.
 ### CCI / CCN
+Cache Coherent Interconnect / Netowrk
 
 ### DMC
 DRAM을 관리합니다. DRAM은 휘발성 메모리로서 Read/Write 이외에 Refresh, Callibration 와 같은 작업이 필요합니다.
