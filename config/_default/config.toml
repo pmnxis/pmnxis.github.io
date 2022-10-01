@@ -1,2 +1,15 @@
+# -- Site Configuration --
 baseURL = 'https://pmnxis.github.io/'
 languageCode = 'en-us'
+contentDir = "content"
+
+hasCJKLanguage = true
+enableRobotsTXT = true
+paginate = 20
+summaryLength = 30
+
+category = 'categories'
+tag = 'tags'
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

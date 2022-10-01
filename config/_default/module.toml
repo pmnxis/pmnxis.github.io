@@ -1,2 +1,3 @@
 [[imports]]
-path = "github.com/nunocoracao/blowfish"
+  path = "github.com/nunocoracao/blowfish"
+  min = "0.86.1"
