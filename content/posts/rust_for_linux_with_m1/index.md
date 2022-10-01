@@ -1,10 +1,12 @@
 ---
-title: "Rust For Linux Development Environment with AppleSilicon MacOS"
+title: "[DRAFT] Rust For Linux Development Environment with AppleSilicon MacOS"
 date: 2022-10-01
-draft: true
+draft: false
 category: "Linux"
-tags: ["Rust", "Linux", "ARMv8A", "English_Article"]
+tags: ["Rust", "Linux", "ARMv8A", "English_Article", "Draft"]
 ---
+
+>> Currently Draft
 
 > In October 1, Rust for linux is under the linux-next, not stable<br>
 > Thus this article would be out-of-date before Linux 6.1 stable comes.
