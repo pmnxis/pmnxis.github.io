@@ -68,23 +68,14 @@ Install rust with curl. You can select just default options.
 ## Clone linux from Rust-For-Linux 
 ![Check working branch](img/build_in_m1vm/check_working_branch.png)
 _State of current rust-for-linux, they are under 6.0 RC_
-### Clone first
+
 ```sh
 # In my case use `Develop` as worksapce, you can replace this word. 
 mkdir -p ~/Develop
 cd ~/Develop
-git clone https://github.com/Rust-for-Linux/linux.git
+git clone https://github.com/Rust-for-Linux/linux.git -b rust
 ```
-
-### Check working branch
-
-For now, you must check working branch because repository is cutting edge.
-When I checked good one was `9259db9fbff59f2829a71847838aa428d7798569` when i check roughly.
-
-```sh
-git checkout 9259db9fbff59f2829a71847838aa428d7798569
-```
-
+clone like this.
 
 ## Check `RUST_AVAILABLE`
 ```sh
