@@ -142,9 +142,12 @@ You can get them with following menus.
 
 |    |    |
 | -- | -- |
-| ![Menuconfig Rust Sample1](img/build_in_m1vm/menuconfig_rust_in_m1vm_example_add1.png) | ![Menuconfig Rust Sample2](img/build_in_m1vm/menuconfig_rust_in_m1vm_example_add2.png) |
+| ![Menuconfig Rust Sample1](img/build_in_m1vm/menuconfig_rust_in_m1vm_example_add2.png) | ![Menuconfig Rust Sample2](img/build_in_m1vm/menuconfig_rust_in_m1vm_example_add1.png) |
 
-In `Kernel hacking -> Sample kernel code` , enables it and inside menus.
+In `Kernel hacking -> Sample kernel code` , enable it (not all of them..) when you interest.
+I don't recommend you enable them when you write own driver. Because there's some possibility make system slow or make unwanted log in dmesg. <br>
+In particular, the netflitter example outputs too many dmesg, so it is recommended that you disable it unless you are studying the `netfilter` example.
+![example too many dmesg log from netfilter example](img/build_in_m1vm/too_many_log.png)<br>
 
 ### `Kernel hacking -> Rust hacking`
 For debug rust kernel code or driver, need to enable some debug options.
