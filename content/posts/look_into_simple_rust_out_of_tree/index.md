@@ -274,7 +274,7 @@ As we guess it prints with `[72, 108, 200]`.
 
 We can summary from this simple kernel module.
 
-## Summary
+### Summary
 - Need to use `use kernel::prelude::*;` on top of code.
 - `module!` macro to define some description and board my own struct to the kernel module.
 - `kernel::Module` templete functions .... -WIP-
@@ -283,7 +283,7 @@ We can summary from this simple kernel module.
 
 ----
 
-### Reference
+## Reference
 1) https://github.com/Rust-for-Linux/rust-out-of-tree-module
 2) https://www.kernel.org/doc/html/latest/kbuild/modules.html
 3) https://github.com/Rust-for-Linux/linux
