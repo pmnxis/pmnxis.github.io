@@ -12,7 +12,7 @@ autoSwitchAppearance = false
 enableSearch = true
 enableCodeCopy = true
 
-mainSections = ["docs", "samples"]
+mainSections = ["posts"]
 # robots = ""
 
 [footer]
@@ -22,7 +22,7 @@ mainSections = ["docs", "samples"]
   showScrollToTop = true
 
 [homepage]
-  # layout = "custom" # valid options: page, profile, custom
+  layout = "custom" # valid options: page, profile, custom
   showRecent = true
   showRecentItems = 5
   # showMoreLink = false
@@ -37,7 +37,7 @@ mainSections = ["docs", "samples"]
   # showBreadcrumbs = true
   showDraftLabel = true
   showEdit = true
-  # editURL = "https://github.com/nunocoracao/blowfish/tree/main/exampleSite/content"
+  editURL = "https://github.com/pmnxis/pmnxis.github.io/tree/main/exampleSite/content"
   editAppendPath = true
   showHeadingAnchors = true
   showPagination = true
