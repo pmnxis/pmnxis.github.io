@@ -47,7 +47,9 @@ mainSections = ["docs", "samples"]
   showTaxonomies = true 
   showWordCount = false
   showSummary = true
-  # sharingLinks = [ "linkedin", "twitter", "whatsapp", "pinterest", "reddit", "facebook", "email"]
+  showComment = true    # duplicated paramter for compatibility
+  showComments = true   # duplicated paramter for compatibility
+  sharingLinks = [ "linkedin", "twitter", "reddit", "facebook", "email"]
 
 [list]
   showBreadcrumbs = false
