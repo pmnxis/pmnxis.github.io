@@ -77,6 +77,21 @@ git clone https://github.com/Rust-for-Linux/linux.git -b rust
 ```
 clone like this.
 
+## Necessary some rust scripts in `Rust-For-Linux`
+In cloned linux directory.
+```sh
+git clone --recurse-submodules \
+        --branch $(scripts/min-tool-version.sh rustc) \
+        https://github.com/rust-lang/rust \
+        $(rustc --print sysroot)/lib/rustlib/src/rust
+```
+This work clone `rustlib` repository in your rust toolchain directory.
+
+```sh
+cargo install --locked --version $(scripts/min-tool-version.sh bindgen) bindgen
+```
+This work need to bind existing c code to rust code.
+
 ## Check `RUST_AVAILABLE`
 ```sh
 cd ~/Develop/linux
@@ -93,23 +108,6 @@ $ make LLVM=1 rustavailable
 Rust is available!
 ```
 Than if you get result like this it's good to go
-
-
-## Necessary some rust scripts in `Rust-For-Linux`
-In cloned linux directory.
-```sh
-git clone --recurse-submodules \
-        --branch $(scripts/min-tool-version.sh rustc) \
-        https://github.com/rust-lang/rust \
-        $(rustc --print sysroot)/lib/rustlib/src/rust
-```
-This work clone `rustlib` repository in your rust toolchain directory.
-
-```sh
-cargo install --locked --version $(scripts/min-tool-version.sh bindgen) bindgen
-```
-This work need to bind existing c code to rust code.
-
 
 ## Configure linux source code with `menuconfig`
 ```
