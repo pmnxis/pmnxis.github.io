@@ -1,7 +1,7 @@
 ---
 title: "Cross compiling aarch64(arm64) rust for linux from x86_64 machine"
 date: 2022-10-04T02:09:31+09:00
-draft: true
+draft: false
 category: ["Linux"]
 tags: ["Cross compile", "Rust", "Linux", "ARMv8A", "English_Article"]
 ---
@@ -162,7 +162,7 @@ Also while you build it, it will ask some flag. I just select default in my case
 | AMD Ryzne 5950x Native (16 core 32 thread, 64GB with x86_64)  | 3 minutes  |
 
 ## Install cross compiled kernel to arm64 virtual machine
-- TBD
+- TBD, will update asap.
 
 ## Install cross compiled kernel to raspberry pi
-- TBD
+- TBD, will update asap.
