@@ -1,53 +1,37 @@
 ---
-title: "Rust For Linux Development Environment with AppleSilicon MacOS"
-date: 2022-10-01
-draft: false
-category: "Linux"
-tags: ["Rust", "Linux", "ARMv8A", "English_Article"]
+title: "Cross compiling aarch64(arm64) rust for linux from x86_64 machine"
+date: 2022-10-04T02:09:31+09:00
+draft: true
+category: ["Linux"]
+tags: ["Cross compile", "Rust", "Linux", "ARMv8A", "English_Article"]
 ---
 
-> In October 1, Rust for linux is under the linux-next, not stable<br>
+> In October 6, Rust for linux is under the linux-next, not stable<br>
 > Thus this article would be out-of-date before Linux 6.1 stable comes.
 
-> This article play with https://github.com/Rust-for-Linux/linux/tree/for-next/rust
+> Current linux 6.1 rc1 doesn't contain rust for linux with ARM64.
+> Thus this article play with https://github.com/Rust-for-Linux/linux/tree/for-next/rust
 
 
-![Building_Rust_For_Linux_In_M1_Mac](img/build_in_m1vm/build_rust_linux_in_m1.png)
+![Building_Rust_For_Linux_with_cross_compile](img/cross_compiling_aarch64_rust_for_linux_from_x86_64_linux/cat_12.png)
 
 ## Introduction
- Currently Apple Silicon mac series is only one ARM workstation that have powerful performance as normal desktop class workstation and can purchase anywhere.
-Of course if you have 32GB or bigger memory and least 8 big cores of apple silicon.
+ This article describes cross-compiling rust for linux on x86_64 debian. There is still not enough computing power to build arm64 native kernel except for Apple Silicon.
 
-Btw, this article is in reference to https://github.com/Rust-for-Linux/linux/blob/rust/Documentation/rust/quick-start.rst .
 
-## VM hypervisor software selection.
- - UTM : Free / OpenSource, QEMU based Sometimes tricky.
- - VM Fusion Tech Preview : Free for now / ClosedSource, Moderate
- - Parallels : Non-Free / ClosedSource, not my taste (sorry).
-
-There's some option working with [Asahi Linux](https://asahilinux.org/). But in this article is not consider native asahi linux environment.
-
-In my case, I was chosen VM Fusion.
-
-## Virtual Machine Configuration
-- Debian 11 : https://cdimage.debian.org/debian-cd/current/arm64/iso-dvd/ <br>
-    !! Checked working well.
-
-- Ubuntu : <br>
-    There were some issue `clang` and other gcc build tools version mismatch than broken apt things in `aarch64` ubuntu apt repo.
-    But you can try with ubuntu.
-
-- Arch Linux : https://gitlab.archlinux.org/tpowa/archboot/-/wikis/Archboot-Homepage#aarch64-architecture <br>
-    I didn't tested yet.
-
+Btw, this article is in reference to these links
+- https://github.com/Rust-for-Linux/linux/blob/rust/Documentation/rust/quick-start.rst
+- https://docs.kernel.org/kbuild/llvm.html#cross-compiling
 
 ### Debian / Ubuntu Package Requirements
 
 ```sh
 # Install build-requirements for kernel compile with LLVM.
+# Biggest difference to native build is
+# crossbuild-essential-arm64 needed to build` for arm64
 apt install clang git llvm-dev libclang-dev build-essential \
 bc kmod cpio flex libncurses5-dev libelf-dev libssl-dev \
-dwarves bison lld curl
+dwarves bison lld curl crossbuild-essential-arm64
 ```
 Before build kernel, we need to install some packages.
 
@@ -105,17 +89,18 @@ make LLVM=1 rustavailable
 $ make LLVM=1 rustavailable
 ***
 *** Rust compiler 'rustc' is too new. This may or may not work.
-***   Your version:     1.64.0
+***   Your version:     1.62.1
 ***   Expected version: 1.62.0
 ***
 Rust is available!
 ```
 Than if you get result like this it's good to go
+(1.62.1 was fine to cross compile, but if you consider best fit, run `rustup default 1.62.0`.)
 
 ## Configure linux source code with `menuconfig`
 ```
-make ARCH=arm64 defconfig
-make menuconfig
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- defconfig
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- menuconfig
 ```
 ### `General setup -> Rust support`
 ![Menuconfig Rust Support](img/build_in_m1vm/menuconfig_rust_in_m1vm_check_rust_support.png)
@@ -158,43 +143,26 @@ For debug rust kernel code or driver, need to enable some debug options.
 In `Kernel hacking -> Rust hacking` , enables it and inside menus.
 
 
-## Compile and install it in virtual machine.
+## Cross compile
 
-![Build time](img/build_in_m1vm/build_make_LLVM.png)
+![Build time](img/cross_compiling_aarch64_rust_for_linux_from_x86_64_linux/cross_with_j32.png)
 
 ```sh
 # -j4 for 4 core virtual machine, -j2 for 2 core, -j1 for single core.
-make LLVM=1 -j4
+make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- LLVM=1 -j32
 ```
 Build with following command. You need to set number of job considering assigned number of cores for virtual machine. (`-j#`)
 
 Also while you build it, it will ask some flag. I just select default in my case.
 
-It takes lot of time (don't worry much better than raspberry pi 4), 13~14 minuites takes in my environment (VM 4core, 8GB)
+### Simple compile speed comparation.
+| Machine / Environment | Compile time |
+| --------------------- | -----------: |
+| M1 Max Virtual Machine (4 core 8GB RAM with aarch64 debian11) | 16 minutes |
+| AMD Ryzne 5950x Native (16 core 32 thread, 64GB with x86_64)  | 3 minutes  |
 
-After than, install via following command
-```sh
-# should be under the root permision.
-make modules_install
-make install
-update-grub
-```
-![make install rust-kernel](img/build_in_m1vm/make_install.png)
+## Install cross compiled kernel to arm64 virtual machine
+- TBD
 
-It's done!. <br>
-Reboot program and then check the kernel working well.
-
-
-```
-Linux lambda-next 6.0.0-rc7-175589-g542379556669 #2 SMP PREEMPT Sun Oct 2 19:02:32 KST 2022 aarch64
-
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-Last login: Sun Oct  2 18:20:21 2022 from 192.168.99.1
-pmnxis@lambda-next:~$ uname -r
-6.0.0-rc7-175589-g542379556669
-```
+## Install cross compiled kernel to raspberry pi
+- TBD
