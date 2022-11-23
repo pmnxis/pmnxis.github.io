@@ -38,7 +38,7 @@ In my case, I was chosen VM Fusion.
     But you can try with ubuntu.
 
 - Arch Linux : https://gitlab.archlinux.org/tpowa/archboot/-/wikis/Archboot-Homepage#aarch64-architecture <br>
-    I didn't tested yet.
+    I didn't tested yet. But tested with Asahi linux with M1 Mac Mini
 
 
 ### Debian / Ubuntu Package Requirements
@@ -49,6 +49,14 @@ apt install clang git llvm-dev libclang-dev build-essential \
 bc kmod cpio flex libncurses5-dev libelf-dev libssl-dev \
 dwarves bison lld curl
 ```
+### Asahi Linux Package Requirements
+
+```sh
+pacman -S base-devel cpio lld llvm llvm-libs bc libdwarf
+```
+
+### Ready for rust
+
 Before build kernel, we need to install some packages.
 
 ```sh
@@ -64,8 +72,6 @@ Also current rust for linux working with 1.62.
 Some native compile is working well with recent version (1.64 tested, but cross compile not working).
 
 
-### Arch Package Requirements
- - TBD
 
 
 ## Clone linux from Rust-For-Linux 
@@ -198,3 +204,10 @@ Last login: Sun Oct  2 18:20:21 2022 from 192.168.99.1
 pmnxis@lambda-next:~$ uname -r
 6.0.0-rc7-175589-g542379556669
 ```
+
+### Simple compile speed comparation.
+| Machine / Environment | Compile time |
+| --------------------- | -----------: |
+| M1 Max Virtual Machine (4 core 8GB RAM with aarch64 debian11) | 16 minutes |
+| M1 Asahi Linux (4P+4E core 16GB RAM MacMini with 6.1.0-rc6-asahi) | 11 minutes |
+| AMD Ryzen 5950x Native (16 core 32 thread, 64GB with x86_64)  | 3 minutes  |

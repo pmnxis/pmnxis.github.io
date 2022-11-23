@@ -8,5 +8,5 @@ image = "img/profile.jpeg"
 headline = "Rust + Linux + Embedded + Electronics"
 bio = "Working as a Rust Backend Engineer and previously worked as an Embedded Systems Engineer."
 links = [
-  { github = "https://github.com/pmnxis" }
+  { github = "https://github.com/pmnxis" },
 ]
