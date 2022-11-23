@@ -123,6 +123,13 @@ Than if you get result like this it's good to go
 make ARCH=arm64 defconfig
 make menuconfig
 ```
+
+## Disable `GCC plugins`
+![Menuconfig Rust Support](img/build_in_m1vm/disable_gcc_plugins.png)
+`General architecture-dependent options -> GCC plugins`
+For now (6.1 rc*), `GCC_PLUGINS` config should be disabled for `RUST_CONFIG` config.
+Be sure disable it.
+
 ### `General setup -> Rust support`
 ![Menuconfig Rust Support](img/build_in_m1vm/menuconfig_rust_in_m1vm_check_rust_support.png)
 In `General setup -> Rust support` , Enable this <br>
