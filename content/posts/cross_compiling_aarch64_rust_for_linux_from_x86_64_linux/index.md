@@ -161,6 +161,7 @@ Also while you build it, it will ask some flag. I just select default in my case
 | M1 Max Virtual Machine (4 core 8GB RAM with aarch64 debian11) | 16 minutes |
 | M1 Asahi Linux (4P+4E core 16GB RAM MacMini with 6.1.0-rc6-asahi) | 11 minutes |
 | AMD Ryzen 5950x Native (16 core 32 thread, 64GB with x86_64)  | 3 minutes  |
+| AMD Threadripper Pro 5975wx Native (32 core 64 thread, 256GB with x86_64)  | 2 minutes  |
 
 ## Install cross compiled kernel to arm64 virtual machine
 - TBD, will update asap.
