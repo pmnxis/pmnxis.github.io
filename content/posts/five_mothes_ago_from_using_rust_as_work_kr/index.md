@@ -17,6 +17,8 @@ tags: ["회고록", "Rust", "Korean_Article"]
 
 ## 단점
 ![Menuconfig Rust Support](img/five_mothes_ago_from_using_rust_as_work_kr/entire_stack.jpeg)
+> 우리는 FullStack을 넘어 EntireStack 개발자가 될 수 있을까?
+
 1) 각각의 고난포인트 마다 기본적으로 요구하는 지식이 큽니다.
 1) 가끔은 개인시간을 넘어드는 공부/도전 요소가 계속 생깁니다. [저에겐 단점이 아니나, 사람에 따라 단점이라고 느낄 수 있다고 생각합니다.]
 3) 구인시 제한이 많습니다.
