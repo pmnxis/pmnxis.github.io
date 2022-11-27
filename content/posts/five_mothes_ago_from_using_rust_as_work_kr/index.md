@@ -1,7 +1,7 @@
 ---
 title: "러스트를 회사 업무로 쓰고난지 5개월 정도"
 date: 2022-11-27T01:05:52+09:00
-draft: true
+draft: false
 category: "Linux"
 tags: ["회고록", "Korean_Article"]
 ---

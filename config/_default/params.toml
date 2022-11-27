@@ -20,9 +20,12 @@ mainSections = ["posts"]
   showThemeAttribution = true
   showAppearanceSwitcher = true
   showScrollToTop = true
+  showRecent = true
+  showRecentItems = 3
+  showMoreLink = true
 
 [homepage]
-  layout = "custom" # valid options: page, profile, custom
+  layout = "profile" # valid options: page, profile, custom
   showRecent = true
   showRecentItems = 5
   # showMoreLink = false
