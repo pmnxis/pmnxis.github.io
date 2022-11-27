@@ -6,8 +6,6 @@ category: ["Linux"]
 tags: ["Rust", "Linux", "ARMv8A", "Rust Driver", "English_Article"]
 ---
 
-![title image](img/look_into_simple_rust_out_of_tree/dalle2_The-penguin-is-cooking-the-crab-and-the-cat-is-washing-the-dishes-next-to-him.jpg)
-
 > In October, Rust for linux is under the linux-next, not stable<br>
 > Thus this article would be out-of-date before Linux 6.1 stable comes.
 
