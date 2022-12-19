@@ -67,7 +67,7 @@ $$
 
 ### 1.4 Properties of Continuous-Time Fourier Series
 ![image](img/discrete_signal_processing_cheat_note/2022_12_19_ef3be9437273be249d74g-1(1).jpg)
-Fourier transform for Continuous-time signal $x(t)$ Most of case,
+Fourier transform for Continuous-time signal \\(x(t)\\) Most of case,
 aperiodic signals comes\...
 
 ------------
@@ -128,7 +128,7 @@ $$a_{k} \stackrel{I F S}{\rightarrow} x[n] \quad x[n]=\sum_{k=\langle N\rangle} 
 
 ------------
 
-## 3 Fourier transform for Continuous-time signal \\x(t)\\) :
+## 3 Fourier transform for Continuous-time signal \\(x(t)\\) :
 
 ### 3.1 (CT FT) Continuous-Time, Fourier Transform ( periodic)
 $$
@@ -160,7 +160,7 @@ $$X(j w) \stackrel{I F T}{\rightarrow} x(t) \quad x(t)=\frac{1}{2 \pi} \int_{-\i
 
 ------------
 
-## 4 Fourier transform for Discrete-time signal  \\(x[n]\)
+## 4 Fourier transform for Discrete-time signal  \\(x[n]\\)
 Most of case, aperiodic signals comes…
 
 ### 4.1 (DT FT) Discrete-Time, Fourier Transform 
