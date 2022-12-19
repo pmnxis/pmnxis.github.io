@@ -9,7 +9,7 @@ math: true
 ## 1. Fourier series coefficients for Continuous signal 
 Asking deriving coefficients comes with periodic signal.: \\(x(t) \rightarrow a_k\\)
 
-### 1.a (CT FS) Basic concept of continuous Fourier coefficients
+### 1.1 (CT FS) Basic concept of continuous Fourier coefficients
 {{< katex >}}
 $$
 \begin{gathered}
@@ -32,7 +32,7 @@ $$
 \end{gathered}
 $$
 
-### 1.b (CT FS) Continuous-Time, Fourier Series
+### 1.2 (CT FS) Continuous-Time, Fourier Series
 Convert periodic signal to fourier coefficients : \\(x(t) \stackrel{F S}{\rightarrow} a_k\\)
 
 {{< katex >}}
@@ -56,7 +56,7 @@ a_k=\frac{1}{T} \int_T x(t) e^{-j k(2 \pi / T) t} d t
 \end{gathered}
 $$
 
-### 1.c (CT IFS) Continuous-Time, Inverse Fourier Series
+### 1.3 (CT IFS) Continuous-Time, Inverse Fourier Series
 Fourier coefficients to peridoic signal : \\(a_k \stackrel{I F S}{\longrightarrow} x(t)\\)
 
 {{< katex >}}
@@ -65,7 +65,7 @@ x(t)=\sum_{k=-\infty}^{+\infty} a_k e^{j k \omega_0 t}=\sum_{k=-\infty}^{+\infty
 $$
 
 
-### 1.d Properties of Continuous-Time Fourier Series
+### 1.4 Properties of Continuous-Time Fourier Series
 ![image](img/discrete_signal_processing_cheat_note/2022_12_19_ef3be9437273be249d74g-1(1).jpg)
 Fourier transform for Continuous-time signal $x(t)$ Most of case,
 aperiodic signals comes\...
