@@ -10,6 +10,8 @@ summaryLength = 30
 
 category = 'categories'
 tag = 'tags'
+googleAnalytics = "G-VCBQVYZX51"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+

@@ -32,14 +32,14 @@ mainSections = ["posts"]
   # showMoreLinkDest = "/docs"
  
 [article]
-  # showDate = false
+  showDate = true
   # showViews = true
   # showLikes = true
   # showDateUpdated = false
   showAuthor = true
   # showBreadcrumbs = true
   showDraftLabel = true
-  showEdit = true
+  showEdit = false
   editURL = "https://github.com/pmnxis/pmnxis.github.io/tree/main/exampleSite/content"
   editAppendPath = true
   showHeadingAnchors = true
@@ -71,7 +71,7 @@ mainSections = ["posts"]
   # domain = "llama.yoursite.com"
 
 [verification]
-  # google = ""
+  google = "VmKxOzBA6bj36Pwan0cjJGtyjeD7hzi9UDxXJ4kCjhI"
   # bing = ""
   # pinterest = ""
   # yandex = ""
