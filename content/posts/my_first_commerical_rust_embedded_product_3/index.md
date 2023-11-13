@@ -1,5 +1,5 @@
 ---
-title: "러스트 임베디드 양산 제품 개발기 3 컴파일 타임에 맡기세요"
+title: "러스트 임베디드 양산 제품 개발기 - 3 컴파일 타임에 맡기세요"
 date: 2023-11-12T21:00:00+09:00
 draft: false
 categories: ["My Frist Mass Production With Rust Embedded"]

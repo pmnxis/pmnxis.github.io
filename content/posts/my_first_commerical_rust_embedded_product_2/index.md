@@ -1,5 +1,5 @@
 ---
-title: "러스트 임베디드 양산 제품 개발기 2 기초 공부 방법 및 특징"
+title: "러스트 임베디드 양산 제품 개발기 - 2 기초 공부 방법 및 특징"
 date: 2023-11-04T21:00:00+09:00
 draft: false
 categories: ["My Frist Mass Production With Rust Embedded"]
