@@ -1,9 +1,9 @@
 ---
-title: "러스트 임베디드 양산 제품 개발기 - 1 개발/양산 과정부터 설명"
+title: "러스트 임베디드 양산 제품 개발기 1 개발/양산 과정부터 설명"
 date: 2023-11-02T00:49:05+09:00
 draft: false
-category: ["Rust"]
-tags: ["회고록", "Rust", "Korean_Article"]
+categories: ["My Frist Mass Production With Rust Embedded"]
+tags: ["회고록", "Rust", "Embedded", "Korean_Article"]
 ---
 
 > 아직 작성 중인 글입니다. 중도에 내용이 변경 될 수 있습니다.
@@ -126,3 +126,9 @@ _최종 양산한 기판_
 처음으로 개인 양산을 경험한 것이 러스트로 개발한 펌웨어 위에서 돌아가는 것 과 성공적으로 양산을 마칠 수 있어서 매우 기쁘게 생각한다.
 
 다음에도 개인에서 양산을 하라고 하면 못할 것 같다. 개발을 하는데 있어서의 도움되는 귀중한 경험으로 삼고 이걸 주업으로 혼자서 다 소화하기에는 큰 무리가 있다. 그래도 한번쯤은 혼자서 양산을 태워볼 기회가 있으면 해보는 것을 추천한다.
+
+-------------------------------
+{{< alert icon="fire" cardColor="#4f5a63" iconColor="#1d3557" textColor="#f1faee" >}}
+이 시리즈의 다른 글도 같이 봐주세요 : 
+[러스트 임베디드 양산 제품 개발기](/categories/my-frist-mass-production-with-rust-embedded/)
+{{< /alert >}}

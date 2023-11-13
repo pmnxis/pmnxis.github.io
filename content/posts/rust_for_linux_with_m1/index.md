@@ -2,7 +2,7 @@
 title: "Rust For Linux Development Environment with AppleSilicon MacOS"
 date: 2022-10-01
 draft: false
-category: "Linux"
+categories: ["Linux"]
 tags: ["Rust", "Linux", "ARMv8A", "English_Article"]
 ---
 

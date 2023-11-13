@@ -2,7 +2,7 @@
 title: "Cross compiling aarch64(arm64) rust for linux from x86_64 machine"
 date: 2022-10-04T02:09:31+09:00
 draft: false
-category: ["Linux"]
+categories: ["Linux"]
 tags: ["Cross compile", "Rust", "Linux", "ARMv8A", "English_Article"]
 ---
 

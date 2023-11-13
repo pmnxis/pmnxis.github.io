@@ -2,7 +2,7 @@
 title: "[Rust Driver] Let's try build example rust linux driver."
 date: 2022-10-02T21:05:52+09:00
 draft: false
-category: ["Linux"]
+categories: ["Linux"]
 tags: ["Rust", "Linux", "ARMv8A", "Rust Driver", "English_Article"]
 ---
 

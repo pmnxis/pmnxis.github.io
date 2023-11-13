@@ -8,7 +8,12 @@
 [[main]]
   name = "Tags"
   pageRef = "tags"
-  weight = 10
+  weight = 20
+
+[[main]]
+  name = "Categories"
+  pageRef = "categories"
+  weight = 30
 
 [[main]]
   name = "GitHub"
@@ -23,6 +28,11 @@
   name = "Tags"
   pageRef = "tags"
   weight = 10
+
+[[footer]]
+  name = "Categories"
+  pageRef = "categories"
+  weight = 20
 
 [[footer]]
   name = "GitHub"

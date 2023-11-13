@@ -97,3 +97,6 @@ Backup of *.doc*
 
 # Visio autosave temporary files
 *.~vsd*
+
+# Draft Markdown
+*draft*.md

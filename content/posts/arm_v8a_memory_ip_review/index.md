@@ -2,7 +2,7 @@
 title: "ARMv8A Memory IP Review"
 date: 2021-12-14
 draft: false
-category: "Linux"
+categories: ["Linux"]
 tags: ["ARMv8A", "Electronics", "Korean_Article", "Rust"]
 ---
 

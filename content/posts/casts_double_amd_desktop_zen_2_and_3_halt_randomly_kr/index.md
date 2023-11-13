@@ -2,7 +2,7 @@
 title: "ZEN 2/3 의 QC/설계결함으로 인한 간혈적 리셋/멈춤 의혹 제기"
 date: 2023-04-08T21:37:24+09:00
 draft: false
-category: ["CPU"]
+categories: ["CPU"]
 tags: ["AMD", "Ryzen", "Cache", "Silicon Bug", "Korean_Article"]
 ---
 

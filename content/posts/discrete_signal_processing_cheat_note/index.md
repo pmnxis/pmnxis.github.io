@@ -1,7 +1,7 @@
 ---
 title: "Discrete Signal Processing Fourier Transform Cheat Note"
 date: 2022-12-20T00:16:01+09:00
-category: ["Math"]
+categories: ["Math"]
 tags: ["DSP", "Signal Processing", "Mathmatics", "English_Article"]
 math: true
 ---
