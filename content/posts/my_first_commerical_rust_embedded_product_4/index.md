@@ -1,7 +1,7 @@
 ---
 title: "러스트 임베디드 양산 제품 개발기 - 4 빌드 스크립트 활용"
 date: 2023-11-13T21:00:00+09:00
-draft: true
+draft: false
 categories: ["My Frist Mass Production With Rust Embedded"]
 tags: ["회고록", "Rust", "Embedded", "Korean_Article"]
 ---
