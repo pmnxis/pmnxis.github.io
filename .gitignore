@@ -4,6 +4,10 @@
 /assets/jsconfig.json
 hugo_stats.json
 
+# Hugo module vendor
+_vendor/
+_vendor/github.com
+
 # Executable may be added to repository
 hugo.exe
 hugo.darwin

@@ -1,6 +1,7 @@
 # -- Site Configuration --
 baseURL = 'https://pmnxis.github.io/'
-languageCode = 'en-us'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = true
 contentDir = "content"
 
 hasCJKLanguage = true

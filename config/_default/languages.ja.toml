@@ -1,19 +1,19 @@
 title = "Jinwoo Park Blog"
 logo = "img/LambdaEE.png"
 copyright = "Jinwoo Park, CC-BY-SA"
-languageName = "English"
-languageCode = "en"
-weight = 0
+languageName = "日本語 (JA)"
+languageCode = "ja-JP"
+weight = 2
 
 [author]
 name = "Jinwoo Park"
 image = "img/profile.jpeg"
 headline = "Rust + Linux + Embedded + Electronics"
-bio = "Working as a Rust Backend Engineer and previously worked as an Embedded Systems Engineer."
+bio = "Rustバックエンドエンジニアとして働いており、以前は組込みシステムエンジニアとして勤務していました。"
 links = [
   { github = "https://github.com/pmnxis" },
 ]
 
 [params]
-  displayName = "EN"
-  isoCode = "en"
+  displayName = "JA"
+  isoCode = "ja"

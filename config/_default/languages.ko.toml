@@ -1,0 +1,19 @@
+title = "Jinwoo Park Blog"
+logo = "img/LambdaEE.png"
+copyright = "박진우, CC-BY-SA"
+languageName = "한국어 (KO)"
+languageCode = "ko-KR"
+weight = 1
+
+[author]
+name = "박진우"
+image = "img/profile.jpeg"
+headline = "Rust + Linux + Embedded + Electronics"
+bio = "Rust 백엔드 엔지니어로 일하고 있으며, 이전에는 임베디드 시스템 엔지니어로 근무했습니다."
+links = [
+  { github = "https://github.com/pmnxis" },
+]
+
+[params]
+  displayName = "KO"
+  isoCode = "ko"

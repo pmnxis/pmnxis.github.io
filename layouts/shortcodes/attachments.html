@@ -6,7 +6,7 @@
   </label>
   <div class="attachments-files">
   {{- $filesName := "files" }}
-  {{- if ne .Page.File.BaseFileName "index" }}
+  {{- if not (hasPrefix .Page.File.BaseFileName "index") }}
     {{- $filesName = printf "%s.files" .Page.File.BaseFileName }}
   {{- end}}
   {{- $fileDir := replace .Page.File.Dir "\\" "/" }}
