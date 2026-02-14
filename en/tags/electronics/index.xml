@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Electronics on Jinwoo Park Blog</title><link>https://pmnxis.github.io/en/tags/electronics/</link><description>Recent content in Electronics on Jinwoo Park Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2026</copyright><lastBuildDate>Tue, 14 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://pmnxis.github.io/en/tags/electronics/index.xml" rel="self" type="application/rss+xml"/><item><title>ARMv8A Memory IP Review</title><link>https://pmnxis.github.io/en/posts/arm_v8a_memory_ip_review/</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><guid>https://pmnxis.github.io/en/posts/arm_v8a_memory_ip_review/</guid><description>&lt;h2 class="relative group"&gt;Introduction
+ &lt;div id="introduction" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#introduction" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;ARMv8A, also commonly known as aarch64, is one of the widely used architectures that has largely succeeded ARMv7A. In this article, we will examine the ARMv8A memory system at the IP (Intellectual Property) block level.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/arm_v8a_memory_ip_review/feature.png"/></item></channel></rss>

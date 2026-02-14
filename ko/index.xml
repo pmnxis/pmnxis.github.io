@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>박진우 블로그 on Jinwoo Park Blog</title><link>https://pmnxis.github.io/ko/</link><description>Recent content in 박진우 블로그 on Jinwoo Park Blog</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><copyright>© 2026</copyright><lastBuildDate>Mon, 13 Nov 2023 21:00:00 +0900</lastBuildDate><atom:link href="https://pmnxis.github.io/ko/index.xml" rel="self" type="application/rss+xml"/><item><title>러스트 임베디드 양산 제품 개발기 - 4 빌드 스크립트 활용</title><link>https://pmnxis.github.io/ko/posts/my_first_commerical_rust_embedded_product_4/</link><pubDate>Mon, 13 Nov 2023 21:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ko/posts/my_first_commerical_rust_embedded_product_4/</guid><description>&lt;div
+ 
+ class="flex px-4 py-3 rounded-md shadow bg-primary-100 dark:bg-primary-900"
+ 
+ &gt;
+ &lt;span
+ 
+ class="text-primary-400 pe-3 flex items-center"
+ 
+ &gt;
+ &lt;span class="relative block icon"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+ &lt;/span&gt;
+
+ &lt;span
+ 
+ class="dark:text-neutral-300"
+ 
+ &gt;&lt;strong&gt;WARN!&lt;/strong&gt; 아직 작성 중인 글입니다. 중도에 내용이 변경될 수 있습니다.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="constcat"
+ width="1248"
+ height="722"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature_hu_545b38c9eda80588.jpg"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature_hu_545b38c9eda80588.jpg 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature.jpg 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature.jpg"&gt;&lt;/figure&gt;
+&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature.jpg"/></item><item><title>러스트 임베디드 양산 제품 개발기 - 3 컴파일 타임에 맡기세요</title><link>https://pmnxis.github.io/ko/posts/my_first_commerical_rust_embedded_product_3/</link><pubDate>Sun, 12 Nov 2023 21:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ko/posts/my_first_commerical_rust_embedded_product_3/</guid><description>&lt;div
+ 
+ class="flex px-4 py-3 rounded-md shadow bg-primary-100 dark:bg-primary-900"
+ 
+ &gt;
+ &lt;span
+ 
+ class="text-primary-400 pe-3 flex items-center"
+ 
+ &gt;
+ &lt;span class="relative block icon"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+ &lt;/span&gt;
+
+ &lt;span
+ 
+ class="dark:text-neutral-300"
+ 
+ &gt;&lt;strong&gt;WARN!&lt;/strong&gt; 아직 작성 중인 글입니다. 중도에 내용이 변경될 수 있습니다.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="constcat"
+ width="1733"
+ height="1089"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature_hu_9ec4bf05efa60cf5.jpg"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature_hu_9ec4bf05efa60cf5.jpg 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature_hu_45b22647645aad2f.jpg 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature.jpg"&gt;&lt;/figure&gt;
+&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature.jpg"/></item><item><title>러스트 임베디드 양산 제품 개발기 - 2 기초 공부 방법 및 특징</title><link>https://pmnxis.github.io/ko/posts/my_first_commerical_rust_embedded_product_2/</link><pubDate>Sat, 04 Nov 2023 21:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ko/posts/my_first_commerical_rust_embedded_product_2/</guid><description>&lt;div
+ 
+ class="flex px-4 py-3 rounded-md shadow bg-primary-100 dark:bg-primary-900"
+ 
+ &gt;
+ &lt;span
+ 
+ class="text-primary-400 pe-3 flex items-center"
+ 
+ &gt;
+ &lt;span class="relative block icon"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+ &lt;/span&gt;
+
+ &lt;span
+ 
+ class="dark:text-neutral-300"
+ 
+ &gt;&lt;strong&gt;WARN!&lt;/strong&gt; 아직 작성 중인 글입니다. 중도에 내용이 변경될 수 있습니다.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="riir_beam"
+ width="1920"
+ height="1147"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature_hu_fd1bfa00a183f578.jpg"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature_hu_fd1bfa00a183f578.jpg 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature_hu_cc285d5bcd5e4f03.jpg 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature.jpg"&gt;&lt;/figure&gt;
+
+&lt;em&gt;RIIR BEAM&lt;/em&gt;&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature.jpg"/></item><item><title>러스트 임베디드 양산 제품 개발기 - 1 개발/양산 과정부터 설명</title><link>https://pmnxis.github.io/ko/posts/my_first_commerical_rust_embedded_product_1/</link><pubDate>Thu, 02 Nov 2023 00:49:05 +0900</pubDate><guid>https://pmnxis.github.io/ko/posts/my_first_commerical_rust_embedded_product_1/</guid><description>&lt;blockquote&gt;&lt;p&gt;아직 작성 중인 글입니다. 중도에 내용이 변경 될 수 있습니다.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="image"
+ width="1920"
+ height="884"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout_hu_5eee6045b1830153.JPG"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout_hu_5eee6045b1830153.JPG 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout_hu_79080e5e0d0f58af.JPG 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout.JPG"&gt;&lt;/figure&gt;
+
+&lt;em&gt;최근에 현장에 내보낸 테스트용 기기&lt;/em&gt;&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/feature.JPG"/></item><item><title>ZEN 2/3 의 QC/설계결함으로 인한 간혈적 리셋/멈춤 의혹 제기</title><link>https://pmnxis.github.io/ko/posts/casts_double_amd_desktop_zen_2_and_3_halt_randomly_kr/</link><pubDate>Sat, 08 Apr 2023 21:37:24 +0900</pubDate><guid>https://pmnxis.github.io/ko/posts/casts_double_amd_desktop_zen_2_and_3_halt_randomly_kr/</guid><description>&lt;p&gt;이제 어느정도 ZEN4가 팔린지도 오래되었으며 ZEN3도 stepping? 내부적인 revision이 몇번 바뀌어 개선이 된 것 같아 적당한 시기다 싶어서 이 글을 작성합니다.
+이 글은 다른 커뮤니티에도 올렸고 어떻게 보면 개발과 거리가 있으나 CPU 내부를 다루는 관계로 개발블로그에도 옮깁니다.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/casts_double_amd_desktop_zen_2_and_3_halt_randomly_kr/feature.jpeg"/></item><item><title>이산 신호 처리 푸리에 변환 치트 노트</title><link>https://pmnxis.github.io/ko/posts/discrete_signal_processing_cheat_note/</link><pubDate>Tue, 20 Dec 2022 00:16:01 +0900</pubDate><guid>https://pmnxis.github.io/ko/posts/discrete_signal_processing_cheat_note/</guid><description>&lt;h2 class="relative group"&gt;1. 연속 신호의 푸리에 급수 계수
+ &lt;div id="1-연속-신호의-푸리에-급수-계수" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-%ec%97%b0%ec%86%8d-%ec%8b%a0%ed%98%b8%ec%9d%98-%ed%91%b8%eb%a6%ac%ec%97%90-%ea%b8%89%ec%88%98-%ea%b3%84%ec%88%98" aria-label="앵커"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;계수 유도 문제는 주기 신호와 함께 출제됩니다.: \(x(t) \rightarrow a_k\)&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/discrete_signal_processing_cheat_note/features.png"/></item><item><title>Rust를 회사 업무로 쓰고난지 5개월 정도</title><link>https://pmnxis.github.io/ko/posts/five_mothes_ago_from_using_rust_as_work_kr/</link><pubDate>Sun, 27 Nov 2022 01:05:52 +0900</pubDate><guid>https://pmnxis.github.io/ko/posts/five_mothes_ago_from_using_rust_as_work_kr/</guid><description>&lt;p&gt;새로 이직한 회사에서 Rust를 쓰고 있습니다. 이직한지 5개월이 지나고 느낀 바를 서술 해보고자 합니다.
+문법적인 세세한 장점은 제쳐두고 그냥 간단하게 느낀 바를 서술 합니다.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/five_mothes_ago_from_using_rust_as_work_kr/feature.png"/></item><item><title>x86_64 머신에서 aarch64(arm64) Rust for Linux 크로스 컴파일하기</title><link>https://pmnxis.github.io/ko/posts/cross_compiling_aarch64_rust_for_linux_from_x86_64_linux/</link><pubDate>Tue, 04 Oct 2022 02:09:31 +0900</pubDate><guid>https://pmnxis.github.io/ko/posts/cross_compiling_aarch64_rust_for_linux_from_x86_64_linux/</guid><description>&lt;blockquote&gt;&lt;p&gt;10월 6일 기준, Rust for Linux는 linux-next에 있으며 stable이 아닙니다.&lt;br&gt;
+따라서 이 글은 Linux 6.1 stable이 나오기 전에 구식이 될 수 있습니다.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/cross_compiling_aarch64_rust_for_linux_from_x86_64_linux/feature.png"/></item><item><title>[Rust Driver] 예제 Rust Linux 드라이버를 빌드해보자</title><link>https://pmnxis.github.io/ko/posts/look_into_simple_rust_out_of_tree/</link><pubDate>Sun, 02 Oct 2022 21:05:52 +0900</pubDate><guid>https://pmnxis.github.io/ko/posts/look_into_simple_rust_out_of_tree/</guid><description>&lt;blockquote&gt;&lt;p&gt;10월 기준, Rust for Linux는 linux-next에 있으며 stable이 아닙니다.&lt;br&gt;
+따라서 이 글은 Linux 6.1 stable이 나오기 전에 구식이 될 수 있습니다.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/look_into_simple_rust_out_of_tree/feature.jpg"/></item><item><title>Apple Silicon MacOS에서 Rust For Linux 개발 환경 구축하기</title><link>https://pmnxis.github.io/ko/posts/rust_for_linux_with_m1/</link><pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate><guid>https://pmnxis.github.io/ko/posts/rust_for_linux_with_m1/</guid><description>&lt;blockquote&gt;&lt;p&gt;10월 1일 기준, Rust for Linux는 linux-next에 있으며 stable이 아닙니다.&lt;br&gt;
+따라서 이 글은 Linux 6.1 stable이 나오기 전에 구식이 될 수 있습니다.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/rust_for_linux_with_m1/feature.png"/></item><item><title>ARMv8A Memory IP Review</title><link>https://pmnxis.github.io/ko/posts/arm_v8a_memory_ip_review/</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><guid>https://pmnxis.github.io/ko/posts/arm_v8a_memory_ip_review/</guid><description>&lt;h2 class="relative group"&gt;Introduction
+ &lt;div id="introduction" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#introduction" aria-label="앵커"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;ARMv8A는 흔히 aarch64로도 불리며 현재 ARMv7A를 뒤로한채 널리 사용하는 아키텍처중 하나입니다. 본 글에서는 ARMv8A의 메모리 시스템을 IP단위로 보려합니다.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/arm_v8a_memory_ip_review/feature.png"/></item></channel></rss>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rust Driver on Jinwoo Park Blog</title><link>https://pmnxis.github.io/en/tags/rust-driver/</link><description>Recent content in Rust Driver on Jinwoo Park Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2026</copyright><lastBuildDate>Sun, 02 Oct 2022 21:05:52 +0900</lastBuildDate><atom:link href="https://pmnxis.github.io/en/tags/rust-driver/index.xml" rel="self" type="application/rss+xml"/><item><title>[Rust Driver] Let's try build example rust linux driver.</title><link>https://pmnxis.github.io/en/posts/look_into_simple_rust_out_of_tree/</link><pubDate>Sun, 02 Oct 2022 21:05:52 +0900</pubDate><guid>https://pmnxis.github.io/en/posts/look_into_simple_rust_out_of_tree/</guid><description>&lt;blockquote&gt;&lt;p&gt;In October, Rust for linux is under the linux-next, not stable&lt;br&gt;
+Thus this article would be out-of-date before Linux 6.1 stable comes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="relative group"&gt;modules, out-of-tree
+ &lt;div id="modules-out-of-tree" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#modules-out-of-tree" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;There are two main ways to develop kernel modules. In-Of-Tree and Out-Of-Tree. In this article, we&amp;rsquo;re going to make the Out-Of-Tree method a Rust kernel module.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/look_into_simple_rust_out_of_tree/feature.jpg"/></item></channel></rss>

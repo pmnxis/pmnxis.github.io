@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>English_Article on Jinwoo Park Blog</title><link>https://pmnxis.github.io/en/tags/english_article/</link><description>Recent content in English_Article on Jinwoo Park Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2026</copyright><lastBuildDate>Tue, 20 Dec 2022 00:16:01 +0900</lastBuildDate><atom:link href="https://pmnxis.github.io/en/tags/english_article/index.xml" rel="self" type="application/rss+xml"/><item><title>Discrete Signal Processing Fourier Transform Cheat Note</title><link>https://pmnxis.github.io/en/posts/discrete_signal_processing_cheat_note/</link><pubDate>Tue, 20 Dec 2022 00:16:01 +0900</pubDate><guid>https://pmnxis.github.io/en/posts/discrete_signal_processing_cheat_note/</guid><description>&lt;h2 class="relative group"&gt;1. Fourier series coefficients for Continuous signal
+ &lt;div id="1-fourier-series-coefficients-for-continuous-signal" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-fourier-series-coefficients-for-continuous-signal" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Asking deriving coefficients comes with periodic signal.: \(x(t) \rightarrow a_k\)&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/discrete_signal_processing_cheat_note/features.png"/></item><item><title>Cross compiling aarch64(arm64) rust for linux from x86_64 machine</title><link>https://pmnxis.github.io/en/posts/cross_compiling_aarch64_rust_for_linux_from_x86_64_linux/</link><pubDate>Tue, 04 Oct 2022 02:09:31 +0900</pubDate><guid>https://pmnxis.github.io/en/posts/cross_compiling_aarch64_rust_for_linux_from_x86_64_linux/</guid><description>&lt;blockquote&gt;&lt;p&gt;In October 6, Rust for linux is under the linux-next, not stable&lt;br&gt;
+Thus this article would be out-of-date before Linux 6.1 stable comes.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;Current linux 6.1 rc1 doesn&amp;rsquo;t contain rust for linux with ARM64.
+Thus this article play with &lt;a href="https://github.com/Rust-for-Linux/linux/tree/for-next/rust" target="_blank" rel="noreferrer"&gt;https://github.com/Rust-for-Linux/linux/tree/for-next/rust&lt;/a&gt;&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/cross_compiling_aarch64_rust_for_linux_from_x86_64_linux/feature.png"/></item><item><title>[Rust Driver] Let's try build example rust linux driver.</title><link>https://pmnxis.github.io/en/posts/look_into_simple_rust_out_of_tree/</link><pubDate>Sun, 02 Oct 2022 21:05:52 +0900</pubDate><guid>https://pmnxis.github.io/en/posts/look_into_simple_rust_out_of_tree/</guid><description>&lt;blockquote&gt;&lt;p&gt;In October, Rust for linux is under the linux-next, not stable&lt;br&gt;
+Thus this article would be out-of-date before Linux 6.1 stable comes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="relative group"&gt;modules, out-of-tree
+ &lt;div id="modules-out-of-tree" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#modules-out-of-tree" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;There are two main ways to develop kernel modules. In-Of-Tree and Out-Of-Tree. In this article, we&amp;rsquo;re going to make the Out-Of-Tree method a Rust kernel module.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/look_into_simple_rust_out_of_tree/feature.jpg"/></item><item><title>Rust For Linux Development Environment with AppleSilicon MacOS</title><link>https://pmnxis.github.io/en/posts/rust_for_linux_with_m1/</link><pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate><guid>https://pmnxis.github.io/en/posts/rust_for_linux_with_m1/</guid><description>&lt;blockquote&gt;&lt;p&gt;In October 1, Rust for linux is under the linux-next, not stable&lt;br&gt;
+Thus this article would be out-of-date before Linux 6.1 stable comes.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;This article play with &lt;a href="https://github.com/Rust-for-Linux/linux/tree/for-next/rust" target="_blank" rel="noreferrer"&gt;https://github.com/Rust-for-Linux/linux/tree/for-next/rust&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="Building_Rust_For_Linux_In_M1_Mac"
+ width="1136"
+ height="918"
+ src="https://pmnxis.github.io/img/build_in_m1vm/build_rust_linux_in_m1_hu_6374330b39cca7e7.png"
+ srcset="https://pmnxis.github.io/img/build_in_m1vm/build_rust_linux_in_m1_hu_6374330b39cca7e7.png 800w, https://pmnxis.github.io/img/build_in_m1vm/build_rust_linux_in_m1.png 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/img/build_in_m1vm/build_rust_linux_in_m1.png"&gt;&lt;/figure&gt;
+&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/rust_for_linux_with_m1/feature.png"/></item></channel></rss>
