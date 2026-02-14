@@ -5,7 +5,7 @@ contentDir = "content"
 
 hasCJKLanguage = true
 enableRobotsTXT = true
-paginate = 20
+pagination.pagerSize = 20
 summaryLength = 30
 
 category = 'categories'

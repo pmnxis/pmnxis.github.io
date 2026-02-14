@@ -12,6 +12,10 @@ autoSwitchAppearance = false
 enableSearch = true
 enableCodeCopy = true
 
+logo = "img/LambdaEE.png"
+
+[header]
+
 mainSections = ["posts"]
 # robots = ""
 
