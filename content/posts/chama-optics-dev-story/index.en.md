@@ -59,11 +59,11 @@ Initially, I only considered **desktop use**. I had vague thoughts about mobile,
 
 ---
 
-## Change of Direction: "You Can't Pull Out a MacBook at an Event"
+## Change of Direction: "You Can't Take a Laptop at Concert Hall"
 
 Two things prompted the change in direction.
 
-### Cultural Differences at Events -- What I Noticed at AnimeNYC
+### Cultural Differences at Events -- What I Noticed at AnimeNYC and East Asia
 
 In August 2025, I visited the US for **AnimeNYC** and the **Hololive World Tour / EN Concert**. I noticed an interesting difference there. In the US, people tended **not to mosaic other people's faces** when posting event photos. But at events in Korea and Japan, **mosaicing other people's faces is considered proper etiquette and an unspoken rule**.
 
