@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720">
+  <defs>
+    <marker id="ar-mn" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546E7A"/>
+    </marker>
+    <marker id="ar-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#C62828"/>
+    </marker>
+    <marker id="ar-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565C0"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif; }
+      .title { font-size: 17px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-size: 12px; fill: #666; }
+      .label { font-size: 12px; fill: #333; }
+      .label-sm { font-size: 10.5px; fill: #555; }
+      .label-xs { font-size: 9.5px; fill: #777; }
+      .label-bold { font-size: 12px; fill: #333; font-weight: bold; }
+      .code { font-family: 'JetBrains Mono', 'SF Mono', monospace; font-size: 10px; fill: #37474F; }
+      .code-sm { font-family: 'JetBrains Mono', 'SF Mono', monospace; font-size: 9px; fill: #546E7A; }
+      .marker-hex { font-family: 'JetBrains Mono', 'SF Mono', monospace; font-size: 9px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect width="960" height="720" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="480" y="30" text-anchor="middle" class="title">EXIF IFD Entry Structure &amp; MakerNote Offset Schemes</text>
+  <text x="480" y="48" text-anchor="middle" class="subtitle">Per-manufacturer offset base conventions in MakerNote IFD parsing</text>
+
+  <!-- ===== Section 1: IFD Entry Format (top-left) ===== -->
+  <rect x="30" y="65" width="440" height="155" rx="6" fill="#E8EAF6" stroke="#3F51B5" stroke-width="1.5"/>
+  <text x="250" y="85" text-anchor="middle" class="label-bold" fill="#3F51B5">IFD Entry Format (12 bytes per entry)</text>
+
+  <!-- 12-byte box visualization -->
+  <rect x="50" y="98" width="95" height="40" rx="3" fill="#C5CAE9" stroke="#3F51B5" stroke-width="1.2"/>
+  <text x="97" y="115" text-anchor="middle" class="code-sm" fill="#283593">Tag</text>
+  <text x="97" y="130" text-anchor="middle" class="label-xs">2 bytes</text>
+
+  <rect x="150" y="98" width="95" height="40" rx="3" fill="#C5CAE9" stroke="#3F51B5" stroke-width="1.2"/>
+  <text x="197" y="115" text-anchor="middle" class="code-sm" fill="#283593">Type</text>
+  <text x="197" y="130" text-anchor="middle" class="label-xs">2 bytes</text>
+
+  <rect x="250" y="98" width="95" height="40" rx="3" fill="#C5CAE9" stroke="#3F51B5" stroke-width="1.2"/>
+  <text x="297" y="115" text-anchor="middle" class="code-sm" fill="#283593">Count</text>
+  <text x="297" y="130" text-anchor="middle" class="label-xs">4 bytes</text>
+
+  <rect x="350" y="98" width="108" height="40" rx="3" fill="#FFE082" stroke="#F9A825" stroke-width="1.5"/>
+  <text x="404" y="112" text-anchor="middle" class="code-sm" fill="#E65100">Value /</text>
+  <text x="404" y="126" text-anchor="middle" class="code-sm" fill="#E65100">Offset</text>
+  <text x="404" y="138" text-anchor="middle" class="label-xs" fill="#F57F17">4 bytes</text>
+
+  <text x="50" y="160" class="label-xs">data size ≤ 4 bytes → value stored inline in last 4 bytes</text>
+  <text x="50" y="175" class="label-xs">data size &gt; 4 bytes → <tspan font-weight="bold" fill="#E65100">offset</tspan> pointing to actual data location</text>
+  <text x="50" y="192" class="label-xs" fill="#3F51B5">Standard EXIF: offset measured from TIFF header start (offset = 0)</text>
+  <text x="50" y="207" class="label-xs" fill="#C62828">MakerNote: offset base depends on manufacturer!</text>
+
+  <!-- ===== Section 2: IFD Chain (top-right) ===== -->
+  <rect x="490" y="65" width="440" height="155" rx="6" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="710" y="85" text-anchor="middle" class="label-bold" fill="#1565C0">EXIF IFD Chain to MakerNote</text>
+
+  <!-- TIFF Header -->
+  <rect x="505" y="98" width="90" height="30" rx="3" fill="white" stroke="#90CAF9" stroke-width="1"/>
+  <text x="550" y="118" text-anchor="middle" class="code-sm">TIFF Header</text>
+
+  <line x1="595" y1="113" x2="618" y2="113" stroke="#546E7A" stroke-width="1.5" marker-end="url(#ar-mn)"/>
+
+  <!-- IFD0 -->
+  <rect x="622" y="98" width="60" height="30" rx="3" fill="white" stroke="#90CAF9" stroke-width="1"/>
+  <text x="652" y="118" text-anchor="middle" class="code-sm">IFD0</text>
+
+  <line x1="682" y1="113" x2="705" y2="113" stroke="#546E7A" stroke-width="1.5" marker-end="url(#ar-mn)"/>
+
+  <!-- Exif IFD -->
+  <rect x="709" y="98" width="80" height="30" rx="3" fill="#FFF8E1" stroke="#F9A825" stroke-width="1.2"/>
+  <text x="749" y="118" text-anchor="middle" class="code-sm" fill="#F57F17">Exif IFD</text>
+
+  <line x1="749" y1="128" x2="749" y2="148" stroke="#E65100" stroke-width="1.5" marker-end="url(#ar-red)"/>
+
+  <!-- MakerNote -->
+  <rect x="674" y="152" width="150" height="30" rx="3" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+  <text x="749" y="172" text-anchor="middle" class="code-sm" fill="#E65100">MakerNote 0x927C</text>
+
+  <text x="505" y="145" class="label-xs" fill="#1565C0">Tag 0x8769</text>
+  <text x="505" y="158" class="label-xs" fill="#1565C0">(ExifIFDPointer)</text>
+  <line x1="570" y1="148" x2="652" y2="128" stroke="#1565C0" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+  <text x="505" y="178" class="label-xs" fill="#E65100">Tag 0x927C = UNDEFINED blob</text>
+  <text x="505" y="193" class="label-xs" fill="#E65100">Binary data, vendor-specific format</text>
+  <text x="505" y="208" class="label-xs" fill="#777">Contains its own IFD-like structure inside</text>
+
+  <!-- ===== Section 3: File Byte Layout (center) ===== -->
+  <rect x="30" y="235" width="900" height="190" rx="6" fill="white" stroke="#e0e0e0" stroke-width="1.5"/>
+  <text x="480" y="255" text-anchor="middle" class="label-bold">File Byte Layout — Where Do MakerNote Offsets Point?</text>
+
+  <!-- Byte stream visualization -->
+  <!-- TIFF Header -->
+  <rect x="50" y="275" width="80" height="45" rx="3" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.2"/>
+  <text x="90" y="295" text-anchor="middle" class="code-sm" fill="#1565C0">TIFF</text>
+  <text x="90" y="308" text-anchor="middle" class="code-sm" fill="#1565C0">Header</text>
+  <text x="90" y="334" text-anchor="middle" class="label-xs">8 bytes</text>
+
+  <!-- IFD0 + Exif IFD -->
+  <rect x="135" y="275" width="140" height="45" rx="3" fill="#E8EAF6" stroke="#3F51B5" stroke-width="1"/>
+  <text x="205" y="293" text-anchor="middle" class="code-sm" fill="#3F51B5">IFD0 + Exif IFD</text>
+  <text x="205" y="308" text-anchor="middle" class="label-xs">(standard EXIF tags)</text>
+
+  <!-- Gap -->
+  <rect x="280" y="275" width="50" height="45" rx="0" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="305" y="302" text-anchor="middle" class="label-xs" fill="#999">...</text>
+
+  <!-- MakerNote blob -->
+  <rect x="335" y="270" width="580" height="55" rx="4" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+  <text x="345" y="288" class="label-bold" fill="#E65100">MakerNote Blob (Tag 0x927C data)</text>
+
+  <!-- Vendor header inside MakerNote -->
+  <rect x="345" y="295" width="115" height="24" rx="2" fill="#FFECB3" stroke="#F9A825" stroke-width="1"/>
+  <text x="402" y="311" text-anchor="middle" class="code-sm" fill="#F57F17">Vendor Header</text>
+
+  <!-- MakerNote IFD inside -->
+  <rect x="465" y="295" width="120" height="24" rx="2" fill="#FFE0B2" stroke="#E65100" stroke-width="1"/>
+  <text x="525" y="311" text-anchor="middle" class="code-sm" fill="#E65100">MN IFD Entries</text>
+
+  <!-- MakerNote values inside -->
+  <rect x="590" y="295" width="315" height="24" rx="2" fill="#FFE0B2" stroke="#E65100" stroke-width="1"/>
+  <text x="747" y="311" text-anchor="middle" class="code-sm" fill="#E65100">MN IFD Values (offset targets)</text>
+
+  <!-- tiff_offset annotation -->
+  <line x1="90" y1="340" x2="90" y2="355" stroke="#C62828" stroke-width="1"/>
+  <line x1="90" y1="355" x2="335" y2="355" stroke="#C62828" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <line x1="335" y1="340" x2="335" y2="355" stroke="#C62828" stroke-width="1"/>
+  <text x="212" y="368" text-anchor="middle" class="label-xs" fill="#C62828">tiff_offset (distance from TIFF start to MakerNote)</text>
+
+  <!-- Offset base arrows -->
+  <!-- Arrow A: TIFF-relative (red) -->
+  <line x1="90" y1="380" x2="90" y2="410" stroke="#C62828" stroke-width="2"/>
+  <polygon points="85,410 90,418 95,410" fill="#C62828"/>
+  <text x="50" y="395" class="marker-hex" fill="#C62828">A</text>
+  <text x="100" y="395" class="label-xs" fill="#C62828">offset = 0</text>
+  <text x="100" y="408" class="label-xs" fill="#C62828">(TIFF-relative base)</text>
+
+  <!-- Arrow B: MakerNote-relative (blue) -->
+  <line x1="465" y1="330" x2="465" y2="410" stroke="#1565C0" stroke-width="2"/>
+  <polygon points="460,410 465,418 470,410" fill="#1565C0"/>
+  <text x="425" y="350" class="marker-hex" fill="#1565C0">B</text>
+  <text x="475" y="350" class="label-xs" fill="#1565C0">offset = 0</text>
+  <text x="475" y="363" class="label-xs" fill="#1565C0">(MakerNote-relative base)</text>
+
+  <!-- ===== Section 4: Two-column manufacturer comparison (bottom) ===== -->
+  <!-- Scheme A: TIFF-Relative -->
+  <rect x="30" y="435" width="440" height="270" rx="6" fill="#FFEBEE" stroke="#C62828" stroke-width="1.5"/>
+  <rect x="30" y="435" width="440" height="28" rx="6" fill="#EF9A9A" stroke="#C62828" stroke-width="1.5"/>
+  <text x="250" y="454" text-anchor="middle" class="label-bold" fill="#B71C1C">A  TIFF-Relative Offsets</text>
+
+  <text x="45" y="482" class="label-sm" fill="#C62828">MakerNote IFD 안의 offset이 TIFF 헤더 시작점 기준</text>
+  <text x="45" y="498" class="label-xs">→ MakerNote 자체에 TIFF 헤더가 없음</text>
+  <text x="45" y="512" class="label-xs">→ offset 보정 필요: raw_offset - tiff_offset - header_size</text>
+
+  <!-- Manufacturer list A -->
+  <rect x="45" y="525" width="410" height="168" rx="3" fill="white" stroke="#FFCDD2" stroke-width="1"/>
+
+  <!-- Table header -->
+  <text x="60" y="545" class="label-bold" fill="#C62828">Manufacturer</text>
+  <text x="220" y="545" class="label-bold" fill="#C62828">Header</text>
+  <text x="355" y="545" class="label-bold" fill="#C62828">Size</text>
+  <line x1="50" y1="551" x2="450" y2="551" stroke="#FFCDD2" stroke-width="1"/>
+
+  <text x="60" y="568" class="code-sm">Panasonic (Lumix)</text>
+  <text x="220" y="568" class="code-sm">"Panasonic\0\0\0"</text>
+  <text x="355" y="568" class="code-sm">12 bytes</text>
+
+  <text x="60" y="586" class="code-sm">Canon</text>
+  <text x="220" y="586" class="code-sm">(none)</text>
+  <text x="355" y="586" class="code-sm">0 bytes</text>
+
+  <text x="60" y="604" class="code-sm">Sony</text>
+  <text x="220" y="604" class="code-sm">"SONY DSC \0\0\0"</text>
+  <text x="355" y="604" class="code-sm">12 bytes</text>
+
+  <text x="60" y="622" class="code-sm">Leica</text>
+  <text x="220" y="622" class="code-sm">"LEICA\0" + ver</text>
+  <text x="355" y="622" class="code-sm">8 bytes</text>
+
+  <text x="60" y="640" class="code-sm">Sigma</text>
+  <text x="220" y="640" class="code-sm">"SIGMA\0\0\0" + ver</text>
+  <text x="355" y="640" class="code-sm">10 bytes</text>
+
+  <text x="60" y="660" class="label-xs" fill="#999">offsets in IFD entries reference from start of original TIFF data</text>
+  <text x="60" y="675" class="label-xs" fill="#999">→ need tiff_offset subtraction to locate data within MakerNote blob</text>
+
+  <!-- Scheme B: MakerNote-Relative -->
+  <rect x="490" y="435" width="440" height="270" rx="6" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5"/>
+  <rect x="490" y="435" width="440" height="28" rx="6" fill="#90CAF9" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="710" y="454" text-anchor="middle" class="label-bold" fill="#0D47A1">B  MakerNote-Relative Offsets</text>
+
+  <text x="505" y="482" class="label-sm" fill="#1565C0">MakerNote IFD 안의 offset이 MakerNote 시작점 기준</text>
+  <text x="505" y="498" class="label-xs">→ 자체적으로 완결된 구조 (self-contained)</text>
+  <text x="505" y="512" class="label-xs">→ offset 보정: raw_offset - header_size (tiff_offset 불필요)</text>
+
+  <!-- Manufacturer list B -->
+  <rect x="505" y="525" width="410" height="168" rx="3" fill="white" stroke="#BBDEFB" stroke-width="1"/>
+
+  <!-- Table header -->
+  <text x="520" y="545" class="label-bold" fill="#1565C0">Manufacturer</text>
+  <text x="680" y="545" class="label-bold" fill="#1565C0">Header</text>
+  <text x="845" y="545" class="label-bold" fill="#1565C0">Note</text>
+  <line x1="510" y1="551" x2="910" y2="551" stroke="#BBDEFB" stroke-width="1"/>
+
+  <text x="520" y="568" class="code-sm">Nikon (Type 3)</text>
+  <text x="680" y="568" class="code-sm">"Nikon\0" + ver</text>
+  <text x="845" y="568" class="code-sm" fill="#1565C0">own TIFF*</text>
+
+  <text x="520" y="586" class="code-sm">Olympus / OM System</text>
+  <text x="680" y="586" class="code-sm">"OLYMPUS\0"II/MM</text>
+  <text x="845" y="586" class="code-sm">12-16B</text>
+
+  <text x="520" y="604" class="code-sm">Fujifilm</text>
+  <text x="680" y="604" class="code-sm">"FUJIFILM" + ofs</text>
+  <text x="845" y="604" class="code-sm">12B</text>
+
+  <text x="520" y="622" class="code-sm">Samsung</text>
+  <text x="680" y="622" class="code-sm">(none, auto-detect)</text>
+  <text x="845" y="622" class="code-sm">0B</text>
+
+  <text x="520" y="640" class="code-sm">Apple</text>
+  <text x="680" y="640" class="code-sm">"Apple iOS\0"+ver</text>
+  <text x="845" y="640" class="code-sm">14B</text>
+
+  <text x="520" y="658" class="code-sm">Pentax / Ricoh</text>
+  <text x="680" y="658" class="code-sm">"PENTAX \0II"</text>
+  <text x="845" y="658" class="code-sm">magic≠42</text>
+
+  <text x="520" y="675" class="label-xs" fill="#999">*Nikon has its own complete TIFF header inside MakerNote</text>
+  <text x="520" y="690" class="label-xs" fill="#999">→ offsets are relative to Nikon's internal TIFF header start</text>
+
+  <!-- PR #57 badge -->
+  <rect x="365" y="700" width="230" height="18" rx="9" fill="#FFECB3" stroke="#F9A825" stroke-width="1"/>
+  <text x="480" y="713" text-anchor="middle" class="label-xs" fill="#F57F17">Implemented via exif-rs PR #57 (+5,946 lines)</text>
+</svg>

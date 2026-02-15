@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 620">
+  <defs>
+    <style>
+      text { font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif; }
+      .title { font-size: 18px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-size: 13px; fill: #666; }
+      .label { font-size: 12px; fill: #333; }
+      .label-sm { font-size: 11px; fill: #555; }
+      .label-bold { font-size: 12px; fill: #333; font-weight: bold; }
+      .step-num { font-size: 11px; font-weight: bold; fill: white; }
+      .time { font-size: 14px; font-weight: bold; fill: #C62828; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="620" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="430" y="32" text-anchor="middle" class="title">Speed Mode: Slowest (max_depth = 3)</text>
+  <text x="430" y="52" text-anchor="middle" class="subtitle">50+ person large group | 2560 → 1280 → 640 full multi-depth search</text>
+
+  <!-- Original Image -->
+  <rect x="40" y="75" width="360" height="240" rx="4" fill="#e8eef5" stroke="#b0bec5" stroke-width="1.5"/>
+
+  <!-- Step 1: Whole (blue) -->
+  <rect x="40" y="75" width="360" height="240" rx="4" fill="#4A90D9" fill-opacity="0.04" stroke="#4A90D9" stroke-width="1" stroke-dasharray="8,4"/>
+  <circle cx="55" cy="88" r="9" fill="#4A90D9"/>
+  <text x="55" y="92" text-anchor="middle" class="step-num">1</text>
+
+  <!-- Step 2: Short-side (green) -->
+  <rect x="43" y="78" width="236" height="234" rx="3" fill="#7CB342" fill-opacity="0.04" stroke="#7CB342" stroke-width="1" stroke-dasharray="5,3"/>
+  <rect x="160" y="78" width="237" height="234" rx="3" fill="#7CB342" fill-opacity="0.04" stroke="#7CB342" stroke-width="1" stroke-dasharray="5,3"/>
+  <circle cx="55" cy="107" r="9" fill="#7CB342"/>
+  <text x="55" y="111" text-anchor="middle" class="step-num">2</text>
+
+  <!-- Step 3: 2560x2560 windows (orange) - depth=0, scale=4 -->
+  <!-- 2560 in SVG = 360*(2560/6000) ≈ 153.6 -->
+  <rect x="44" y="79" width="154" height="154" rx="2" fill="#FF9800" fill-opacity="0.10" stroke="#FF9800" stroke-width="1.5"/>
+  <rect x="185" y="79" width="154" height="154" rx="2" fill="#FF9800" fill-opacity="0.10" stroke="#FF9800" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <rect x="44" y="152" width="154" height="154" rx="2" fill="#FF9800" fill-opacity="0.07" stroke="#FF9800" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="330" y="162" class="label-sm" fill="#FF9800">...</text>
+  <circle cx="55" cy="126" r="9" fill="#FF9800"/>
+  <text x="55" y="130" text-anchor="middle" class="step-num">3</text>
+
+  <!-- Step 4: 1280x1280 windows (purple) - depth=1, scale=2 -->
+  <!-- 1280 in SVG ≈ 76.8 -->
+  <rect x="240" y="80" width="77" height="77" rx="2" fill="#AB47BC" fill-opacity="0.12" stroke="#AB47BC" stroke-width="1.2"/>
+  <rect x="305" y="80" width="77" height="77" rx="2" fill="#AB47BC" fill-opacity="0.08" stroke="#AB47BC" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="240" y="148" width="77" height="77" rx="2" fill="#AB47BC" fill-opacity="0.08" stroke="#AB47BC" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="365" y="195" class="label-sm" fill="#AB47BC">...</text>
+  <circle cx="233" cy="84" r="9" fill="#AB47BC"/>
+  <text x="233" y="88" text-anchor="middle" class="step-num">4</text>
+
+  <!-- Step 5: 640x640 windows (red) - depth=2, scale=1 -->
+  <!-- 640 in SVG ≈ 38.4 -->
+  <rect x="300" y="225" width="38" height="38" rx="2" fill="#EF5350" fill-opacity="0.15" stroke="#EF5350" stroke-width="1.2"/>
+  <rect x="332" y="225" width="38" height="38" rx="2" fill="#EF5350" fill-opacity="0.15" stroke="#EF5350" stroke-width="1.2"/>
+  <rect x="364" y="225" width="38" height="38" rx="2" fill="#EF5350" fill-opacity="0.10" stroke="#EF5350" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="300" y="257" width="38" height="38" rx="2" fill="#EF5350" fill-opacity="0.10" stroke="#EF5350" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="332" y="257" width="38" height="38" rx="2" fill="#EF5350" fill-opacity="0.08" stroke="#EF5350" stroke-width="1" stroke-dasharray="3,2"/>
+  <circle cx="293" cy="229" r="9" fill="#EF5350"/>
+  <text x="293" y="233" text-anchor="middle" class="step-num">5</text>
+
+  <text x="220" y="205" text-anchor="middle" class="label" fill="#78909c">6000 x 4000</text>
+
+  <!-- Pipeline (right side) -->
+  <text x="440" y="88" class="label-sm" fill="#4A90D9">Step 1: Whole → 640x640 (x1)</text>
+  <text x="440" y="108" class="label-sm" fill="#7CB342">Step 2: Short-side windows → 640x640 (few)</text>
+  <text x="440" y="128" class="label-sm" fill="#FF9800">Step 3: 2560x2560 → 640x640 (few)</text>
+  <text x="440" y="148" class="label-sm" fill="#AB47BC">Step 4: 1280x1280 → 640x640 (tens)</text>
+  <text x="440" y="168" class="label-sm" fill="#EF5350">Step 5: 640x640 → 640x640 (hundreds)</text>
+
+  <line x1="440" y1="178" x2="440" y2="198" stroke="#666" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- ONNX box -->
+  <rect x="440" y="200" width="380" height="80" rx="6" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="1.5"/>
+  <text x="630" y="225" text-anchor="middle" class="label-bold">ONNX Inference (InsightFace SCRFD det_10g)</text>
+  <text x="630" y="245" text-anchor="middle" class="label-sm">Resize all windows to 640x640 → inference → inverse coord transform</text>
+  <text x="630" y="268" text-anchor="middle" class="label-sm">Final NMS (IoU 0.4) → remove duplicates in full coords</text>
+
+  <!-- Depth explanation -->
+  <rect x="440" y="300" width="380" height="115" rx="6" fill="#FFEBEE" stroke="#C62828" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="460" y="322" class="label-bold" fill="#C62828">Depth Loop (max_depth=3):</text>
+  <text x="460" y="345" class="label-sm">Level 0: <tspan font-weight="bold" fill="#FF9800">2560x2560</tspan> windows (coarse)</text>
+  <text x="460" y="365" class="label-sm">Level 1: <tspan font-weight="bold" fill="#AB47BC">1280x1280</tspan> windows (medium)</text>
+  <text x="460" y="385" class="label-sm">Level 2: <tspan font-weight="bold" fill="#EF5350">640x640</tspan> windows (fine)</text>
+  <text x="460" y="405" class="label-sm" fill="#999">Large → medium → small progressive refinement</text>
+
+  <!-- Scale visualization -->
+  <rect x="40" y="340" width="360" height="90" rx="6" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="220" y="360" text-anchor="middle" class="label-bold">Window size comparison (actual ratio)</text>
+  <!-- 2560 block -->
+  <rect x="55" y="370" width="154" height="50" rx="2" fill="#FF9800" fill-opacity="0.2" stroke="#FF9800" stroke-width="1"/>
+  <text x="132" y="400" text-anchor="middle" class="label-sm" fill="#FF9800">2560</text>
+  <!-- 1280 block -->
+  <rect x="220" y="370" width="77" height="50" rx="2" fill="#AB47BC" fill-opacity="0.2" stroke="#AB47BC" stroke-width="1"/>
+  <text x="258" y="400" text-anchor="middle" class="label-sm" fill="#AB47BC">1280</text>
+  <!-- 640 block -->
+  <rect x="310" y="370" width="38" height="38" rx="2" fill="#EF5350" fill-opacity="0.2" stroke="#EF5350" stroke-width="1"/>
+  <text x="329" y="393" text-anchor="middle" class="label-sm" fill="#EF5350">640</text>
+
+  <!-- Result summary -->
+  <rect x="40" y="550" width="780" height="55" rx="6" fill="#FFEBEE" stroke="#C62828" stroke-width="1"/>
+  <text x="60" y="573" class="label-bold" fill="#C62828">Slowest</text>
+  <text x="120" y="573" class="label">: 2560→1280→640 full multi-depth search. Detects small faces in far corners.</text>
+  <text x="60" y="593" class="time">Avg ~28s</text>
+  <text x="175" y="593" class="label-sm">| 50+ large group photo | 3-level depth loop | hundreds of inferences</text>
+
+  <!-- Legend -->
+  <rect x="40" y="460" width="12" height="10" rx="2" fill="#4A90D9" fill-opacity="0.2" stroke="#4A90D9" stroke-width="1"/>
+  <text x="56" y="469" class="label-sm">Whole</text>
+  <rect x="90" y="460" width="12" height="10" rx="2" fill="#7CB342" fill-opacity="0.2" stroke="#7CB342" stroke-width="1"/>
+  <text x="106" y="469" class="label-sm">Short-side</text>
+  <rect x="150" y="460" width="12" height="10" rx="2" fill="#FF9800" fill-opacity="0.2" stroke="#FF9800" stroke-width="1"/>
+  <text x="166" y="469" class="label-sm">2560x2560</text>
+  <rect x="240" y="460" width="12" height="10" rx="2" fill="#AB47BC" fill-opacity="0.2" stroke="#AB47BC" stroke-width="1"/>
+  <text x="256" y="469" class="label-sm">1280x1280</text>
+  <rect x="330" y="460" width="12" height="10" rx="2" fill="#EF5350" fill-opacity="0.2" stroke="#EF5350" stroke-width="1"/>
+  <text x="346" y="469" class="label-sm">640x640</text>
+
+  <!-- Emphasis note -->
+  <text x="40" y="498" class="label-sm" fill="#999">* Depth required to detect small faces in far corners of large event group photos.</text>
+  <text x="40" y="516" class="label-sm" fill="#999">* All window results are merged via NMS to determine final face coordinates.</text>
+  <text x="40" y="534" class="label-sm" fill="#999">* On macOS, CoreML (Neural Engine) acceleration reduces actual processing time.</text>
+</svg>

@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 720">
+  <defs>
+    <marker id="ar-j" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546E7A"/>
+    </marker>
+    <marker id="ar-jb" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565C0"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif; }
+      .title { font-size: 17px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-size: 12px; fill: #666; }
+      .label { font-size: 12px; fill: #333; }
+      .label-sm { font-size: 10.5px; fill: #555; }
+      .label-xs { font-size: 9.5px; fill: #777; }
+      .label-bold { font-size: 12px; fill: #333; font-weight: bold; }
+      .code { font-family: 'JetBrains Mono', 'SF Mono', monospace; font-size: 10px; fill: #37474F; }
+      .code-sm { font-family: 'JetBrains Mono', 'SF Mono', monospace; font-size: 9px; fill: #546E7A; }
+      .marker-hex { font-family: 'JetBrains Mono', 'SF Mono', monospace; font-size: 9px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <rect width="920" height="720" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="460" y="30" text-anchor="middle" class="title">JPEG/EXIF File Structure (CIPA DC-008)</text>
+  <text x="460" y="48" text-anchor="middle" class="subtitle">Hidden images and metadata structure inside JPEG compressed data</text>
+
+  <!-- ===== Left: JPEG Marker Segment Sequence ===== -->
+  <rect x="30" y="68" width="260" height="640" rx="6" fill="#ECEFF1" stroke="#78909C" stroke-width="1.5"/>
+  <text x="160" y="88" text-anchor="middle" class="label-bold" fill="#546E7A">JPEG Marker Segment Order</text>
+  <text x="160" y="103" text-anchor="middle" class="label-xs">(Exif 3.0 / CIPA DC-008-2023)</text>
+
+  <!-- SOI -->
+  <rect x="45" y="115" width="230" height="28" rx="4" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="55" y="134" class="marker-hex" fill="#2E7D32">FFD8</text>
+  <text x="100" y="134" class="label-bold" fill="#2E7D32">SOI</text>
+  <text x="175" y="134" class="label-xs">Start of Image</text>
+
+  <!-- APP1 (EXIF) - mandatory -->
+  <rect x="45" y="150" width="230" height="42" rx="4" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="55" y="169" class="marker-hex" fill="#1565C0">FFE1</text>
+  <text x="100" y="169" class="label-bold" fill="#1565C0">APP1 (Exif)</text>
+  <text x="55" y="184" class="label-xs" fill="#1565C0">EXIF Attribute Info (TIFF structure) — mandatory</text>
+
+  <!-- APP2 (Flashpix) - optional -->
+  <rect x="45" y="199" width="230" height="28" rx="4" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="55" y="218" class="marker-hex" fill="#7B1FA2">FFE2</text>
+  <text x="100" y="218" class="label-sm" fill="#7B1FA2">APP2 (Flashpix Extension)</text>
+
+  <!-- APP2 (MPF) - optional -->
+  <rect x="45" y="234" width="230" height="28" rx="4" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+  <text x="55" y="253" class="marker-hex" fill="#E65100">FFE2</text>
+  <text x="100" y="253" class="label-bold" fill="#E65100">APP2 (MPF)</text>
+
+  <!-- APP11 (JUMBF) - optional -->
+  <rect x="45" y="269" width="230" height="28" rx="4" fill="#ECEFF1" stroke="#78909C" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="55" y="288" class="marker-hex" fill="#78909C">FFEB</text>
+  <text x="100" y="288" class="label-sm" fill="#78909C">APP11 (JUMBF Annotation)</text>
+
+  <!-- Other APPn -->
+  <rect x="45" y="304" width="230" height="28" rx="4" fill="#ECEFF1" stroke="#90A4AE" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="55" y="323" class="marker-hex" fill="#90A4AE">FFEn</text>
+  <text x="100" y="323" class="label-sm" fill="#90A4AE">(APPn — vendor-specific data)</text>
+
+  <!-- DQT -->
+  <rect x="45" y="342" width="110" height="24" rx="3" fill="white" stroke="#90A4AE" stroke-width="1"/>
+  <text x="55" y="359" class="marker-hex" fill="#546E7A">FFDB</text>
+  <text x="93" y="359" class="label-sm">DQT</text>
+
+  <!-- DHT -->
+  <rect x="165" y="342" width="110" height="24" rx="3" fill="white" stroke="#90A4AE" stroke-width="1"/>
+  <text x="175" y="359" class="marker-hex" fill="#546E7A">FFC4</text>
+  <text x="213" y="359" class="label-sm">DHT</text>
+
+  <!-- SOF -->
+  <rect x="45" y="373" width="110" height="24" rx="3" fill="white" stroke="#90A4AE" stroke-width="1"/>
+  <text x="55" y="390" class="marker-hex" fill="#546E7A">FFC0</text>
+  <text x="93" y="390" class="label-sm">SOF</text>
+
+  <!-- DRI (optional) -->
+  <rect x="165" y="373" width="110" height="24" rx="3" fill="white" stroke="#90A4AE" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="175" y="390" class="marker-hex" fill="#90A4AE">FFDD</text>
+  <text x="213" y="390" class="label-sm" fill="#90A4AE">DRI</text>
+
+  <!-- SOS + Compressed Data -->
+  <rect x="45" y="405" width="230" height="50" rx="4" fill="#FFEBEE" stroke="#C62828" stroke-width="1.5"/>
+  <text x="55" y="424" class="marker-hex" fill="#C62828">FFDA</text>
+  <text x="100" y="424" class="label-bold" fill="#C62828">SOS + Compressed Image Data</text>
+  <text x="55" y="446" class="label-xs" fill="#C62828">Main image (24MP, 42MP, 60MP...)</text>
+
+  <!-- EOI -->
+  <rect x="45" y="462" width="230" height="28" rx="4" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="55" y="481" class="marker-hex" fill="#2E7D32">FFD9</text>
+  <text x="100" y="481" class="label-bold" fill="#2E7D32">EOI</text>
+  <text x="175" y="481" class="label-xs">End of Image</text>
+
+  <!-- After EOI: MPF sub-images -->
+  <rect x="45" y="500" width="230" height="72" rx="4" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+  <text x="55" y="519" class="label-bold" fill="#E65100">MPF Sub-images (after EOI)</text>
+  <line x1="45" y1="525" x2="275" y2="525" stroke="#FFE0B2" stroke-width="1"/>
+  <text x="55" y="540" class="label-sm" fill="#E65100">Preview image (typically 1-2MP)</text>
+  <text x="55" y="555" class="label-xs">CIPA DC-007 Multi-Picture Format</text>
+  <text x="55" y="567" class="label-xs">Complete JPEG stream from SOI to EOI</text>
+
+  <!-- Legend -->
+  <rect x="45" y="585" width="230" height="60" rx="3" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="55" y="595" width="40" height="10" rx="2" fill="#E3F2FD" stroke="#1565C0" stroke-width="1"/>
+  <text x="102" y="604" class="label-xs">Mandatory</text>
+  <rect x="165" y="595" width="40" height="10" rx="2" fill="white" stroke="#90A4AE" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="212" y="604" class="label-xs">Optional</text>
+  <rect x="55" y="612" width="40" height="10" rx="2" fill="#FFEBEE" stroke="#C62828" stroke-width="1.5"/>
+  <text x="102" y="621" class="label-xs">Image data</text>
+  <rect x="165" y="612" width="40" height="10" rx="2" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+  <text x="212" y="621" class="label-xs">MPF related</text>
+  <text x="55" y="639" class="label-xs" fill="#999">Ref: CIPA DC-008-2023 Table 2, Figure 7</text>
+
+  <!-- ===== Center-Right: APP1 Internal Structure ===== -->
+  <!-- Arrow from APP1 to detail -->
+  <line x1="275" y1="171" x2="315" y2="171" stroke="#1565C0" stroke-width="2" marker-end="url(#ar-jb)"/>
+
+  <rect x="325" y="68" width="280" height="395" rx="6" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="465" y="88" text-anchor="middle" class="label-bold" fill="#1565C0">APP1 Internal Structure (TIFF)</text>
+  <text x="465" y="103" text-anchor="middle" class="label-xs" fill="#1565C0">Exif Identifier + TIFF Header + IFD chain</text>
+
+  <!-- APP1 header -->
+  <rect x="338" y="112" width="254" height="24" rx="3" fill="white" stroke="#BBDEFB" stroke-width="1"/>
+  <text x="348" y="129" class="code-sm">FF E1 [Length] "Exif\0\0"</text>
+
+  <!-- TIFF Header -->
+  <rect x="338" y="142" width="254" height="36" rx="3" fill="white" stroke="#BBDEFB" stroke-width="1"/>
+  <text x="348" y="158" class="code-sm">TIFF Header (8 bytes)</text>
+  <text x="348" y="172" class="label-xs">Byte Order (II/MM) + 002A.H + 0th IFD Offset</text>
+
+  <!-- 0th IFD -->
+  <rect x="338" y="185" width="254" height="68" rx="3" fill="#E8EAF6" stroke="#3F51B5" stroke-width="1.2"/>
+  <text x="348" y="202" class="label-bold" fill="#3F51B5">0th IFD (Main Image Attributes)</text>
+  <text x="348" y="217" class="code-sm">Make, Model, Orientation,</text>
+  <text x="348" y="230" class="code-sm">DateTime, Software, ...</text>
+  <text x="348" y="246" class="label-xs" fill="#3F51B5">→ Exif IFD Pointer, GPS IFD Pointer</text>
+
+  <!-- Exif IFD -->
+  <rect x="352" y="260" width="226" height="68" rx="3" fill="#FFF8E1" stroke="#F9A825" stroke-width="1.2"/>
+  <text x="362" y="277" class="label-bold" fill="#F57F17">Exif IFD (Shooting Conditions)</text>
+  <text x="362" y="292" class="code-sm">ExposureTime, FNumber, ISO,</text>
+  <text x="362" y="305" class="code-sm">FocalLength, LensModel, ...</text>
+  <text x="362" y="321" class="label-xs" fill="#F57F17">MakerNote (Tag 0x927C) ↗</text>
+
+  <!-- GPS IFD -->
+  <rect x="352" y="335" width="226" height="36" rx="3" fill="#E0F2F1" stroke="#00897B" stroke-width="1"/>
+  <text x="362" y="352" class="label-bold" fill="#00897B">GPS IFD (Location Info)</text>
+  <text x="362" y="365" class="code-sm">Latitude, Longitude, Altitude, ...</text>
+
+  <!-- 1st IFD -->
+  <rect x="338" y="378" width="254" height="76" rx="3" fill="#FCE4EC" stroke="#C62828" stroke-width="1.2"/>
+  <text x="348" y="395" class="label-bold" fill="#C62828">1st IFD (Thumbnail)</text>
+  <text x="348" y="410" class="code-sm">Compression: 6 (JPEG)</text>
+  <text x="348" y="423" class="code-sm">JPEGInterchangeFormat (offset)</text>
+  <text x="348" y="436" class="code-sm">JPEGInterchangeFormatLength</text>
+  <text x="348" y="449" class="label-xs" fill="#C62828">SOI to EOI JPEG thumbnail (typically 160x120)</text>
+
+  <!-- ===== Right: MakerNote Detail ===== -->
+  <!-- Arrow from Exif IFD MakerNote to detail -->
+  <line x1="578" y1="310" x2="620" y2="310" stroke="#E65100" stroke-width="1.5" marker-end="url(#ar-j)"/>
+
+  <rect x="630" y="68" width="260" height="260" rx="6" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+  <text x="760" y="88" text-anchor="middle" class="label-bold" fill="#E65100">MakerNote (Tag 0x927C)</text>
+  <text x="760" y="103" text-anchor="middle" class="label-xs" fill="#E65100">Vendor-specific non-standard binary data</text>
+
+  <rect x="643" y="112" width="234" height="130" rx="3" fill="white" stroke="#FFE0B2" stroke-width="1"/>
+  <text x="653" y="130" class="label-sm" fill="#E65100">Format differs completely per vendor!</text>
+  <line x1="643" y1="136" x2="877" y2="136" stroke="#FFE0B2" stroke-width="1"/>
+  <text x="653" y="153" class="code-sm">Nikon: PictureControlData</text>
+  <text x="653" y="168" class="code-sm">Panasonic: PhotoStyleName,</text>
+  <text x="665" y="181" class="code-sm">LutPrimaryFile, LutGain</text>
+  <text x="653" y="196" class="code-sm">Sony: CreativeLook (0x9416)</text>
+  <line x1="643" y1="204" x2="877" y2="204" stroke="#FFE0B2" stroke-width="1"/>
+  <text x="653" y="220" class="label-xs">Embedded preview images also hidden here</text>
+  <text x="653" y="235" class="label-xs">(offset/size varies per vendor)</text>
+
+  <rect x="643" y="250" width="234" height="30" rx="3" fill="#FFECB3" stroke="#F9A825" stroke-width="1"/>
+  <text x="760" y="270" text-anchor="middle" class="label-sm" fill="#F57F17">Parsing implemented via exif-rs PR #57</text>
+
+  <!-- ===== Right bottom: MPF Detail ===== -->
+  <!-- Arrow from APP2 MPF to detail -->
+  <line x1="275" y1="248" x2="315" y2="350" stroke="#E65100" stroke-width="1.5"/>
+  <line x1="315" y1="350" x2="620" y2="350" stroke="#E65100" stroke-width="1.5" marker-end="url(#ar-j)"/>
+
+  <rect x="630" y="340" width="260" height="125" rx="6" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+  <text x="760" y="360" text-anchor="middle" class="label-bold" fill="#E65100">APP2 — MPF (Multi-Picture Format)</text>
+  <text x="760" y="375" text-anchor="middle" class="label-xs" fill="#E65100">CIPA DC-007</text>
+
+  <rect x="643" y="385" width="234" height="68" rx="3" fill="white" stroke="#FFE0B2" stroke-width="1"/>
+  <text x="653" y="402" class="label-sm" fill="#E65100">MP Entry: offset + size list</text>
+  <text x="653" y="418" class="label-xs">Sub-image #1: preview (1-2MP)</text>
+  <text x="653" y="432" class="label-xs">Sub-image #2: 3D/dual-lens</text>
+  <text x="653" y="446" class="label-xs">Each sub-image stored as separate JPEG after EOI</text>
+
+  <!-- ===== Bottom: Embedded images comparison ===== -->
+  <rect x="325" y="480" width="565" height="228" rx="6" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="345" y="504" class="label-bold">Hidden Images Inside JPEG — Size and Purpose Comparison</text>
+  <line x1="325" y1="512" x2="890" y2="512" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Table header -->
+  <text x="345" y="532" class="label-bold" fill="#546E7A">Source</text>
+  <text x="490" y="532" class="label-bold" fill="#546E7A">Resolution</text>
+  <text x="600" y="532" class="label-bold" fill="#546E7A">Memory</text>
+  <text x="720" y="532" class="label-bold" fill="#546E7A">Purpose</text>
+  <line x1="335" y1="538" x2="880" y2="538" stroke="#ECEFF1" stroke-width="1"/>
+
+  <!-- Row 1: Thumbnail -->
+  <rect x="335" y="545" width="545" height="30" rx="0" fill="#FCE4EC" fill-opacity="0.3"/>
+  <text x="345" y="565" class="label-sm" fill="#C62828">1st IFD Thumbnail</text>
+  <text x="490" y="565" class="code-sm">160x120</text>
+  <text x="600" y="565" class="code-sm">~76 KB</text>
+  <text x="720" y="565" class="label-xs">List icon (too small)</text>
+
+  <!-- Row 2: MakerNote Preview -->
+  <rect x="335" y="578" width="545" height="30" rx="0" fill="#FFF3E0" fill-opacity="0.3"/>
+  <text x="345" y="598" class="label-sm" fill="#E65100">MakerNote Preview</text>
+  <text x="490" y="598" class="code-sm">Varies per vendor</text>
+  <text x="600" y="598" class="code-sm">~few MB</text>
+  <text x="720" y="598" class="label-xs">Vendor-specific (non-standard)</text>
+
+  <!-- Row 3: MPF Preview -->
+  <rect x="335" y="611" width="545" height="30" rx="0" fill="#E8F5E9" fill-opacity="0.5"/>
+  <text x="345" y="631" class="label-sm" fill="#2E7D32">MPF Preview (1-2MP)</text>
+  <text x="490" y="631" class="code-sm">1620x1080</text>
+  <text x="600" y="631" class="code-sm">~8 MB</text>
+  <text x="720" y="631" class="label-sm" fill="#2E7D32">Optimal for preview!</text>
+
+  <!-- Row 4: Main image -->
+  <rect x="335" y="644" width="545" height="30" rx="0" fill="#FFEBEE" fill-opacity="0.3"/>
+  <text x="345" y="664" class="label-sm" fill="#C62828">Main Image</text>
+  <text x="490" y="664" class="code-sm">6000x4000 (24MP)</text>
+  <text x="600" y="664" class="code-sm">~96 MB</text>
+  <text x="720" y="664" class="label-xs">Original (for final output)</text>
+
+  <text x="345" y="697" class="label-xs" fill="#999">* 50 photos at 24MP: loading originals ~4.8GB vs MPF previews ~400MB (10x+ savings)</text>
+
+  <!-- exif-rs PR #58 badge -->
+  <rect x="680" y="680" width="200" height="22" rx="11" fill="#FFECB3" stroke="#F9A825" stroke-width="1"/>
+  <text x="780" y="695" text-anchor="middle" class="label-sm" fill="#F57F17">Extraction implemented via exif-rs PR #58</text>
+</svg>

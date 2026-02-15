@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420">
+  <defs>
+    <marker id="arrow-f0" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A90D9"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif; }
+      .title { font-size: 18px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-size: 13px; fill: #666; }
+      .label { font-size: 12px; fill: #333; }
+      .label-sm { font-size: 11px; fill: #555; }
+      .label-bold { font-size: 12px; fill: #333; font-weight: bold; }
+      .step-num { font-size: 14px; font-weight: bold; fill: white; }
+      .time { font-size: 14px; font-weight: bold; fill: #4A90D9; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="420" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="430" y="32" text-anchor="middle" class="title">Speed Mode: Fastest (max_depth = 0)</text>
+  <text x="430" y="52" text-anchor="middle" class="subtitle">1-2 person portrait | Single inference with whole image resized to 640x640</text>
+
+  <!-- Original Image -->
+  <rect x="40" y="80" width="360" height="240" rx="4" fill="#e8eef5" stroke="#b0bec5" stroke-width="1.5"/>
+  <text x="220" y="205" text-anchor="middle" class="label" fill="#78909c">Original Image (6000 x 4000)</text>
+
+  <!-- Blue overlay: whole image -->
+  <rect x="40" y="80" width="360" height="240" rx="4" fill="#4A90D9" fill-opacity="0.15" stroke="#4A90D9" stroke-width="2.5" stroke-dasharray="8,4"/>
+
+  <!-- Step 1 circle -->
+  <circle cx="55" cy="95" r="12" fill="#4A90D9"/>
+  <text x="55" y="100" text-anchor="middle" class="step-num">1</text>
+
+  <!-- Arrow to 640x640 -->
+  <line x1="420" y1="200" x2="500" y2="200" stroke="#4A90D9" stroke-width="2.5" marker-end="url(#arrow-f0)"/>
+  <text x="460" y="190" text-anchor="middle" class="label-sm">resize</text>
+
+  <!-- 640x640 box -->
+  <rect x="510" y="155" width="90" height="90" rx="4" fill="#4A90D9" fill-opacity="0.2" stroke="#4A90D9" stroke-width="2"/>
+  <text x="555" y="205" text-anchor="middle" class="label-bold">640x640</text>
+
+  <!-- Arrow to ONNX -->
+  <line x1="610" y1="200" x2="670" y2="200" stroke="#4A90D9" stroke-width="2.5" marker-end="url(#arrow-f0)"/>
+
+  <!-- ONNX box -->
+  <rect x="680" y="170" width="140" height="60" rx="6" fill="#4A90D9" fill-opacity="0.1" stroke="#4A90D9" stroke-width="2"/>
+  <text x="750" y="195" text-anchor="middle" class="label-bold" fill="#4A90D9">ONNX Inference</text>
+  <text x="750" y="213" text-anchor="middle" class="label-sm" fill="#4A90D9">InsightFace SCRFD</text>
+
+  <!-- Result summary box -->
+  <rect x="40" y="345" width="780" height="55" rx="6" fill="#E3F2FD" stroke="#4A90D9" stroke-width="1"/>
+  <text x="60" y="368" class="label-bold" fill="#4A90D9">Fastest</text>
+  <text x="130" y="368" class="label">: Whole image resized to single 640x640. Detects only large faces.</text>
+  <text x="60" y="388" class="time">Avg ~0.5s</text>
+  <text x="175" y="388" class="label-sm">| No sliding windows | No NMS needed</text>
+
+  <!-- Legend -->
+  <rect x="40" y="300" width="16" height="16" rx="2" fill="#4A90D9" fill-opacity="0.15" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="62" y="313" class="label-sm">Whole image resize</text>
+</svg>

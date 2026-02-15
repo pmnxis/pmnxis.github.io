@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480">
+  <defs>
+    <marker id="arrowY" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#c88400"/></marker>
+    <style>
+      text { font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif; }
+      .title { font-size: 16px; font-weight: bold; fill: #1a1a1a; }
+      .section-title { font-size: 13px; font-weight: bold; letter-spacing: 1.5px; }
+      .subtitle { font-size: 10px; fill: #666; }
+      .label { font-size: 10px; fill: #555; }
+      .label-sm { font-size: 8px; fill: #888; }
+      .desc { font-size: 9px; fill: #444; }
+      .desc-sub { font-size: 9px; fill: #777; }
+      .legend { font-size: 9px; font-weight: 600; }
+      .mono { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="480" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="480" y="30" text-anchor="middle" class="title">CUBE LUT — Color Look-Up Table</text>
+
+  <!-- Divider -->
+  <line x1="478" y1="46" x2="478" y2="462" stroke="#d0d0d0" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- ===== LEFT: 1D LUT ===== -->
+  <rect x="16" y="44" width="450" height="424" rx="6" fill="#f0eef8" stroke="#c4b5e3" stroke-width="1"/>
+  <rect x="16" y="44" width="450" height="3" rx="1.5" fill="#7c3aed"/>
+  <text x="241" y="72" text-anchor="middle" class="section-title" fill="#7c3aed">1D LUT</text>
+  <text x="241" y="88" text-anchor="middle" class="subtitle">Per-Channel Independent Curve Mapping</text>
+
+  <!-- Graph axes -->
+  <line x1="80" y1="106" x2="80" y2="336" stroke="#999" stroke-width="1.5"/>
+  <line x1="80" y1="336" x2="420" y2="336" stroke="#999" stroke-width="1.5"/>
+  <polygon points="80,104 76,112 84,112" fill="#999"/>
+  <polygon points="422,336 414,332 414,340" fill="#999"/>
+
+  <!-- Axis labels -->
+  <text x="250" y="356" text-anchor="middle" class="label">Input Value (0.0 → 1.0)</text>
+  <text x="42" y="224" text-anchor="middle" class="label" transform="rotate(-90 42 224)">Output Value (0.0 → 1.0)</text>
+
+  <!-- Grid -->
+  <line x1="80" y1="221" x2="420" y2="221" stroke="#ddd" stroke-width="0.8"/>
+  <line x1="250" y1="106" x2="250" y2="336" stroke="#ddd" stroke-width="0.8"/>
+  <text x="75" y="224" text-anchor="end" class="label-sm">0.5</text>
+  <text x="75" y="110" text-anchor="end" class="label-sm">1.0</text>
+  <text x="75" y="340" text-anchor="end" class="label-sm">0.0</text>
+  <text x="250" y="350" text-anchor="middle" class="label-sm">0.5</text>
+  <text x="420" y="350" text-anchor="middle" class="label-sm">1.0</text>
+
+  <!-- Identity line -->
+  <line x1="80" y1="336" x2="420" y2="106" stroke="#ccc" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="370" y="138" fill="#bbb" font-size="8" transform="rotate(-34 370 138)">identity</text>
+
+  <!-- Curves -->
+  <path d="M80,336 C120,326 180,276 250,206 C300,156 360,116 420,101" fill="none" stroke="#dc2626" stroke-width="2.2"/>
+  <path d="M80,336 C130,326 190,286 250,221 C310,156 370,121 420,106" fill="none" stroke="#16a34a" stroke-width="2.2"/>
+  <path d="M80,336 C140,331 210,306 280,256 C340,211 380,171 420,141" fill="none" stroke="#2563eb" stroke-width="2.2"/>
+
+  <!-- Legend -->
+  <line x1="100" y1="380" x2="120" y2="380" stroke="#dc2626" stroke-width="2"/>
+  <text x="126" y="384" class="legend" fill="#dc2626">Red channel</text>
+  <line x1="210" y1="380" x2="230" y2="380" stroke="#16a34a" stroke-width="2"/>
+  <text x="236" y="384" class="legend" fill="#16a34a">Green channel</text>
+  <line x1="330" y1="380" x2="350" y2="380" stroke="#2563eb" stroke-width="2"/>
+  <text x="356" y="384" class="legend" fill="#2563eb">Blue channel</text>
+
+  <!-- Sample mapping -->
+  <circle cx="284" cy="244" r="3.5" fill="none" stroke="#c88400" stroke-width="1.5"/>
+  <line x1="284" y1="336" x2="284" y2="249" stroke="#c88400" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+  <line x1="80" y1="244" x2="279" y2="244" stroke="#c88400" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+  <text x="284" y="350" text-anchor="middle" fill="#c88400" font-size="8">in=0.6</text>
+  <text x="60" y="243" text-anchor="end" fill="#c88400" font-size="8">0.62</text>
+
+  <!-- Description -->
+  <text x="241" y="410" text-anchor="middle" class="desc">Each R, G, B channel is transformed independently.</text>
+  <text x="241" y="425" text-anchor="middle" class="desc-sub">Typical sizes: 1024 (10-bit) / 4096 (12-bit) / 65536 (16-bit) entries.</text>
+  <text x="241" y="440" text-anchor="middle" class="desc-sub">Simple linear interpolation between adjacent table entries.</text>
+
+  <!-- ===== RIGHT: 3D LUT ===== -->
+  <rect x="494" y="44" width="450" height="424" rx="6" fill="#fdf6e8" stroke="#e0c97a" stroke-width="1"/>
+  <rect x="494" y="44" width="450" height="3" rx="1.5" fill="#d97706"/>
+  <text x="719" y="72" text-anchor="middle" class="section-title" fill="#d97706">3D LUT</text>
+  <text x="719" y="88" text-anchor="middle" class="subtitle">Full RGB Color Space Mapping</text>
+
+  <!-- 3D Cube -->
+  <!-- Back edges (dashed) -->
+  <line x1="620" y1="326" x2="530" y2="271" stroke="#bbb" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <line x1="530" y1="271" x2="670" y2="271" stroke="#bbb" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+  <line x1="530" y1="271" x2="530" y2="101" stroke="#bbb" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+
+  <!-- Front face -->
+  <line x1="620" y1="326" x2="760" y2="326" stroke="#dc2626" stroke-width="2"/>
+  <line x1="620" y1="326" x2="620" y2="156" stroke="#16a34a" stroke-width="2"/>
+  <!-- Other edges -->
+  <line x1="760" y1="326" x2="670" y2="271" stroke="#999" stroke-width="1.2"/>
+  <line x1="760" y1="326" x2="760" y2="156" stroke="#999" stroke-width="1.2"/>
+  <line x1="620" y1="156" x2="530" y2="101" stroke="#999" stroke-width="1.2"/>
+  <line x1="620" y1="156" x2="760" y2="156" stroke="#999" stroke-width="1.2"/>
+  <line x1="760" y1="156" x2="670" y2="101" stroke="#999" stroke-width="1.2"/>
+  <line x1="530" y1="101" x2="670" y2="101" stroke="#999" stroke-width="1.2"/>
+  <line x1="670" y1="271" x2="670" y2="101" stroke="#999" stroke-width="1.2"/>
+  <!-- B-axis -->
+  <line x1="620" y1="326" x2="530" y2="271" stroke="#2563eb" stroke-width="2" stroke-dasharray="3,3"/>
+
+  <!-- Axis labels -->
+  <text x="690" y="344" fill="#dc2626" font-size="12" font-weight="700" text-anchor="middle">Red →</text>
+  <text x="600" y="236" fill="#16a34a" font-size="12" font-weight="700" text-anchor="end" transform="rotate(-90 600 236)">Green →</text>
+  <text x="555" y="312" fill="#2563eb" font-size="12" font-weight="700" text-anchor="middle" transform="rotate(21 555 312)">Blue →</text>
+
+  <!-- Lattice points -->
+  <g opacity="0.45">
+    <circle cx="620" cy="326" r="2.5" fill="#dc2626"/>
+    <circle cx="667" cy="326" r="2" fill="#888"/>
+    <circle cx="713" cy="326" r="2" fill="#888"/>
+    <circle cx="760" cy="326" r="2.5" fill="#dc2626"/>
+    <circle cx="620" cy="269" r="2" fill="#888"/>
+    <circle cx="667" cy="269" r="2" fill="#888"/>
+    <circle cx="713" cy="269" r="2" fill="#888"/>
+    <circle cx="760" cy="269" r="2" fill="#888"/>
+    <circle cx="620" cy="213" r="2" fill="#888"/>
+    <circle cx="667" cy="213" r="2" fill="#888"/>
+    <circle cx="713" cy="213" r="2" fill="#888"/>
+    <circle cx="760" cy="213" r="2" fill="#888"/>
+    <circle cx="620" cy="156" r="2.5" fill="#16a34a"/>
+    <circle cx="667" cy="156" r="2" fill="#888"/>
+    <circle cx="713" cy="156" r="2" fill="#888"/>
+    <circle cx="760" cy="156" r="2.5" fill="#c88400"/>
+  </g>
+
+  <!-- Sub-cube highlight -->
+  <rect x="662" y="209" width="56" height="56" rx="2" fill="none" stroke="#c88400" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.8"/>
+  <circle cx="667" cy="213" r="3.5" fill="#c88400" opacity="0.8"/>
+  <circle cx="713" cy="213" r="3.5" fill="#c88400" opacity="0.8"/>
+  <circle cx="667" cy="269" r="3.5" fill="#c88400" opacity="0.8"/>
+  <circle cx="713" cy="269" r="3.5" fill="#c88400" opacity="0.8"/>
+
+  <!-- Input point -->
+  <circle cx="698" cy="234" r="4.5" fill="#c88400"/>
+  <text x="720" y="231" fill="#c88400" font-size="9" font-weight="600">Input RGB</text>
+
+  <!-- Arrow -->
+  <line x1="770" y1="234" x2="820" y2="234" stroke="#c88400" stroke-width="1.5" marker-end="url(#arrowY)"/>
+
+  <!-- Output box -->
+  <rect x="824" y="218" width="100" height="34" rx="6" fill="#c88400" fill-opacity="0.12" stroke="#c88400" stroke-width="1"/>
+  <text x="874" y="232" fill="#c88400" font-size="9" font-weight="600" text-anchor="middle">Output RGB</text>
+  <text x="874" y="245" fill="#888" font-size="8" text-anchor="middle">(interpolated)</text>
+
+  <text x="690" y="288" fill="#c88400" font-size="8" text-anchor="middle" opacity="0.8">sub-cube</text>
+
+  <!-- Description -->
+  <text x="719" y="366" text-anchor="middle" class="desc">Every (R, G, B) input maps to a new (R', G', B') output.</text>
+  <text x="719" y="381" text-anchor="middle" class="desc-sub">Lattice points define known mappings; in-between values</text>
+  <text x="719" y="396" text-anchor="middle" class="desc-sub">are trilinearly interpolated from 8 surrounding corners.</text>
+  <text x="719" y="416" text-anchor="middle" class="desc-sub">Common sizes: 17³ = 4,913 / 33³ = 35,937 / 65³ = 274,625 points.</text>
+  <text x="719" y="431" text-anchor="middle" class="desc-sub">Cross-channel color interaction (R affects G/B output).</text>
+
+  <!-- Bottom note -->
+  <text x="480" y="468" text-anchor="middle" font-size="9" fill="#999" font-style="italic">1D LUTs adjust brightness/contrast per channel  ·  3D LUTs enable full creative color grading (film looks, color shifts)</text>
+</svg>

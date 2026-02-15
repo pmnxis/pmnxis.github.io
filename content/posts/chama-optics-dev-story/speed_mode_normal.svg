@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 530">
+  <defs>
+    <marker id="arrow-b2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A90D9"/>
+    </marker>
+    <marker id="arrow-g2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7CB342"/>
+    </marker>
+    <marker id="arrow-o2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FF9800"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif; }
+      .title { font-size: 18px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-size: 13px; fill: #666; }
+      .label { font-size: 12px; fill: #333; }
+      .label-sm { font-size: 11px; fill: #555; }
+      .label-bold { font-size: 12px; fill: #333; font-weight: bold; }
+      .step-num { font-size: 13px; font-weight: bold; fill: white; }
+      .time { font-size: 14px; font-weight: bold; fill: #FF9800; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="530" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="430" y="32" text-anchor="middle" class="title">Speed Mode: Normal (max_depth = 1)</text>
+  <text x="430" y="52" text-anchor="middle" class="subtitle">~10 person group photo | 2560x2560 coarse sliding windows added</text>
+
+  <!-- Original Image -->
+  <rect x="40" y="75" width="360" height="240" rx="4" fill="#e8eef5" stroke="#b0bec5" stroke-width="1.5"/>
+
+  <!-- Step 1: Whole image (blue) -->
+  <rect x="40" y="75" width="360" height="240" rx="4" fill="#4A90D9" fill-opacity="0.06" stroke="#4A90D9" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <circle cx="55" cy="90" r="11" fill="#4A90D9"/>
+  <text x="55" y="94" text-anchor="middle" class="step-num">1</text>
+
+  <!-- Step 2: Short-side windows (green) -->
+  <rect x="43" y="78" width="236" height="234" rx="3" fill="#7CB342" fill-opacity="0.06" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <rect x="160" y="78" width="237" height="234" rx="3" fill="#7CB342" fill-opacity="0.06" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <circle cx="55" cy="115" r="11" fill="#7CB342"/>
+  <text x="55" y="119" text-anchor="middle" class="step-num">2</text>
+
+  <!-- Step 3: 2560x2560 windows (orange) - depth level 0 -->
+  <!-- 2560 in SVG = 360*(2560/6000) ≈ 153.6 -->
+  <rect x="44" y="79" width="154" height="154" rx="2" fill="#FF9800" fill-opacity="0.12" stroke="#FF9800" stroke-width="1.5"/>
+  <rect x="185" y="79" width="154" height="154" rx="2" fill="#FF9800" fill-opacity="0.10" stroke="#FF9800" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <rect x="44" y="152" width="154" height="154" rx="2" fill="#FF9800" fill-opacity="0.08" stroke="#FF9800" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="330" y="162" class="label-sm" fill="#FF9800">...</text>
+  <circle cx="55" cy="140" r="11" fill="#FF9800"/>
+  <text x="55" y="144" text-anchor="middle" class="step-num">3</text>
+
+  <text x="220" y="250" text-anchor="middle" class="label" fill="#78909c">6000 x 4000</text>
+
+  <!-- Window size annotation -->
+  <text x="220" y="338" text-anchor="middle" class="label-sm" fill="#FF9800">2560x2560 window grid (depth level 0)</text>
+  <text x="220" y="355" text-anchor="middle" class="label-sm" fill="#FF9800">10% overlap, few windows per image</text>
+
+  <!-- Pipeline -->
+  <!-- Step 1 -->
+  <line x1="420" y1="105" x2="490" y2="105" stroke="#4A90D9" stroke-width="1.5" marker-end="url(#arrow-b2)"/>
+  <rect x="500" y="88" width="60" height="35" rx="3" fill="#4A90D9" fill-opacity="0.15" stroke="#4A90D9" stroke-width="1"/>
+  <text x="530" y="110" text-anchor="middle" class="label-sm" fill="#4A90D9">640x640</text>
+
+  <!-- Step 2 -->
+  <line x1="420" y1="175" x2="490" y2="175" stroke="#7CB342" stroke-width="1.5" marker-end="url(#arrow-g2)"/>
+  <rect x="500" y="158" width="60" height="35" rx="3" fill="#7CB342" fill-opacity="0.15" stroke="#7CB342" stroke-width="1"/>
+  <text x="530" y="173" text-anchor="middle" class="label-sm" fill="#7CB342">640x640</text>
+  <text x="530" y="186" text-anchor="middle" class="label-sm" fill="#7CB342">x N</text>
+
+  <!-- Step 3 -->
+  <line x1="420" y1="250" x2="490" y2="250" stroke="#FF9800" stroke-width="1.5" marker-end="url(#arrow-o2)"/>
+  <rect x="500" y="228" width="60" height="45" rx="3" fill="#FF9800" fill-opacity="0.15" stroke="#FF9800" stroke-width="1"/>
+  <text x="530" y="248" text-anchor="middle" class="label-sm" fill="#FF9800">640x640</text>
+  <text x="530" y="263" text-anchor="middle" class="label-sm" fill="#FF9800">x few</text>
+
+  <!-- Arrows to ONNX -->
+  <line x1="570" y1="105" x2="630" y2="175" stroke="#4A90D9" stroke-width="1"/>
+  <line x1="570" y1="175" x2="630" y2="185" stroke="#7CB342" stroke-width="1"/>
+  <line x1="570" y1="250" x2="630" y2="205" stroke="#FF9800" stroke-width="1"/>
+
+  <!-- ONNX box -->
+  <rect x="640" y="130" width="180" height="120" rx="6" fill="#f5f5f5" stroke="#9e9e9e" stroke-width="1.5"/>
+  <text x="730" y="160" text-anchor="middle" class="label-bold">ONNX Inference</text>
+  <text x="730" y="178" text-anchor="middle" class="label-sm">InsightFace SCRFD</text>
+  <line x1="680" y1="190" x2="780" y2="190" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="730" y="210" text-anchor="middle" class="label-sm">NMS (IoU 0.4)</text>
+  <text x="730" y="228" text-anchor="middle" class="label-sm">Remove duplicates</text>
+  <text x="730" y="245" text-anchor="middle" class="label-sm" fill="#FF9800">→ Face coordinates output</text>
+
+  <!-- Result summary -->
+  <rect x="40" y="455" width="780" height="55" rx="6" fill="#FFF3E0" stroke="#FF9800" stroke-width="1"/>
+  <text x="60" y="478" class="label-bold" fill="#FF9800">Normal</text>
+  <text x="115" y="478" class="label">: Whole resize + short-side + 2560x2560 coarse windows. Begins detecting medium-distance faces.</text>
+  <text x="60" y="498" class="time">Avg ~7s</text>
+  <text x="165" y="498" class="label-sm">| Depth loop begins at this level (1 level) | Ideal for groups of ~10</text>
+
+  <!-- Legend -->
+  <rect x="40" y="380" width="14" height="12" rx="2" fill="#4A90D9" fill-opacity="0.15" stroke="#4A90D9" stroke-width="1"/>
+  <text x="60" y="391" class="label-sm">Whole resize</text>
+  <rect x="160" y="380" width="14" height="12" rx="2" fill="#7CB342" fill-opacity="0.15" stroke="#7CB342" stroke-width="1"/>
+  <text x="180" y="391" class="label-sm">Short-side windows</text>
+  <rect x="280" y="380" width="14" height="12" rx="2" fill="#FF9800" fill-opacity="0.15" stroke="#FF9800" stroke-width="1.5"/>
+  <text x="300" y="391" class="label-sm">2560x2560 windows</text>
+
+  <!-- Note -->
+  <text x="40" y="420" class="label-sm" fill="#999">* Depth loop starts from Normal. 2560x2560 windows cover large areas for coarse face detection.</text>
+  <text x="40" y="436" class="label-sm" fill="#999">* Each 2560x2560 window is resized to 640x640 for ONNX inference.</text>
+</svg>

@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620">
+  <defs>
+    <style>
+      text { font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif; }
+      .title { font-size: 16px; font-weight: bold; fill: #1a1a1a; }
+      .section-label { font-size: 10px; font-weight: bold; letter-spacing: 2px; fill: #c88400; }
+      .heading { font-size: 11px; font-weight: bold; }
+      .label { font-size: 9px; fill: #555; }
+      .label-ok { font-size: 9px; font-weight: 600; fill: #16a34a; }
+      .label-bad { font-size: 9px; font-weight: 600; fill: #dc2626; }
+      .desc { font-size: 9px; fill: #444; }
+      .desc-sub { font-size: 9px; fill: #777; }
+      .cell { font-size: 8px; font-weight: 600; }
+      .mono { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 9px; fill: #555; }
+      .step { font-size: 9px; }
+      .step-code { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 8px; fill: #666; }
+      .summary-title { font-size: 9px; font-weight: 600; text-anchor: middle; }
+      .summary-desc { font-size: 8px; fill: #777; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="620" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="480" y="28" text-anchor="middle" class="title">wagahai-lut — Optimization Strategies</text>
+
+  <!-- ===== SECTION 1: AoS vs SoA ===== -->
+  <text x="24" y="54" class="section-label">MEMORY LAYOUT: ARRAY OF STRUCTURES vs STRUCTURE OF ARRAYS</text>
+
+  <!-- AoS box -->
+  <rect x="16" y="64" width="928" height="100" rx="6" fill="#fef2f2" stroke="#e8c4c4" stroke-width="1"/>
+  <text x="30" y="84" class="heading" fill="#dc2626">AoS (Array of Structures) — Typical approach</text>
+
+  <!-- AoS memory blocks -->
+  <g transform="translate(30, 92)">
+    <rect x="0" y="0" width="28" height="24" rx="3" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1"/>
+    <text x="14" y="15" class="cell" fill="#dc2626" text-anchor="middle">R₀</text>
+    <rect x="28" y="0" width="28" height="24" rx="3" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1"/>
+    <text x="42" y="15" class="cell" fill="#16a34a" text-anchor="middle">G₀</text>
+    <rect x="56" y="0" width="28" height="24" rx="3" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="1"/>
+    <text x="70" y="15" class="cell" fill="#2563eb" text-anchor="middle">B₀</text>
+
+    <rect x="92" y="0" width="28" height="24" rx="3" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1"/>
+    <text x="106" y="15" class="cell" fill="#dc2626" text-anchor="middle">R₁</text>
+    <rect x="120" y="0" width="28" height="24" rx="3" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1"/>
+    <text x="134" y="15" class="cell" fill="#16a34a" text-anchor="middle">G₁</text>
+    <rect x="148" y="0" width="28" height="24" rx="3" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="1"/>
+    <text x="162" y="15" class="cell" fill="#2563eb" text-anchor="middle">B₁</text>
+
+    <rect x="184" y="0" width="28" height="24" rx="3" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1"/>
+    <text x="198" y="15" class="cell" fill="#dc2626" text-anchor="middle">R₂</text>
+    <rect x="212" y="0" width="28" height="24" rx="3" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1"/>
+    <text x="226" y="15" class="cell" fill="#16a34a" text-anchor="middle">G₂</text>
+    <rect x="240" y="0" width="28" height="24" rx="3" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="1"/>
+    <text x="254" y="15" class="cell" fill="#2563eb" text-anchor="middle">B₂</text>
+
+    <text x="286" y="16" fill="#999" font-size="14" text-anchor="middle">···</text>
+
+    <rect x="300" y="0" width="28" height="24" rx="3" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1"/>
+    <text x="314" y="15" class="cell" fill="#dc2626" text-anchor="middle">Rₙ</text>
+    <rect x="328" y="0" width="28" height="24" rx="3" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1"/>
+    <text x="342" y="15" class="cell" fill="#16a34a" text-anchor="middle">Gₙ</text>
+    <rect x="356" y="0" width="28" height="24" rx="3" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="1"/>
+    <text x="370" y="15" class="cell" fill="#2563eb" text-anchor="middle">Bₙ</text>
+
+    <!-- Cache line -->
+    <rect x="-2" y="28" width="176" height="14" rx="3" fill="none" stroke="#dc2626" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+    <text x="86" y="39" fill="#dc2626" font-size="7" text-anchor="middle" opacity="0.7">cache line (64B)</text>
+  </g>
+
+  <!-- AoS annotation -->
+  <text x="540" y="111" class="label-bad">✗ Cache line loads unused channels</text>
+  <text x="540" y="126" class="label">When processing R channel only, G and B data wastes cache space.</text>
+  <text x="540" y="156" class="mono">struct Rgb { r: f32, g: f32, b: f32 }</text>
+
+  <!-- SoA box -->
+  <rect x="16" y="172" width="928" height="110" rx="6" fill="#f0fdf4" stroke="#b8e0c4" stroke-width="1"/>
+  <text x="30" y="192" class="heading" fill="#16a34a">SoA (Structure of Arrays) — wagahai-lut 3D LUT layout</text>
+
+  <!-- SoA memory blocks -->
+  <g transform="translate(30, 200)">
+    <text x="-6" y="14" fill="#dc2626" font-size="9" font-weight="600" text-anchor="end">R:</text>
+    <rect x="0" y="0" width="28" height="22" rx="3" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1"/>
+    <text x="14" y="14" class="cell" fill="#dc2626" text-anchor="middle">R₀</text>
+    <rect x="30" y="0" width="28" height="22" rx="3" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1"/>
+    <text x="44" y="14" class="cell" fill="#dc2626" text-anchor="middle">R₁</text>
+    <rect x="60" y="0" width="28" height="22" rx="3" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1"/>
+    <text x="74" y="14" class="cell" fill="#dc2626" text-anchor="middle">R₂</text>
+    <rect x="90" y="0" width="28" height="22" rx="3" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1"/>
+    <text x="104" y="14" class="cell" fill="#dc2626" text-anchor="middle">R₃</text>
+    <text x="132" y="14" fill="#999" font-size="12" text-anchor="middle">···</text>
+    <rect x="142" y="0" width="28" height="22" rx="3" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1"/>
+    <text x="156" y="14" class="cell" fill="#dc2626" text-anchor="middle">Rₙ</text>
+
+    <text x="-6" y="40" fill="#16a34a" font-size="9" font-weight="600" text-anchor="end">G:</text>
+    <rect x="0" y="26" width="28" height="22" rx="3" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1"/>
+    <text x="14" y="40" class="cell" fill="#16a34a" text-anchor="middle">G₀</text>
+    <rect x="30" y="26" width="28" height="22" rx="3" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1"/>
+    <text x="44" y="40" class="cell" fill="#16a34a" text-anchor="middle">G₁</text>
+    <rect x="60" y="26" width="28" height="22" rx="3" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1"/>
+    <text x="74" y="40" class="cell" fill="#16a34a" text-anchor="middle">G₂</text>
+    <rect x="90" y="26" width="28" height="22" rx="3" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1"/>
+    <text x="104" y="40" class="cell" fill="#16a34a" text-anchor="middle">G₃</text>
+    <text x="132" y="40" fill="#999" font-size="12" text-anchor="middle">···</text>
+    <rect x="142" y="26" width="28" height="22" rx="3" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1"/>
+    <text x="156" y="40" class="cell" fill="#16a34a" text-anchor="middle">Gₙ</text>
+
+    <text x="-6" y="66" fill="#2563eb" font-size="9" font-weight="600" text-anchor="end">B:</text>
+    <rect x="0" y="52" width="28" height="22" rx="3" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="1"/>
+    <text x="14" y="66" class="cell" fill="#2563eb" text-anchor="middle">B₀</text>
+    <rect x="30" y="52" width="28" height="22" rx="3" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="1"/>
+    <text x="44" y="66" class="cell" fill="#2563eb" text-anchor="middle">B₁</text>
+    <rect x="60" y="52" width="28" height="22" rx="3" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="1"/>
+    <text x="74" y="66" class="cell" fill="#2563eb" text-anchor="middle">B₂</text>
+    <rect x="90" y="52" width="28" height="22" rx="3" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="1"/>
+    <text x="104" y="66" class="cell" fill="#2563eb" text-anchor="middle">B₃</text>
+    <text x="132" y="66" fill="#999" font-size="12" text-anchor="middle">···</text>
+    <rect x="142" y="52" width="28" height="22" rx="3" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="1"/>
+    <text x="156" y="66" class="cell" fill="#2563eb" text-anchor="middle">Bₙ</text>
+
+    <!-- Cache line for SoA -->
+    <rect x="-2" y="-4" width="174" height="28" rx="3" fill="none" stroke="#16a34a" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+    <text x="202" y="10" fill="#16a34a" font-size="7" opacity="0.7">← cache line: all R values!</text>
+  </g>
+
+  <!-- SoA annotation -->
+  <text x="540" y="218" class="label-ok">✓ Cache-friendly per-channel access</text>
+  <text x="540" y="233" class="label">Trilinear interpolation reads 8 values per channel.</text>
+  <text x="540" y="248" class="label">SoA keeps them contiguous in memory.</text>
+  <text x="540" y="268" class="mono">struct Lut3D { r: Vec&lt;f32&gt;, g: Vec&lt;f32&gt;, b: Vec&lt;f32&gt; }</text>
+
+  <!-- ===== SECTION 2: Trilinear + SIMD ===== -->
+  <text x="24" y="306" class="section-label">TRILINEAR INTERPOLATION WITH SIMD (f32x4)</text>
+
+  <!-- Left: Trilinear cube -->
+  <rect x="16" y="316" width="450" height="200" rx="6" fill="#eff6ff" stroke="#b8d0e8" stroke-width="1"/>
+
+  <!-- Sub-cube wireframe -->
+  <!-- Front face -->
+  <line x1="60" y1="486" x2="200" y2="486" stroke="#999" stroke-width="1.2"/>
+  <line x1="60" y1="486" x2="60" y2="356" stroke="#999" stroke-width="1.2"/>
+  <line x1="60" y1="356" x2="200" y2="356" stroke="#999" stroke-width="1.2"/>
+  <line x1="200" y1="356" x2="200" y2="486" stroke="#999" stroke-width="1.2"/>
+  <!-- Back face -->
+  <line x1="110" y1="446" x2="250" y2="446" stroke="#bbb" stroke-width="1"/>
+  <line x1="110" y1="446" x2="110" y2="326" stroke="#bbb" stroke-width="1"/>
+  <line x1="110" y1="326" x2="250" y2="326" stroke="#bbb" stroke-width="1"/>
+  <line x1="250" y1="326" x2="250" y2="446" stroke="#bbb" stroke-width="1"/>
+  <!-- Edges -->
+  <line x1="60" y1="486" x2="110" y2="446" stroke="#bbb" stroke-width="0.8"/>
+  <line x1="200" y1="486" x2="250" y2="446" stroke="#bbb" stroke-width="0.8"/>
+  <line x1="60" y1="356" x2="110" y2="326" stroke="#bbb" stroke-width="0.8"/>
+  <line x1="200" y1="356" x2="250" y2="326" stroke="#bbb" stroke-width="0.8"/>
+
+  <!-- 8 corners -->
+  <circle cx="60" cy="486" r="4" fill="#7c3aed"/><text x="38" y="498" fill="#7c3aed" font-size="7" font-weight="600">c000</text>
+  <circle cx="200" cy="486" r="4" fill="#7c3aed"/><text x="204" y="498" fill="#7c3aed" font-size="7" font-weight="600">c100</text>
+  <circle cx="60" cy="356" r="4" fill="#7c3aed"/><text x="36" y="352" fill="#7c3aed" font-size="7" font-weight="600">c010</text>
+  <circle cx="200" cy="356" r="4" fill="#7c3aed"/><text x="204" y="352" fill="#7c3aed" font-size="7" font-weight="600">c110</text>
+  <circle cx="110" cy="446" r="4" fill="#7c3aed"/><text x="90" y="442" fill="#7c3aed" font-size="7" font-weight="600">c001</text>
+  <circle cx="250" cy="446" r="4" fill="#7c3aed"/><text x="254" y="442" fill="#7c3aed" font-size="7" font-weight="600">c101</text>
+  <circle cx="110" cy="326" r="4" fill="#7c3aed"/><text x="90" y="322" fill="#7c3aed" font-size="7" font-weight="600">c011</text>
+  <circle cx="250" cy="326" r="4" fill="#7c3aed"/><text x="254" y="322" fill="#7c3aed" font-size="7" font-weight="600">c111</text>
+
+  <!-- Input point -->
+  <circle cx="160" cy="396" r="5" fill="#c88400"/>
+  <text x="168" y="392" fill="#c88400" font-size="8" font-weight="600">(r, g, b)</text>
+
+  <!-- Steps -->
+  <text x="300" y="338" fill="#333" font-size="9" font-weight="600">Interpolation Steps:</text>
+  <text x="300" y="356" class="step" fill="#dc2626">① Along R axis (4 lerps)</text>
+  <text x="300" y="371" class="step-code">v00 = c000·(1-r) + c100·r</text>
+  <text x="300" y="384" class="step-code">v01, v10, v11 likewise</text>
+  <text x="300" y="404" class="step" fill="#16a34a">② Along G axis (2 lerps)</text>
+  <text x="300" y="419" class="step-code">v0 = v00·(1-g) + v10·g</text>
+  <text x="300" y="432" class="step-code">v1 = v01·(1-g) + v11·g</text>
+  <text x="300" y="452" class="step" fill="#2563eb">③ Along B axis (1 lerp)</text>
+  <text x="300" y="467" class="step-code">out = v0·(1-b) + v1·b</text>
+  <text x="300" y="492" fill="#c88400" font-size="9" font-weight="600">→ 7 lerps total per pixel</text>
+
+  <!-- Right: SIMD + Fixed-size -->
+  <rect x="494" y="316" width="450" height="200" rx="6" fill="#fefce8" stroke="#e0d8a0" stroke-width="1"/>
+
+  <!-- SIMD -->
+  <text x="510" y="338" class="heading" fill="#c88400">SIMD f32x4 — Process 3 Channels at Once</text>
+
+  <g transform="translate(510, 348)">
+    <rect x="0" y="0" width="60" height="24" rx="4" fill="#dc2626" fill-opacity="0.15" stroke="#dc2626" stroke-width="1"/>
+    <text x="30" y="15" fill="#dc2626" font-size="9" font-weight="600" text-anchor="middle">R</text>
+    <rect x="62" y="0" width="60" height="24" rx="4" fill="#16a34a" fill-opacity="0.15" stroke="#16a34a" stroke-width="1"/>
+    <text x="92" y="15" fill="#16a34a" font-size="9" font-weight="600" text-anchor="middle">G</text>
+    <rect x="124" y="0" width="60" height="24" rx="4" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-width="1"/>
+    <text x="154" y="15" fill="#2563eb" font-size="9" font-weight="600" text-anchor="middle">B</text>
+    <rect x="186" y="0" width="60" height="24" rx="4" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+    <text x="216" y="15" fill="#bbb" font-size="9" text-anchor="middle">pad</text>
+    <text x="270" y="15" class="label">← single f32x4</text>
+  </g>
+
+  <text x="510" y="392" class="label">1D LUT: All 3 channels interpolated in one SIMD pass</text>
+  <text x="510" y="407" class="label">3D LUT: Scalar per-channel (SoA) with raw pointer access</text>
+  <text x="510" y="422" class="mono">wide::f32x4 for vector multiply + add</text>
+
+  <!-- Fixed-size -->
+  <text x="510" y="450" class="heading" fill="#c88400">Fixed-Size Specialization</text>
+  <text x="510" y="468" class="mono">1D: Bit10 [1024] | Bit12 [4096] | Bit16 [65536]</text>
+  <text x="510" y="483" class="mono">3D: 17³ [4913]  | 33³ [35937]  | 65³ [274625]</text>
+  <text x="510" y="501" class="label-ok">✓ Compile-time known sizes → unchecked array access</text>
+  <text x="510" y="514" class="label-ok">✓ No bounds checking in hot loops</text>
+
+  <!-- ===== Bottom summary ===== -->
+  <rect x="16" y="532" width="928" height="72" rx="6" fill="#f5f5f5" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="480" y="554" text-anchor="middle" fill="#1a1a1a" font-size="11" font-weight="700">Key Optimizations Summary</text>
+  <text x="140" y="574" class="summary-title" fill="#16a34a">SoA Memory Layout</text>
+  <text x="140" y="589" class="summary-desc">Cache-friendly per-channel</text>
+  <text x="350" y="574" class="summary-title" fill="#2563eb">SIMD f32x4</text>
+  <text x="350" y="589" class="summary-desc">3 channels, 1 instruction</text>
+  <text x="560" y="574" class="summary-title" fill="#c88400">Fixed-Size Arrays</text>
+  <text x="560" y="589" class="summary-desc">Unchecked access, no alloc</text>
+  <text x="770" y="574" class="summary-title" fill="#7c3aed">In-Place Processing</text>
+  <text x="770" y="589" class="summary-desc">Zero-allocation pixel loop</text>
+</svg>
