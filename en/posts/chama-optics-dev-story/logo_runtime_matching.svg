@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440">
+  <defs>
+    <marker id="ar-d2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546E7A"/>
+    </marker>
+    <marker id="ar-b2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565C0"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif; }
+      .title { font-size: 17px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-size: 12px; fill: #666; }
+      .label { font-size: 12px; fill: #333; }
+      .label-sm { font-size: 10.5px; fill: #555; }
+      .label-xs { font-size: 9.5px; fill: #777; }
+      .label-bold { font-size: 12px; fill: #333; font-weight: bold; }
+      .code { font-family: 'JetBrains Mono', 'SF Mono', monospace; font-size: 10px; fill: #37474F; }
+      .code-sm { font-family: 'JetBrains Mono', 'SF Mono', monospace; font-size: 9px; fill: #546E7A; }
+    </style>
+  </defs>
+
+  <rect width="900" height="440" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <text x="450" y="30" text-anchor="middle" class="title">Runtime Logo Matching &amp; Rendering</text>
+  <text x="450" y="48" text-anchor="middle" class="subtitle">EXIF Make/Model → LOGO_ASSETS array scan → SVG rasterize → image composite</text>
+
+  <!-- Step 1: EXIF extraction -->
+  <rect x="30" y="70" width="180" height="130" rx="6" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="120" y="90" text-anchor="middle" class="label-bold" fill="#1565C0">EXIF Extraction</text>
+  <rect x="42" y="100" width="156" height="90" rx="3" fill="white" stroke="#BBDEFB" stroke-width="1"/>
+  <text x="52" y="118" class="code-sm">Tag::Make</text>
+  <text x="52" y="133" class="label-sm" fill="#1565C0">"NIKON CORPORATION"</text>
+  <text x="52" y="152" class="code-sm">Tag::Model</text>
+  <text x="52" y="167" class="label-sm" fill="#1565C0">"NIKON Z 5"</text>
+  <text x="52" y="183" class="label-xs">→ camera_mnf, camera_model</text>
+
+  <!-- Arrow -->
+  <line x1="210" y1="135" x2="248" y2="135" stroke="#546E7A" stroke-width="2" marker-end="url(#ar-d2)"/>
+
+  <!-- Step 2: Matching -->
+  <rect x="258" y="70" width="250" height="130" rx="6" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+  <text x="383" y="90" text-anchor="middle" class="label-bold" fill="#E65100">LOGO_ASSETS Array Matching</text>
+
+  <rect x="270" y="100" width="226" height="90" rx="3" fill="white" stroke="#FFE0B2" stroke-width="1"/>
+  <text x="280" y="118" class="code-sm">for asset in LOGO_ASSETS:</text>
+  <text x="290" y="133" class="code-sm">asset.is_match((mnf, model))</text>
+  <line x1="270" y1="140" x2="496" y2="140" stroke="#FFE0B2" stroke-width="1"/>
+  <text x="280" y="157" class="label-xs">mnf_model_rel == Any:</text>
+  <text x="290" y="170" class="code-sm">mnf.contains("nikon") || model.contains("")</text>
+  <text x="280" y="185" class="label-xs">→ "nikon corporation".contains("nikon") = true</text>
+
+  <!-- Arrow -->
+  <line x1="508" y1="135" x2="548" y2="135" stroke="#546E7A" stroke-width="2" marker-end="url(#ar-d2)"/>
+  <text x="528" y="125" class="label-xs" fill="#2E7D32">match!</text>
+
+  <!-- Step 3: SVG Render -->
+  <rect x="558" y="70" width="170" height="130" rx="6" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="643" y="90" text-anchor="middle" class="label-bold" fill="#2E7D32">SVG Rasterize</text>
+
+  <rect x="570" y="100" width="146" height="90" rx="3" fill="white" stroke="#C8E6C9" stroke-width="1"/>
+  <text x="580" y="118" class="code-sm">usvg::Tree::from_str()</text>
+  <text x="580" y="133" class="label-sm" fill="#2E7D32">SVG parsing</text>
+  <text x="580" y="152" class="code-sm">resvg + tiny-skia</text>
+  <text x="580" y="167" class="label-sm" fill="#2E7D32">Vector → raster conversion</text>
+  <text x="580" y="183" class="label-xs">draw_fit(w, h) fit to size</text>
+
+  <!-- Arrow -->
+  <line x1="728" y1="135" x2="758" y2="135" stroke="#546E7A" stroke-width="2" marker-end="url(#ar-d2)"/>
+
+  <!-- Step 4: Composite -->
+  <rect x="768" y="70" width="102" height="130" rx="6" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="1.5"/>
+  <text x="819" y="90" text-anchor="middle" class="label-bold" fill="#7B1FA2">Composite</text>
+  <!-- Fake image with logo -->
+  <rect x="780" y="102" width="78" height="52" rx="3" fill="#CFD8DC" stroke="#90A4AE" stroke-width="1"/>
+  <text x="819" y="133" text-anchor="middle" class="label-xs" fill="#546E7A">Photo</text>
+  <!-- Logo box in corner -->
+  <rect x="821" y="138" width="34" height="14" rx="2" fill="#7B1FA2" fill-opacity="0.3" stroke="#7B1FA2" stroke-width="0.8"/>
+  <text x="838" y="149" text-anchor="middle" class="label-xs" fill="#7B1FA2">NIKON</text>
+  <text x="819" y="178" text-anchor="middle" class="label-xs">Logo in</text>
+  <text x="819" y="190" text-anchor="middle" class="label-xs">frame</text>
+
+  <!-- Matching examples -->
+  <rect x="30" y="220" width="840" height="200" rx="6" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="50" y="244" class="label-bold">Matching Examples — EXIF Make/Model → Logo Selection</text>
+  <line x1="30" y1="252" x2="870" y2="252" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Table header -->
+  <text x="50" y="272" class="label-bold" fill="#546E7A">EXIF Make</text>
+  <text x="230" y="272" class="label-bold" fill="#546E7A">EXIF Model</text>
+  <text x="430" y="272" class="label-bold" fill="#546E7A">CSV mnf/model</text>
+  <text x="620" y="272" class="label-bold" fill="#546E7A">Match Rule</text>
+  <text x="760" y="272" class="label-bold" fill="#546E7A">Result</text>
+  <line x1="40" y1="278" x2="860" y2="278" stroke="#ECEFF1" stroke-width="1"/>
+
+  <!-- Row 1: Canon -->
+  <text x="50" y="296" class="code-sm">"Canon"</text>
+  <text x="230" y="296" class="code-sm">"Canon EOS R5"</text>
+  <text x="430" y="296" class="code-sm">mnf="canon"</text>
+  <text x="620" y="296" class="label-sm">Any (OR)</text>
+  <text x="760" y="296" class="label-sm" fill="#2E7D32">canon.svg (Color)</text>
+
+  <!-- Row 2: Apple iPhone -->
+  <text x="50" y="316" class="code-sm">"Apple"</text>
+  <text x="230" y="316" class="code-sm">"iPhone 16 Pro"</text>
+  <text x="430" y="316" class="code-sm">mnf="apple", model="iphone"</text>
+  <text x="620" y="316" class="label-sm">Any (OR)</text>
+  <text x="760" y="316" class="label-sm" fill="#2E7D32">apple.svg (Black)</text>
+
+  <!-- Row 3: Sigma fp -->
+  <text x="50" y="336" class="code-sm">"SIGMA"</text>
+  <text x="230" y="336" class="code-sm">"SIGMA fp"</text>
+  <text x="430" y="336" class="code-sm">mnf="sigma" (general)</text>
+  <text x="620" y="336" class="label-sm">Any (OR)</text>
+  <text x="760" y="336" class="label-sm" fill="#2E7D32">sigma.svg (Black)</text>
+
+  <!-- Row 4: Sigma BF (Both) -->
+  <text x="50" y="356" class="code-sm">"SIGMA"</text>
+  <text x="230" y="356" class="code-sm">"SIGMA BF"</text>
+  <text x="430" y="356" class="code-sm">mnf="sigma", model="sigma bf"</text>
+  <text x="620" y="356" class="label-sm" fill="#E65100">Both (AND)</text>
+  <text x="760" y="356" class="label-sm" fill="#E65100">sigma2025.svg (new logo)</text>
+
+  <!-- Row 5: Panasonic Lumix -->
+  <text x="50" y="376" class="code-sm">"Panasonic"</text>
+  <text x="230" y="376" class="code-sm">"DC-S5M2"</text>
+  <text x="430" y="376" class="code-sm">mnf="lumix"</text>
+  <text x="620" y="376" class="label-sm">Any (OR)</text>
+  <text x="760" y="376" class="label-sm" fill="#2E7D32">lumix.svg (Color)</text>
+
+  <text x="50" y="408" class="label-xs" fill="#999">* mnf/model matching is case-insensitive (to_ascii_lowercase), substring match via contains()</text>
+  <text x="50" y="420" class="label-xs" fill="#999">* Sigma changed logo in 2025; only BF model uses new logo (sigma2025.svg), others use old (sigma.svg) — distinguished via Both match</text>
+</svg>

@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580">
+  <defs>
+    <marker id="arr-d" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#546E7A"/>
+    </marker>
+    <marker id="arr-b" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1565C0"/>
+    </marker>
+    <marker id="arr-g" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2E7D32"/>
+    </marker>
+    <marker id="arr-r" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#C62828"/>
+    </marker>
+    <style>
+      text { font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif; }
+      .title { font-size: 17px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-size: 12px; fill: #666; }
+      .label { font-size: 12px; fill: #333; }
+      .label-sm { font-size: 10.5px; fill: #555; }
+      .label-xs { font-size: 9.5px; fill: #777; }
+      .label-bold { font-size: 12px; fill: #333; font-weight: bold; }
+      .code { font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace; font-size: 10px; fill: #37474F; }
+      .code-sm { font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace; font-size: 9px; fill: #546E7A; }
+      .step-num { font-size: 13px; font-weight: bold; fill: white; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="580" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" class="title">Compile-time Logo Asset Pipeline (build.rs)</text>
+  <text x="450" y="48" text-anchor="middle" class="subtitle">Download SVGs from CSV during cargo build, verify MD5, embed in binary</text>
+
+  <!-- Phase 1: CSV -->
+  <rect x="30" y="70" width="250" height="170" rx="6" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5"/>
+  <circle cx="50" cy="85" r="10" fill="#1565C0"/>
+  <text x="50" y="89" text-anchor="middle" class="step-num">1</text>
+  <text x="70" y="89" class="label-bold" fill="#1565C0">CSV Parsing</text>
+
+  <rect x="42" y="100" width="226" height="130" rx="4" fill="white" stroke="#BBDEFB" stroke-width="1"/>
+  <text x="52" y="117" class="code">assets/logo_mnf.csv</text>
+  <line x1="42" y1="123" x2="268" y2="123" stroke="#BBDEFB" stroke-width="1"/>
+  <text x="52" y="138" class="code-sm">key,url,expected_md5,color_type,...</text>
+  <text x="52" y="153" class="code-sm">apple.svg,https://...wikimedia.../</text>
+  <text x="62" y="165" class="code-sm">Apple_logo_black.svg,00587...,Black</text>
+  <text x="52" y="180" class="code-sm">canon.svg,https://...wikimedia.../</text>
+  <text x="62" y="192" class="code-sm">Canon_wordmark.svg,ead7f...,Color</text>
+  <text x="52" y="207" class="code-sm">contax.svg,assets/logo_mnf/contax.svg</text>
+  <text x="52" y="222" class="code-sm">... (35 vendors)</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="280" y1="155" x2="320" y2="155" stroke="#546E7A" stroke-width="2" marker-end="url(#arr-d)"/>
+
+  <!-- Phase 2: Download & Verify -->
+  <rect x="330" y="70" width="250" height="170" rx="6" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1.5"/>
+  <circle cx="350" cy="85" r="10" fill="#2E7D32"/>
+  <text x="350" y="89" text-anchor="middle" class="step-num">2</text>
+  <text x="370" y="89" class="label-bold" fill="#2E7D32">Download &amp; MD5 Verify</text>
+
+  <!-- Download box -->
+  <rect x="342" y="100" width="226" height="60" rx="4" fill="white" stroke="#C8E6C9" stroke-width="1"/>
+  <text x="352" y="118" class="label-sm" fill="#2E7D32">HTTP/HTTPS URL → reqwest download</text>
+  <text x="352" y="133" class="label-sm" fill="#2E7D32">Local path → fs::read direct load</text>
+  <text x="352" y="148" class="label-xs">Retry: max 3 attempts, 5s interval</text>
+
+  <!-- MD5 verify box -->
+  <rect x="342" y="168" width="226" height="62" rx="4" fill="white" stroke="#C8E6C9" stroke-width="1"/>
+  <text x="352" y="186" class="label-sm" fill="#2E7D32">MD5 hash comparison</text>
+  <text x="352" y="201" class="code-sm">actual_md5 == expected_md5 ?</text>
+  <text x="352" y="216" class="label-xs">Match → keep cache (skip re-download)</text>
+  <text x="352" y="226" class="label-xs">Mismatch → panic! (integrity error)</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="580" y1="155" x2="620" y2="155" stroke="#546E7A" stroke-width="2" marker-end="url(#arr-d)"/>
+
+  <!-- Phase 3: Codegen -->
+  <rect x="630" y="70" width="240" height="170" rx="6" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+  <circle cx="650" cy="85" r="10" fill="#E65100"/>
+  <text x="650" y="89" text-anchor="middle" class="step-num">3</text>
+  <text x="670" y="89" class="label-bold" fill="#E65100">Rust Source Code Gen</text>
+
+  <rect x="642" y="100" width="216" height="130" rx="4" fill="white" stroke="#FFE0B2" stroke-width="1"/>
+  <text x="652" y="117" class="code">logo_assets.rs (auto-generated)</text>
+  <line x1="642" y1="123" x2="858" y2="123" stroke="#FFE0B2" stroke-width="1"/>
+  <text x="652" y="139" class="code-sm">pub const LOGO_ASSETS: &amp;[ArtAsset]</text>
+  <text x="652" y="153" class="code-sm">= &amp;[</text>
+  <text x="660" y="167" class="code-sm">ArtAsset {</text>
+  <text x="670" y="179" class="code-sm">key: "canon.svg",</text>
+  <text x="670" y="191" class="code-sm">data: include_bytes!("..."),</text>
+  <text x="670" y="203" class="code-sm">mnf: "canon",</text>
+  <text x="670" y="215" class="code-sm">color_type: Color, ...</text>
+  <text x="660" y="227" class="code-sm">}, ...</text>
+
+  <!-- Arrow down to binary -->
+  <line x1="750" y1="245" x2="750" y2="275" stroke="#546E7A" stroke-width="2" marker-end="url(#arr-d)"/>
+
+  <!-- Phase 4: Binary embedding -->
+  <rect x="580" y="280" width="290" height="65" rx="6" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="1.5"/>
+  <circle cx="600" cy="295" r="10" fill="#7B1FA2"/>
+  <text x="600" y="299" text-anchor="middle" class="step-num">4</text>
+  <text x="620" y="299" class="label-bold" fill="#7B1FA2">Binary Embedding</text>
+  <text x="592" y="318" class="code-sm">include_bytes!() → SVG binary included in executable</text>
+  <text x="592" y="333" class="label-xs">No runtime file loading — all 35 SVGs embedded at compile time</text>
+
+  <!-- Cache flow diagram (bottom half) -->
+  <rect x="30" y="270" width="520" height="140" rx="6" fill="#ECEFF1" stroke="#78909C" stroke-width="1"/>
+  <text x="50" y="292" class="label-bold" fill="#546E7A">MD5 Cache Flow (on rebuild)</text>
+
+  <!-- Flow chart -->
+  <rect x="45" y="305" width="115" height="35" rx="4" fill="white" stroke="#90A4AE" stroke-width="1"/>
+  <text x="102" y="327" text-anchor="middle" class="label-sm">cargo build</text>
+
+  <line x1="160" y1="322" x2="185" y2="322" stroke="#546E7A" stroke-width="1.5" marker-end="url(#arr-d)"/>
+
+  <rect x="195" y="305" width="120" height="35" rx="14" fill="#FFF9C4" stroke="#F9A825" stroke-width="1"/>
+  <text x="255" y="327" text-anchor="middle" class="label-sm">File exists?</text>
+
+  <!-- Yes path -->
+  <line x1="315" y1="310" x2="355" y2="298" stroke="#2E7D32" stroke-width="1.5" marker-end="url(#arr-g)"/>
+  <text x="330" y="295" class="label-xs" fill="#2E7D32">Yes</text>
+  <rect x="365" y="280" width="100" height="35" rx="4" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1"/>
+  <text x="415" y="302" text-anchor="middle" class="label-sm" fill="#2E7D32">MD5 Verify</text>
+
+  <line x1="465" y1="297" x2="495" y2="297" stroke="#2E7D32" stroke-width="1.5" marker-end="url(#arr-g)"/>
+  <text x="503" y="292" class="label-xs" fill="#2E7D32">OK</text>
+  <text x="503" y="305" class="label-xs" fill="#2E7D32">Skip!</text>
+
+  <!-- No path -->
+  <line x1="315" y1="335" x2="355" y2="348" stroke="#C62828" stroke-width="1.5" marker-end="url(#arr-r)"/>
+  <text x="330" y="352" class="label-xs" fill="#C62828">No</text>
+  <rect x="365" y="330" width="100" height="35" rx="4" fill="#FFEBEE" stroke="#C62828" stroke-width="1"/>
+  <text x="415" y="352" text-anchor="middle" class="label-sm" fill="#C62828">Download</text>
+
+  <line x1="465" y1="348" x2="490" y2="348" stroke="#C62828" stroke-width="1.5"/>
+  <line x1="490" y1="348" x2="490" y2="297" stroke="#C62828" stroke-width="1.5"/>
+  <line x1="490" y1="297" x2="495" y2="297" stroke="#C62828" stroke-width="1.5" marker-end="url(#arr-r)"/>
+
+  <!-- CSV column explanation -->
+  <rect x="30" y="430" width="840" height="130" rx="6" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="50" y="452" class="label-bold">CSV Column Reference (logo_mnf.csv)</text>
+  <line x1="30" y1="460" x2="870" y2="460" stroke="#e0e0e0" stroke-width="1"/>
+
+  <text x="50" y="480" class="code-sm">key</text>
+  <text x="120" y="480" class="label-sm">— SVG filename (e.g. canon.svg)</text>
+  <text x="450" y="480" class="code-sm">color_type</text>
+  <text x="530" y="480" class="label-sm">— Black / BlackMixed / Color (render mode)</text>
+
+  <text x="50" y="498" class="code-sm">url</text>
+  <text x="120" y="498" class="label-sm">— Wikimedia URL or local path</text>
+  <text x="450" y="498" class="code-sm">fill_ops</text>
+  <text x="530" y="498" class="label-sm">— Default / Monochrome (fill mode)</text>
+
+  <text x="50" y="516" class="code-sm">expected_md5</text>
+  <text x="145" y="516" class="label-sm">— Integrity hash (prevent re-download)</text>
+  <text x="450" y="516" class="code-sm">mnf / model</text>
+  <text x="540" y="516" class="label-sm">— EXIF Make/Model matching string</text>
+
+  <text x="450" y="534" class="code-sm">mnf_model_rel</text>
+  <text x="555" y="534" class="label-sm">— Any (OR match) / Both (AND match)</text>
+  <text x="50" y="534" class="label-xs" fill="#999">35 vendors total: Apple, Canon, Nikon, Sony, Lumix, Fujifilm, Sigma, Leica, Hasselblad, DJI, Google, Xiaomi ...</text>
+</svg>

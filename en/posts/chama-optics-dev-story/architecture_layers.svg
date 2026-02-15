@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="iosBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#007AFF" stop-opacity="0.18"/><stop offset="100%" stop-color="#007AFF" stop-opacity="0.06"/></linearGradient>
+    <linearGradient id="androidBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3ddc84" stop-opacity="0.18"/><stop offset="100%" stop-color="#3ddc84" stop-opacity="0.06"/></linearGradient>
+    <linearGradient id="macosBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.18"/><stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.06"/></linearGradient>
+    <linearGradient id="winBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f59e0b" stop-opacity="0.18"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0.06"/></linearGradient>
+    <linearGradient id="ffiBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fbbf24" stop-opacity="0.15"/><stop offset="100%" stop-color="#fbbf24" stop-opacity="0.04"/></linearGradient>
+    <linearGradient id="directBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.15"/><stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.04"/></linearGradient>
+    <linearGradient id="rustBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ce422b" stop-opacity="0.18"/><stop offset="100%" stop-color="#ce422b" stop-opacity="0.05"/></linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="620" rx="12" fill="#0f1117"/>
+
+  <!-- ═══ SECTION LABEL: Application Layer ═══ -->
+  <text x="24" y="28" fill="#fbbf24" font-size="10" font-weight="700" letter-spacing="2.5" text-transform="uppercase">APPLICATION LAYER</text>
+
+  <!-- ═══ PLATFORM BOXES (4 columns) ═══ -->
+  <!-- iOS -->
+  <rect x="16" y="40" width="224" height="100" rx="8" fill="url(#iosBg)" stroke="#2d3148" stroke-width="1.2"/>
+  <rect x="16" y="40" width="224" height="3" rx="1.5" fill="#007AFF"/>
+  <text x="30" y="62" fill="#e2e8f0" font-size="13" font-weight="600">iOS / iPadOS</text>
+  <rect x="138" y="50" width="52" height="16" rx="8" fill="#007AFF"/>
+  <text x="147" y="61" fill="#fff" font-size="8.5" font-weight="600">SwiftUI</text>
+  <text x="30" y="80" fill="#8892b0" font-size="9" font-family="'SF Mono','Fira Code',monospace">GalleryView  ThemePreviewView</text>
+  <text x="30" y="93" fill="#8892b0" font-size="9" font-family="'SF Mono','Fira Code',monospace">ColorGradingView  DetectionView</text>
+  <text x="30" y="108" fill="#8892b0" font-size="8">VisionKit  Core Image  PHPicker</text>
+
+  <!-- Android -->
+  <rect x="252" y="40" width="224" height="100" rx="8" fill="url(#androidBg)" stroke="#2d3148" stroke-width="1.2"/>
+  <rect x="252" y="40" width="224" height="3" rx="1.5" fill="#3ddc84"/>
+  <text x="266" y="62" fill="#e2e8f0" font-size="13" font-weight="600">Android</text>
+  <rect x="330" y="50" width="62" height="16" rx="8" fill="#3ddc84"/>
+  <text x="337" y="61" fill="#000" font-size="8.5" font-weight="600">Compose</text>
+  <text x="266" y="80" fill="#8892b0" font-size="9" font-family="'SF Mono','Fira Code',monospace">GalleryScreen  ThemePreview</text>
+  <text x="266" y="93" fill="#8892b0" font-size="9" font-family="'SF Mono','Fira Code',monospace">ColorGradingScreen  ImagePreview</text>
+  <text x="266" y="108" fill="#8892b0" font-size="8">ML Kit  MediaStore  CameraX  Material 3</text>
+
+  <!-- macOS -->
+  <rect x="488" y="40" width="224" height="100" rx="8" fill="url(#macosBg)" stroke="#2d3148" stroke-width="1.2"/>
+  <rect x="488" y="40" width="224" height="3" rx="1.5" fill="#8b5cf6"/>
+  <text x="502" y="62" fill="#e2e8f0" font-size="13" font-weight="600">macOS</text>
+  <rect x="554" y="50" width="38" height="16" rx="8" fill="#8b5cf6"/>
+  <text x="560" y="61" fill="#fff" font-size="8.5" font-weight="600">egui</text>
+  <text x="502" y="80" fill="#8892b0" font-size="9" font-family="'SF Mono','Fira Code',monospace">main.rs  app.rs  tabs/*</text>
+  <text x="502" y="93" fill="#8892b0" font-size="9" font-family="'SF Mono','Fira Code',monospace">ui_components</text>
+  <text x="502" y="108" fill="#8892b0" font-size="8">HEIF (macOS API)  VisionKit faces</text>
+
+  <!-- Windows / Linux -->
+  <rect x="724" y="40" width="220" height="100" rx="8" fill="url(#winBg)" stroke="#2d3148" stroke-width="1.2"/>
+  <rect x="724" y="40" width="220" height="3" rx="1.5" fill="#f59e0b"/>
+  <text x="738" y="62" fill="#e2e8f0" font-size="13" font-weight="600">Windows / Linux</text>
+  <rect x="866" y="50" width="38" height="16" rx="8" fill="#8b5cf6"/>
+  <text x="872" y="61" fill="#fff" font-size="8.5" font-weight="600">egui</text>
+  <text x="738" y="80" fill="#8892b0" font-size="9" font-family="'SF Mono','Fira Code',monospace">main.rs  app.rs  tabs/*</text>
+  <text x="738" y="93" fill="#8892b0" font-size="9" font-family="'SF Mono','Fira Code',monospace">ui_components</text>
+  <text x="738" y="108" fill="#8892b0" font-size="8">libheif  Cross-platform binary</text>
+
+  <!-- ═══ ARROWS: Platform → Bridge ═══ -->
+  <!-- iOS arrow (FFI dashed yellow) -->
+  <line x1="128" y1="144" x2="128" y2="178" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="122,178 128,188 134,178" fill="#fbbf24"/>
+  <text x="138" y="172" fill="#8892b0" font-size="8" font-family="'SF Mono','Fira Code',monospace">@_silgen_name</text>
+
+  <!-- Android arrow (FFI dashed yellow) -->
+  <line x1="364" y1="144" x2="364" y2="178" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="358,178 364,188 370,178" fill="#fbbf24"/>
+  <text x="374" y="172" fill="#8892b0" font-size="8" font-family="'SF Mono','Fira Code',monospace">JNA / JNI</text>
+
+  <!-- macOS arrow (Direct dashed purple) -->
+  <line x1="600" y1="144" x2="600" y2="178" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <polygon points="594,178 600,188 606,178" fill="#8b5cf6"/>
+  <text x="610" y="172" fill="#8892b0" font-size="8" font-family="'SF Mono','Fira Code',monospace">Direct API</text>
+
+  <!-- Win/Linux arrow (Direct dashed purple) -->
+  <line x1="834" y1="144" x2="834" y2="178" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <polygon points="828,178 834,188 840,178" fill="#8b5cf6"/>
+  <text x="844" y="172" fill="#8892b0" font-size="8" font-family="'SF Mono','Fira Code',monospace">Direct API</text>
+
+  <!-- ═══ SECTION LABEL: Bridge Layer ═══ -->
+  <text x="24" y="208" fill="#fbbf24" font-size="10" font-weight="700" letter-spacing="2.5">BRIDGE LAYER</text>
+
+  <!-- ═══ BRIDGE ROW ═══ -->
+  <!-- Left: FFI Bridge -->
+  <rect x="16" y="218" width="460" height="150" rx="8" fill="url(#ffiBg)" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="170" y="240" fill="#fbbf24" font-size="13" font-weight="600" text-anchor="middle">C Foreign Function Interface</text>
+
+  <!-- iOS FFI sub-box -->
+  <rect x="30" y="250" width="210" height="64" rx="6" fill="rgba(0,0,0,0.25)"/>
+  <rect x="30" y="250" width="3" height="64" rx="1.5" fill="#fbbf24"/>
+  <text x="44" y="268" fill="#fbbf24" font-size="10" font-weight="600">iOS  (Swift → C → Rust)</text>
+  <text x="44" y="283" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">RustBridge.swift</text>
+  <text x="44" y="296" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">FaceDetectionBridge.swift</text>
+  <text x="44" y="309" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">ChamaOptics-Bridging-Header.h</text>
+
+  <!-- Android FFI sub-box -->
+  <rect x="252" y="250" width="210" height="64" rx="6" fill="rgba(0,0,0,0.25)"/>
+  <rect x="252" y="250" width="3" height="64" rx="1.5" fill="#fbbf24"/>
+  <text x="266" y="268" fill="#fbbf24" font-size="10" font-weight="600">Android  (Kotlin → JNA → C → Rust)</text>
+  <text x="266" y="283" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">NativeBridge.kt</text>
+  <text x="266" y="296" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">ChamaOpticsLib.kt</text>
+  <text x="266" y="309" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">NativeStructs.kt</text>
+
+  <!-- FFI stats -->
+  <text x="246" y="352" fill="#8892b0" font-size="10" text-anchor="middle"><tspan fill="#fbbf24" font-family="'SF Mono','Fira Code',monospace" font-size="9">ffi_ios.rs</tspan> · <tspan fill="#fbbf24" font-family="'SF Mono','Fira Code',monospace" font-size="9">ffi.rs</tspan> (shared)</text>
+
+  <!-- Right: Direct Rust API -->
+  <rect x="488" y="218" width="456" height="150" rx="8" fill="url(#directBg)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="716" y="240" fill="#8b5cf6" font-size="13" font-weight="600" text-anchor="middle">Direct Rust API</text>
+  <text x="716" y="258" fill="#8892b0" font-size="10" text-anchor="middle">Desktop platforms call Rust core</text>
+  <text x="716" y="272" fill="#8892b0" font-size="10" text-anchor="middle">directly without FFI overhead</text>
+
+  <!-- macOS sub-box -->
+  <rect x="502" y="284" width="200" height="72" rx="6" fill="rgba(0,0,0,0.25)"/>
+  <rect x="502" y="284" width="3" height="72" rx="1.5" fill="#8b5cf6"/>
+  <text x="516" y="302" fill="#8b5cf6" font-size="10" font-weight="600">macOS</text>
+  <text x="516" y="317" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">egui immediate-mode GUI</text>
+  <text x="516" y="330" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">HEIF via macOS API</text>
+  <text x="516" y="343" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">VisionKit face detection</text>
+
+  <!-- Win/Linux sub-box -->
+  <rect x="714" y="284" width="218" height="72" rx="6" fill="rgba(0,0,0,0.25)"/>
+  <rect x="714" y="284" width="3" height="72" rx="1.5" fill="#8b5cf6"/>
+  <text x="728" y="302" fill="#8b5cf6" font-size="10" font-weight="600">Windows / Linux</text>
+  <text x="728" y="317" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">egui immediate-mode GUI</text>
+  <text x="728" y="330" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">libheif for HEIF support</text>
+  <text x="728" y="343" fill="#8892b0" font-size="8.5" font-family="'SF Mono','Fira Code',monospace">Cross-platform binary</text>
+
+  <!-- ═══ CONNECTOR: Bridge → Core ═══ -->
+  <line x1="246" y1="372" x2="246" y2="406" stroke="#ce422b" stroke-width="2"/>
+  <polygon points="240,406 246,416 252,406" fill="#ce422b"/>
+  <text x="260" y="400" fill="#8892b0" font-size="8" font-family="'SF Mono','Fira Code',monospace">extern "C" #[repr(C)]</text>
+
+  <line x1="716" y1="372" x2="716" y2="406" stroke="#ce422b" stroke-width="2"/>
+  <polygon points="710,406 716,416 722,406" fill="#ce422b"/>
+  <text x="730" y="400" fill="#8892b0" font-size="8" font-family="'SF Mono','Fira Code',monospace">native Rust calls</text>
+
+  <!-- ═══ SECTION LABEL: Core Layer ═══ -->
+  <text x="24" y="434" fill="#fbbf24" font-size="10" font-weight="700" letter-spacing="2.5">CORE LAYER</text>
+
+  <!-- ═══ RUST CORE ═══ -->
+  <rect x="16" y="444" width="928" height="160" rx="8" fill="url(#rustBg)" stroke="rgba(206,66,43,0.3)" stroke-width="1.5"/>
+  <text x="480" y="468" fill="#e2e8f0" font-size="14" font-weight="600" text-anchor="middle">Rust Core Library</text>
+  <text x="480" y="484" fill="#8892b0" font-size="10" text-anchor="middle">chama-optics · git submodule shared across all platforms</text>
+
+  <!-- Module boxes (3x2 grid) -->
+  <!-- Row 1 -->
+  <rect x="30" y="496" width="140" height="96" rx="6" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="44" y="514" fill="#ce422b" font-size="10" font-weight="600">Theme Engine</text>
+  <text x="44" y="530" fill="#8892b0" font-size="8">11 built-in themes</text>
+  <text x="44" y="543" fill="#8892b0" font-size="8">JSON parameter schema</text>
+  <text x="44" y="556" fill="#8892b0" font-size="8">Text overlay rendering</text>
+  <text x="44" y="569" fill="#8892b0" font-size="8">Variable font support</text>
+
+  <rect x="182" y="496" width="148" height="96" rx="6" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="196" y="514" fill="#ce422b" font-size="10" font-weight="600">Image Processing</text>
+  <text x="196" y="530" fill="#8892b0" font-size="8">JPEG / PNG / HEIF / WebP</text>
+  <text x="196" y="543" fill="#8892b0" font-size="8">EXIF extraction</text>
+  <text x="196" y="556" fill="#8892b0" font-size="8">mozjpeg compression</text>
+  <text x="196" y="569" fill="#8892b0" font-size="8">Scale / resize / crop</text>
+
+  <rect x="342" y="496" width="148" height="96" rx="6" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="356" y="514" fill="#ce422b" font-size="10" font-weight="600">Face Detection</text>
+  <text x="356" y="530" fill="#8892b0" font-size="8">InsightFace ONNX</text>
+  <text x="356" y="543" fill="#8892b0" font-size="8">Mosaic &amp; stroke effects</text>
+  <text x="356" y="556" fill="#8892b0" font-size="8">Sticker overlay system</text>
+  <text x="356" y="569" fill="#8892b0" font-size="8">Per-face configuration</text>
+
+  <rect x="502" y="496" width="148" height="96" rx="6" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="516" y="514" fill="#ce422b" font-size="10" font-weight="600">Color Grading</text>
+  <text x="516" y="530" fill="#8892b0" font-size="8">3D lookup tables (.cube)</text>
+  <text x="516" y="543" fill="#8892b0" font-size="8">Panasonic / Nikon presets</text>
+  <text x="516" y="556" fill="#8892b0" font-size="8">7 adjustment sliders</text>
+  <text x="516" y="569" fill="#8892b0" font-size="8">Real-time preview</text>
+
+  <rect x="662" y="496" width="134" height="96" rx="6" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="676" y="514" fill="#ce422b" font-size="10" font-weight="600">Font Rendering</text>
+  <text x="676" y="530" fill="#8892b0" font-size="8">FreeType-based</text>
+  <text x="676" y="543" fill="#8892b0" font-size="8">Variable font axes</text>
+  <text x="676" y="556" fill="#8892b0" font-size="8">Embedded &amp; custom</text>
+  <text x="676" y="569" fill="#8892b0" font-size="8">Text alignment engine</text>
+
+  <rect x="808" y="496" width="124" height="96" rx="6" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="822" y="514" fill="#ce422b" font-size="10" font-weight="600">Export &amp; Effects</text>
+  <text x="822" y="530" fill="#8892b0" font-size="8">Format conversion</text>
+  <text x="822" y="543" fill="#8892b0" font-size="8">Quality settings</text>
+  <text x="822" y="556" fill="#8892b0" font-size="8">Border / glow</text>
+  <text x="822" y="569" fill="#8892b0" font-size="8">Batch processing</text>
+</svg>
