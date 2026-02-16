@@ -694,5 +694,6 @@ As a side project, Chama Optics aims to be "a tool that helps photographers bett
 ## Special Thanks
 
 - [SkuldNorniern](https://github.com/SkuldNorniern) -- Debugging and face detection assistance
+- [miniex](https://github.com/miniex) -- Font system debugging and face detection assistance
 - [jcm7612](https://github.com/jcm7612) -- Debugging and feedback
 - [shiemika324](https://x.com/shiemika324) -- Illustration and icon illustration

@@ -694,5 +694,6 @@ v0.1.9를 기점으로 데스크탑 단독 릴리즈는 종료하고, v0.2.0부�
 ## Special Thanks
 
 - [SkuldNorniern](https://github.com/SkuldNorniern) — 디버깅 및 얼굴 인식 관련 도움
+- [miniex](https://github.com/miniex) — 폰트 시스템 디버깅 및 얼굴 인식 관련 도움
 - [jcm7612](https://github.com/jcm7612) — 디버깅 및 피드백
 - [shiemika324](https://x.com/shiemika324) — 일러스트 및 아이콘 일러스트 제공

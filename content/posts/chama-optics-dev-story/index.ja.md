@@ -694,5 +694,6 @@ v0.1.9を起点にデスクトップ単独リリースは終了し、v0.2.0か�
 ## Special Thanks
 
 - [SkuldNorniern](https://github.com/SkuldNorniern) — デバッグおよび顔認識関連の支援
+- [miniex](https://github.com/miniex) — フォントシステムのデバッグおよび顔認識関連の支援
 - [jcm7612](https://github.com/jcm7612) — デバッグおよびフィードバック
 - [shiemika324](https://x.com/shiemika324) — イラストおよびアイコンイラスト提供
