@@ -1,0 +1,165 @@
+---
+title: "Chama Optics 배포"
+date: 2026-02-17T00:00:00+09:00
+draft: false
+categories: ["Chama Optics"]
+tags: ["Hololive", "HAACHAMA", "Photography"]
+description: "하아톤이 만든 사진 앱, Chama Optics — 행사 사진부터 오시카츠까지"
+summary: "Chama Optics를 릴리즈 합니다. 사진을 좋아하는 여행하는 VTuber 아카이 하아토(赤井はあと)에게서 영감을 받아 만든, 미러리스·DSLR 카메라 사용자를 위한 사진 후처리 앱"
+showHero: true
+heroStyle: "background"
+---
+
+## Chama Optics
+
+> 🌐 [English Release Note](/en/posts/chama-optics-public-release/) | [日本語リリースノート](/ja/posts/chama-optics-public-release/)
+
+<p style="text-align:center;"><img src="https://github.com/pmnxis/chama-optics/raw/master/assets/mac-icon.png" alt="Chama Optics" style="width:50%; display:block; margin:0 auto;"></p>
+
+> 행사장에서 찍은 사진, 그 자리에서 보정/프레임 입히고 모자이크까지.
+
+**Chama Optics**는 사진을 좋아하는 여행하는 VTuber [아카이 하아토(赤井はあと)](https://www.youtube.com/@AkaiHaato)에게서 영감을 받아 만든, 미러리스·DSLR 카메라 사용자를 위한 사진 후처리 앱입니다. 촬영 정보 프레임, 얼굴 자동 모자이크, 색감 보정, 체키 (폴라로이드풍 프레임) 등의 기능을 제공합니다.
+
+- **행사·여행·스트릿 촬영** —<br>결혼식, VTuber 오프라인 행사, 거리나 관광지 등 다른 사람 얼굴 모자이크가 필요할 때
+- **팬 사진 해시태그 참가자** —<br>[#推し活はあとん日記](https://x.com/hashtag/%E6%8E%A8%E3%81%97%E6%B4%BB%E3%81%AF%E3%81%82%E3%81%A8%E3%82%93%E6%97%A5%E8%A8%98), [#Towavel](https://x.com/hashtag/Towavel) 같은 태그로 사진을 올릴 때
+- **DSLR/미러리스 카메라 사용자·장비 리뷰어** —<br>촬영 정보(기종, 렌즈, 조리개 등)를 프레임에 넣어서 공유할 때
+
+<p style="text-align:right; font-size:0.85em; opacity:0.7;">기술적인 개발 과정이 궁금하다면 <a href="/ko/posts/chama-optics-dev-story/">개발기</a>를 참고 부탁드립니다.</p>
+
+<p style="text-align:center; margin:1.5em 0 0.5em;"><a href="#다운로드" style="font-size:1.2em; font-weight:600;">⬇ 다운로드로 바로 가기</a></p>
+
+## 주요 기능
+
+### 촬영 정보(EXIF) 프레임
+
+<details>
+<summary>EXIF 정보를 자동으로 읽어 다양한 테마의 프레임에 넣어줍니다. (자세히 보기)</summary>
+
+카메라로 찍은 사진에는 카메라 기종, 렌즈, 셔터스피드, 조리개, ISO 같은 촬영 정보가 들어 있습니다. Chama Optics는 이 정보를 자동으로 읽어서 다양한 테마의 프레임에 넣어줍니다.
+
+| Film Date | Strap | Monitor | Lightroom |
+|:---:|:---:|:---:|:---:|
+| ![Film Date](https://github.com/user-attachments/assets/a6bf0e51-d3b1-4779-9d65-080b225958f4) | ![Strap](https://github.com/user-attachments/assets/039ab49f-85b1-414b-95e3-2da166cea27f) | ![Monitor](https://github.com/user-attachments/assets/e92b81a0-4465-4dad-9097-7e8b4814fc15) | ![Lightroom](https://github.com/user-attachments/assets/ce1022cd-aea3-4260-9d5f-5e15997388de) |
+
+| One Line | Shot On Two Line | Nikon PhotoStyle | Lumix Photo Style + LUT |
+|:---:|:---:|:---:|:---:|
+| ![One Line](https://github.com/user-attachments/assets/337337f3-7c17-467a-b965-06481cba98c8) | ![Shot On 2](https://github.com/user-attachments/assets/a9ba4540-6540-418c-8e21-4f9961d7bff7) | ![Nikon](https://github.com/user-attachments/assets/28016fd2-2d4d-4043-88e1-c29f7577a32a) | ![Lumix](https://github.com/user-attachments/assets/62219e6a-c6cb-49ac-9803-cda29321b998) |
+
+카메라 제조사 로고(Canon, Nikon, Sony, Lumix 등)도 촬영 정보에서 자동으로 인식해서 프레임에 넣어줍니다. Lumix의 경우 적용된 Photo Style 이름이나 LUT 파일명까지 표시할 수 있습니다.
+
+</details>
+
+### 얼굴 자동 인식 + 모자이크/스티커
+
+<details>
+<summary>사진 속 얼굴을 자동 감지하여 모자이크·스티커로 가려줍니다. (자세히 보기)</summary>
+
+\<작성중\>
+
+</details>
+
+### 컬러 그레이딩 (LUT)
+
+<details>
+<summary>.cube LUT 파일로 영화 같은 색감을 입힐 수 있습니다. (자세히 보기)</summary>
+
+영화나 사진에서 특정 색감을 입히는 데 사용하는 **LUT(Look-Up Table)** 파일을 적용할 수 있습니다. `.cube` 파일을 불러오면 사진에 영화 같은 색감을 입힐 수 있습니다.
+
+| 컬러 그레이딩 UI | 적용 결과 |
+|:---:|:---:|
+| ![LUT UI](https://github.com/user-attachments/assets/554f96b2-217a-4603-93f5-1df41309f77e) | ![LUT Result](https://github.com/user-attachments/assets/4d49174c-2624-4b3c-a8a1-fc2b56d357c1) |
+
+</details>
+
+### 체키 (폴라로이드풍 프레임)
+
+<details>
+<summary>폴라로이드풍 체키 프레임을 자동으로 생성합니다. (자세히 보기)</summary>
+
+\<작성중\>
+
+</details>
+
+### iOS / Android
+
+<details>
+<summary>데스크탑과 동일한 기능을 모바일에서도 사용할 수 있습니다. (자세히 보기)</summary>
+
+2026년 2월부터 iOS TestFlight을 통해 배포 중입니다. 데스크탑과 동일한 기능을 iPhone에서 사용할 수 있습니다.
+
+| 갤러리 | 편집 |
+|:---:|:---:|
+| ![Gallery](https://github.com/user-attachments/assets/65adb13a-18ee-41d2-976e-dd50d0c4dd40) | ![Editor](https://github.com/user-attachments/assets/4abef726-89b4-44f9-873d-685b2f9bcfb7) |
+
+</details>
+
+---
+
+
+## 다운로드
+
+<div id="chama-downloads" style="display: grid; grid-template-columns: 1fr; gap: 12px; margin: 1.5em 0;">
+<a id="dl-macos" href="https://github.com/pmnxis/chama-optics/releases/latest" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:16px; padding:14px 20px; border-radius:8px; background:var(--tw-prose-pre-bg, #1e293b); color:var(--tw-prose-body); text-decoration:none; border:1px solid rgba(128,128,128,0.2); transition: background 0.15s;"><span style="display:flex; align-items:center; gap:4px; flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width:20px; height:20px;"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="width:24px; height:24px;"><path fill="currentColor" d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H128c-35.3 0-64-28.7-64-64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM512 96H128v256h384V96z"/></svg></span><span style="display:inline-block"><span style="font-weight:600;">macOS (Apple Silicon)</span><br><span id="dl-macos-ver" style="font-size:0.8em; opacity:0.6;">Loading...</span></span></a>
+<a id="dl-windows" href="https://github.com/pmnxis/chama-optics/releases/latest" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:16px; padding:14px 20px; border-radius:8px; background:var(--tw-prose-pre-bg, #1e293b); color:var(--tw-prose-body); text-decoration:none; border:1px solid rgba(128,128,128,0.2); transition: background 0.15s;"><span style="display:flex; align-items:center; gap:4px; flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width:20px; height:20px;"><path fill="currentColor" d="M0 32h214.6v214.6H0V32zm233.4 0H448v214.6H233.4V32zM0 265.4h214.6V480H0V265.4zm233.4 0H448V480H233.4V265.4z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" style="width:24px; height:24px;"><path fill="currentColor" d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H128c-35.3 0-64-28.7-64-64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM512 96H128v256h384V96z"/></svg></span><span style="display:inline-block"><span style="font-weight:600;">Windows (x86_64)</span><br><span id="dl-windows-ver" style="font-size:0.8em; opacity:0.6;">Loading...</span></span></a>
+<a id="dl-linux" href="https://github.com/pmnxis/chama-optics" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:16px; padding:14px 20px; border-radius:8px; background:var(--tw-prose-pre-bg, #1e293b); color:var(--tw-prose-body); text-decoration:none; border:1px solid rgba(128,128,128,0.2); transition: background 0.15s;"><span style="display:flex; align-items:center; gap:4px; flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width:20px; height:20px;"><path fill="currentColor" d="M220.8 123.3c1 .5 1.8 1.7 3 1.7 1.1 0 2.8-.4 2.9-1.5.2-1.4-1.9-2.3-3.2-2.9-1.7-.7-3.9-1-5.5-.1-.4.2-.8.7-.6 1.1.3 1.3 2.3 1.1 3.4 1.7zm-21.9 1.7c1.2 0 2-1.2 3-1.7 1.1-.6 3.1-.4 3.5-1.6.2-.4-.2-.9-.6-1.1-1.6-.9-3.8-.6-5.5.1-1.3.6-3.4 1.5-3.2 2.9.1 1 1.8 1.5 2.8 1.4zM420 403.8c-3.6-4-5.3-11.6-7.2-19.7-1.8-8.1-3.9-16.8-10.5-22.4-1.3-1.1-2.6-2.1-4-2.9-1.3-.8-2.7-1.5-4.1-2 9.2-27.3 5.6-54.5-3.7-79.1-11.4-30.1-31.3-56.4-46.5-74.4-17.1-21.5-33.7-41.9-33.4-72C311.1 85.4 315.7.1 234.8 0 132.4-.2 158 103.4 156.9 135.2c-1.7 23.4-6.4 41.8-22.5 64.7-18.9 22.5-45.5 58.8-58.1 96.7-6 17.9-8.8 36.1-6.2 53.3-6.5 5.8-11.4 14.7-16.6 20.2-4.2 4.3-10.3 5.9-17 8.3s-14 6-18.5 14.5c-2.1 3.9-2.8 8.1-2.8 12.4 0 3.9.6 7.9 1.2 11.8 1.2 8.1 2.6 15.7.8 20.8-5.2 14.4-5.9 24.4-2.2 31.7 3.8 7.3 11.4 10.5 20.1 12.3 17.3 3.6 40.8 2.7 59.3 12.5 19.8 10.4 39.9 14.1 55.9 10.4 11.6-2.6 21.1-9.6 25.9-20.2 12.5-.1 26.3-5.4 48.3-6.6 14.9-1.2 33.6 5.3 55.1 4.1.6 2.3 1.4 4.6 2.5 6.7v.1c8.3 16.7 23.8 24.3 40.3 23 16.6-1.3 34.1-11 48.3-27.9 13.6-16.4 36-23.2 50.9-32.2 7.4-4.5 13.4-10.1 13.9-18.3.4-8.2-4.4-17.3-15.5-29.7z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="width:24px; height:24px;"><path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h176l-10.7 32H160c-17.7 0-32 14.3-32 32s14.3 32 32 32h256c17.7 0 32-14.3 32-32s-14.3-32-32-32h-69.3L336 416h176c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM512 64v288H64V64h448z"/></svg></span><span style="display:inline-block"><span style="font-weight:600;">Linux (소스 빌드)</span><br><span id="dl-linux-ver" style="font-size:0.8em; opacity:0.6;">배포판별 차이 미보장 · Debian 12 amd64 테스트 완료</span></span></a>
+<a id="dl-ios" href="https://testflight.apple.com/join/qh9raejp" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:16px; padding:14px 20px; border-radius:8px; background:var(--tw-prose-pre-bg, #1e293b); color:var(--tw-prose-body); text-decoration:none; border:1px solid rgba(128,128,128,0.2); transition: background 0.15s;"><span style="display:flex; align-items:center; gap:4px; flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width:20px; height:20px;"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width:24px; height:24px;"><path fill="currentColor" d="M16 64C16 28.7 44.7 0 80 0h224c35.3 0 64 28.7 64 64v384c0 35.3-28.7 64-64 64H80c-35.3 0-64-28.7-64-64V64zm128 384c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16s-7.2-16-16-16h-64c-8.8 0-16 7.2-16 16zM80 64v320h224V64H80z"/></svg></span><span style="display:inline-block"><span style="font-weight:600;">iOS (iPhone / iPad)</span><br><span style="font-size:0.8em; opacity:0.6;">TestFlight 배포 중, 2026년 2월 중 App Store 전환 예정</span></span></a>
+<a id="dl-android" href="https://play.google.com/apps/testing/com.github.pmnxis.chamaoptics" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:16px; padding:14px 20px; border-radius:8px; background:var(--tw-prose-pre-bg, #1e293b); color:var(--tw-prose-body); text-decoration:none; border:1px solid rgba(128,128,128,0.2); transition: background 0.15s;"><span style="display:flex; align-items:center; gap:4px; flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style="width:20px; height:20px;"><path fill="currentColor" d="M420.55 301.93a24 24 0 1 1 24-24 24 24 0 0 1-24 24m-265.1 0a24 24 0 1 1 24-24 24 24 0 0 1-24 24m273.7-144.48 47.94-83a10 10 0 1 0-17.27-10l-48.54 84.07a301.25 301.25 0 0 0-246.56 0L116.18 64.45a10 10 0 1 0-17.27 10l47.94 83C64.53 202.22 8.24 285.55 0 384h576c-8.24-98.45-64.54-181.78-146.85-226.55"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="width:24px; height:24px;"><path fill="currentColor" d="M16 64C16 28.7 44.7 0 80 0h224c35.3 0 64 28.7 64 64v384c0 35.3-28.7 64-64 64H80c-35.3 0-64-28.7-64-64V64zm128 384c0 8.8 7.2 16 16 16h64c8.8 0 16-7.2 16-16s-7.2-16-16-16h-64c-8.8 0-16 7.2-16 16zM80 64v320h224V64H80z"/></svg></span><span style="display:inline-block"><span style="font-weight:600;">Android (비공개 테스트)</span><br><span style="font-size:0.8em; opacity:0.6;">2026년 3월 3일 이후 공개 테스트 전환 예정</span></span></a>
+</div>
+
+<p style="font-size:0.8em; opacity:0.7; margin-top:4px;">🤖 <b>Android 비공개 테스트 안내</b><br>현재 Google Play 비공개 테스트 단계로, 참여하려면 <a href="https://forms.gle/GFnvyHk7bU14RmdU9" target="_blank" rel="noopener">이 폼</a>에 Play Store 이메일을 등록해야 합니다. Google Play 테스트 정책(12인 이상 14일 테스트) 충족 후, <b>3월 3일 이후 공개 테스트로 전환</b>되어 이메일 등록 없이 누구나 설치할 수 있습니다.</p>
+<p style="font-size:0.8em; opacity:0.7;">🔒 <a href="/ko/chama-optics-privacy/">개인정보처리방침</a><br>개인정보 수집 없음 · 회원가입/로그인 없음 · 광고/추적 없음 · 모든 사진 처리는 기기 내에서만 수행 · 얼굴 인식 데이터 서버 전송 없음 · 오프라인 동작</p>
+
+<p style="font-size:0.8em; opacity:0.7;">🌐 앱 내 인도네시아어(Bahasa Indonesia) 번역은 기계번역으로 제공되며, 별도의 검수가 이루어지지 않아 오역이 있을 수 있습니다.</p>
+
+<div style="font-size:0.8em; opacity:0.7; margin-top:2em; line-height:1.6;">
+<p>📜 <b>라이선스 · 크레딧</b><br>
+<b>Akai Haato</b>는 <b>COVER 주식회사</b> 소속 <b>hololive JP 1기생</b> VTuber입니다.<br>파생저작물 관련 가이드라인: <a href="https://hololivepro.com/en/terms/" target="_blank" rel="noopener">hololive Derivative Works Guidelines</a><br>
+<b>ChamaOptics (Desktop Core)</b>: <b>MIT / NON-AI-MIT</b> 혼용 라이선스 · <a href="https://github.com/pmnxis/chama-optics" target="_blank" rel="noopener">GitHub</a><br>
+<b>ChamaOptics Mobile</b>: Closed Software License<br>
+<b>앱 아이콘</b>: <b>NON-AI / CC-BY-NC</b> · 일러스트레이터 <b>シエミカ</b> (<a href="https://x.com/shiemika324" target="_blank" rel="noopener">@shiemika324</a>) 님의 팬아트이며, 사용 허가를 받은 원화입니다.<br>
+<b>체키 탭 아이콘</b>: <a href="https://www.irasutoya.com/2020/08/blog-post_978.html" target="_blank" rel="noopener">いらすとや</a> (みふねたかし) 일러스트를 단색으로 변환하여 사용 · <a href="https://www.irasutoya.com/p/terms.html" target="_blank" rel="noopener">이용약관</a><br>
+※ NON-AI 라이선스는 본 소프트웨어 소스코드 일부에 적용되어 있으며, 관련 리소스(아이콘, 일러스트, 문서 포함)를 인공지능(AI)에 의한 학습, 데이터셋 구축, 검색, 분석, 파생 생성에 사용하는 것을 금지합니다.</p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('https://api.github.com/repos/pmnxis/chama-optics/releases/latest')
+    .then(function(r) {
+      if (!r.ok) throw new Error('API ' + r.status);
+      return r.json();
+    })
+    .then(function(release) {
+      var ver = release.tag_name;
+      var assets = release.assets || [];
+      var map = {
+        'dl-macos': { pattern: /macos_arm64.*\.dmg$/i, verEl: 'dl-macos-ver', suffix: '.dmg' },
+        'dl-windows': { pattern: /win_x86_64.*\.zip$/i, verEl: 'dl-windows-ver', suffix: '.zip' }
+      };
+      function fmtSize(bytes) {
+        if (bytes >= 1073741824) return (bytes / 1073741824).toFixed(1) + ' GB';
+        if (bytes >= 1048576) return (bytes / 1048576).toFixed(1) + ' MB';
+        if (bytes >= 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return bytes + ' B';
+      }
+      Object.keys(map).forEach(function(id) {
+        var cfg = map[id];
+        var asset = assets.find(function(a) { return cfg.pattern.test(a.name); });
+        if (asset) {
+          var el = document.getElementById(id);
+          if (el) el.href = asset.browser_download_url;
+          var verEl = document.getElementById(cfg.verEl);
+          if (verEl) verEl.textContent = ver + ' \u00B7 ' + fmtSize(asset.size);
+        }
+      });
+      var linuxVerEl = document.getElementById('dl-linux-ver');
+      if (linuxVerEl) linuxVerEl.textContent = ver + ' \u00B7 배포판별 차이 미보장 \u00B7 Debian 12 amd64 테스트 완료';
+    })
+    .catch(function(err) {
+      console.warn('Chama Optics release fetch failed:', err);
+      ['dl-macos-ver', 'dl-windows-ver', 'dl-linux-ver'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = 'GitHub Releases 페이지에서 다운로드';
+      });
+    });
+});
+</script>
