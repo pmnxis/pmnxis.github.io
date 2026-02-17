@@ -1,2 +1,166 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jinwoo Park Blog</title><link>https://pmnxis.github.io/ja/</link><description>Recent content on Jinwoo Park Blog</description><generator>Hugo -- gohugo.io</generator><language>ja-JP</language><copyright>© 2026</copyright><lastBuildDate>Tue, 17 Feb 2026 00:00:00 +0900</lastBuildDate><atom:link href="https://pmnxis.github.io/ja/index.xml" rel="self" type="application/rss+xml"/><item><title>Chama Optics リリース</title><link>https://pmnxis.github.io/ja/posts/chama-optics-public-release/</link><pubDate>Tue, 17 Feb 2026 00:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/chama-optics-public-release/</guid><description>Chama Opticsをリリースします。写真好きで旅するVTuber 赤井はあとからインスピレーションを受けて作った、ミラーレス・一眼レフカメラユーザー向けの写真後処理アプリ</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/chama-optics-public-release/featured-haachama-optics.webp"/></item><item><title>Chama Optics プライバシーポリシー</title><link>https://pmnxis.github.io/ja/chama-optics-privacy/</link><pubDate>Mon, 16 Feb 2026 00:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ja/chama-optics-privacy/</guid><description>&lt;p&gt;&lt;strong&gt;施行日: 2026年2月16日&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;本ページはGitHub Pagesの自動デプロイにより管理されています。プライバシーポリシーの変更履歴は、&lt;a href="https://github.com/pmnxis/pmnxis.github.io" target="_blank" rel="noreferrer"&gt;GitHubリポジトリ&lt;/a&gt;のコミット履歴から確認できます。&lt;/p&gt;</description></item><item><title>Chama Optics 開発記</title><link>https://pmnxis.github.io/ja/posts/chama-optics-dev-story/</link><pubDate>Sat, 14 Feb 2026 00:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/chama-optics-dev-story/</guid><description>&lt;blockquote&gt;&lt;p&gt;EXIF ベースの写真フレーム＋顔自動認識アプリ、Rust コアでデスクトップからモバイルまで&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/chama-optics-dev-story/feature.webp"/></item></channel></rss>
+&lt;blockquote&gt;&lt;p&gt;本ページはGitHub Pagesの自動デプロイにより管理されています。プライバシーポリシーの変更履歴は、&lt;a href="https://github.com/pmnxis/pmnxis.github.io" target="_blank" rel="noreferrer"&gt;GitHubリポジトリ&lt;/a&gt;のコミット履歴から確認できます。&lt;/p&gt;</description></item><item><title>Chama Optics 開発記</title><link>https://pmnxis.github.io/ja/posts/chama-optics-dev-story/</link><pubDate>Sat, 14 Feb 2026 00:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/chama-optics-dev-story/</guid><description>&lt;blockquote&gt;&lt;p&gt;EXIF ベースの写真フレーム＋顔自動認識アプリ、Rust コアでデスクトップからモバイルまで&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/chama-optics-dev-story/feature.webp"/></item><item><title>Developing a Mass-Produced Rust Embedded Product - 4 Leveraging Build Scripts</title><link>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_4/</link><pubDate>Mon, 13 Nov 2023 21:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_4/</guid><description>&lt;div
+ 
+ class="flex px-4 py-3 rounded-md shadow bg-primary-100 dark:bg-primary-900"
+ 
+ &gt;
+ &lt;span
+ 
+ class="text-primary-400 pe-3 flex items-center"
+ 
+ &gt;
+ &lt;span class="relative block icon"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+ &lt;/span&gt;
+
+ &lt;span
+ 
+ class="dark:text-neutral-300"
+ 
+ &gt;&lt;strong&gt;WARN!&lt;/strong&gt; This article is still a work in progress. Content may change at any time.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="constcat"
+ width="1248"
+ height="722"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature_hu_545b38c9eda80588.jpg"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature_hu_545b38c9eda80588.jpg 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature.jpg 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature.jpg"&gt;&lt;/figure&gt;
+&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature.jpg"/></item><item><title>Developing a Mass-Produced Rust Embedded Product - 3 Leave It to Compile Time</title><link>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_3/</link><pubDate>Sun, 12 Nov 2023 21:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_3/</guid><description>&lt;div
+ 
+ class="flex px-4 py-3 rounded-md shadow bg-primary-100 dark:bg-primary-900"
+ 
+ &gt;
+ &lt;span
+ 
+ class="text-primary-400 pe-3 flex items-center"
+ 
+ &gt;
+ &lt;span class="relative block icon"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+ &lt;/span&gt;
+
+ &lt;span
+ 
+ class="dark:text-neutral-300"
+ 
+ &gt;&lt;strong&gt;WARN!&lt;/strong&gt; This article is still a work in progress. Content may change at any time.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="constcat"
+ width="1733"
+ height="1089"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature_hu_9ec4bf05efa60cf5.jpg"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature_hu_9ec4bf05efa60cf5.jpg 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature_hu_45b22647645aad2f.jpg 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature.jpg"&gt;&lt;/figure&gt;
+&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature.jpg"/></item><item><title>Developing a Mass-Produced Rust Embedded Product - 2 Study Methods and Key Characteristics</title><link>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_2/</link><pubDate>Sat, 04 Nov 2023 21:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_2/</guid><description>&lt;div
+ 
+ class="flex px-4 py-3 rounded-md shadow bg-primary-100 dark:bg-primary-900"
+ 
+ &gt;
+ &lt;span
+ 
+ class="text-primary-400 pe-3 flex items-center"
+ 
+ &gt;
+ &lt;span class="relative block icon"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+ &lt;/span&gt;
+
+ &lt;span
+ 
+ class="dark:text-neutral-300"
+ 
+ &gt;&lt;strong&gt;WARN!&lt;/strong&gt; This article is still a work in progress. Content may change at any time.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="riir_beam"
+ width="1920"
+ height="1147"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature_hu_fd1bfa00a183f578.jpg"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature_hu_fd1bfa00a183f578.jpg 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature_hu_cc285d5bcd5e4f03.jpg 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature.jpg"&gt;&lt;/figure&gt;
+
+&lt;em&gt;RIIR BEAM&lt;/em&gt;&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature.jpg"/></item><item><title>Rust Embedded Mass Production Development Story - 1: From Development to Production</title><link>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_1/</link><pubDate>Thu, 02 Nov 2023 00:49:05 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_1/</guid><description>&lt;blockquote&gt;&lt;p&gt;This article is still being written. Content may change along the way.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="image"
+ width="1920"
+ height="884"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout_hu_5eee6045b1830153.JPG"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout_hu_5eee6045b1830153.JPG 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout_hu_79080e5e0d0f58af.JPG 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout.JPG"&gt;&lt;/figure&gt;
+
+&lt;em&gt;A test unit recently sent out to the field&lt;/em&gt;&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/feature.JPG"/></item><item><title>Raising Suspicions of QC/Design Flaws Causing Intermittent Resets/Freezes in ZEN 2/3</title><link>https://pmnxis.github.io/ja/posts/casts_double_amd_desktop_zen_2_and_3_halt_randomly_kr/</link><pubDate>Sat, 08 Apr 2023 21:37:24 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/casts_double_amd_desktop_zen_2_and_3_halt_randomly_kr/</guid><description>&lt;p&gt;It has been quite a while since ZEN4 started selling, and ZEN3 has also gone through several internal stepping/revision changes that seem to have improved things, so I feel this is an appropriate time to write this article.
+I originally posted this on other communities as well, and while it may seem tangential to development, it deals with CPU internals, so I am reposting it on my dev blog.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/casts_double_amd_desktop_zen_2_and_3_halt_randomly_kr/feature.jpeg"/></item><item><title>Discrete Signal Processing Fourier Transform Cheat Note</title><link>https://pmnxis.github.io/ja/posts/discrete_signal_processing_cheat_note/</link><pubDate>Tue, 20 Dec 2022 00:16:01 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/discrete_signal_processing_cheat_note/</guid><description>&lt;h2 class="relative group"&gt;1. Fourier series coefficients for Continuous signal
+ &lt;div id="1-fourier-series-coefficients-for-continuous-signal" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-fourier-series-coefficients-for-continuous-signal" aria-label="アンカー"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Asking deriving coefficients comes with periodic signal.: \(x(t) \rightarrow a_k\)&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/discrete_signal_processing_cheat_note/features.png"/></item><item><title>About Five Months After Using Rust at Work</title><link>https://pmnxis.github.io/ja/posts/five_mothes_ago_from_using_rust_as_work_kr/</link><pubDate>Sun, 27 Nov 2022 01:05:52 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/five_mothes_ago_from_using_rust_as_work_kr/</guid><description>&lt;p&gt;I have been using Rust at the company I recently joined. Five months have passed since I switched jobs, and I would like to describe what I have felt so far.
+Setting aside the detailed syntactic advantages, I will simply describe my general impressions.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/five_mothes_ago_from_using_rust_as_work_kr/feature.png"/></item><item><title>Cross compiling aarch64(arm64) rust for linux from x86_64 machine</title><link>https://pmnxis.github.io/ja/posts/cross_compiling_aarch64_rust_for_linux_from_x86_64_linux/</link><pubDate>Tue, 04 Oct 2022 02:09:31 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/cross_compiling_aarch64_rust_for_linux_from_x86_64_linux/</guid><description>&lt;blockquote&gt;&lt;p&gt;In October 6, Rust for linux is under the linux-next, not stable&lt;br&gt;
+Thus this article would be out-of-date before Linux 6.1 stable comes.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;Current linux 6.1 rc1 doesn&amp;rsquo;t contain rust for linux with ARM64.
+Thus this article play with &lt;a href="https://github.com/Rust-for-Linux/linux/tree/for-next/rust" target="_blank" rel="noreferrer"&gt;https://github.com/Rust-for-Linux/linux/tree/for-next/rust&lt;/a&gt;&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/cross_compiling_aarch64_rust_for_linux_from_x86_64_linux/feature.png"/></item><item><title>[Rust Driver] Let's try build example rust linux driver.</title><link>https://pmnxis.github.io/ja/posts/look_into_simple_rust_out_of_tree/</link><pubDate>Sun, 02 Oct 2022 21:05:52 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/look_into_simple_rust_out_of_tree/</guid><description>&lt;blockquote&gt;&lt;p&gt;In October, Rust for linux is under the linux-next, not stable&lt;br&gt;
+Thus this article would be out-of-date before Linux 6.1 stable comes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 class="relative group"&gt;modules, out-of-tree
+ &lt;div id="modules-out-of-tree" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#modules-out-of-tree" aria-label="アンカー"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;There are two main ways to develop kernel modules. In-Of-Tree and Out-Of-Tree. In this article, we&amp;rsquo;re going to make the Out-Of-Tree method a Rust kernel module.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/look_into_simple_rust_out_of_tree/feature.jpg"/></item><item><title>Rust For Linux Development Environment with AppleSilicon MacOS</title><link>https://pmnxis.github.io/ja/posts/rust_for_linux_with_m1/</link><pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate><guid>https://pmnxis.github.io/ja/posts/rust_for_linux_with_m1/</guid><description>&lt;blockquote&gt;&lt;p&gt;In October 1, Rust for linux is under the linux-next, not stable&lt;br&gt;
+Thus this article would be out-of-date before Linux 6.1 stable comes.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;blockquote&gt;&lt;p&gt;This article play with &lt;a href="https://github.com/Rust-for-Linux/linux/tree/for-next/rust" target="_blank" rel="noreferrer"&gt;https://github.com/Rust-for-Linux/linux/tree/for-next/rust&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="Building_Rust_For_Linux_In_M1_Mac"
+ width="1136"
+ height="918"
+ src="https://pmnxis.github.io/img/build_in_m1vm/build_rust_linux_in_m1_hu_6374330b39cca7e7.png"
+ srcset="https://pmnxis.github.io/img/build_in_m1vm/build_rust_linux_in_m1_hu_6374330b39cca7e7.png 800w, https://pmnxis.github.io/img/build_in_m1vm/build_rust_linux_in_m1.png 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/img/build_in_m1vm/build_rust_linux_in_m1.png"&gt;&lt;/figure&gt;
+&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/rust_for_linux_with_m1/feature.png"/></item><item><title>ARMv8A Memory IP Review</title><link>https://pmnxis.github.io/ja/posts/arm_v8a_memory_ip_review/</link><pubDate>Tue, 14 Dec 2021 00:00:00 +0000</pubDate><guid>https://pmnxis.github.io/ja/posts/arm_v8a_memory_ip_review/</guid><description>&lt;h2 class="relative group"&gt;Introduction
+ &lt;div id="introduction" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#introduction" aria-label="アンカー"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;ARMv8A, also commonly known as aarch64, is one of the widely used architectures that has largely succeeded ARMv7A. In this article, we will examine the ARMv8A memory system at the IP (Intellectual Property) block level.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/arm_v8a_memory_ip_review/feature.png"/></item></channel></rss>

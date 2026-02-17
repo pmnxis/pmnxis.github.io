@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Math on Jinwoo Park Blog</title><link>https://pmnxis.github.io/ja/categories/math/</link><description>Recent content in Math on Jinwoo Park Blog</description><generator>Hugo -- gohugo.io</generator><language>ja-JP</language><copyright>© 2026</copyright><lastBuildDate>Tue, 20 Dec 2022 00:16:01 +0900</lastBuildDate><atom:link href="https://pmnxis.github.io/ja/categories/math/index.xml" rel="self" type="application/rss+xml"/><item><title>Discrete Signal Processing Fourier Transform Cheat Note</title><link>https://pmnxis.github.io/ja/posts/discrete_signal_processing_cheat_note/</link><pubDate>Tue, 20 Dec 2022 00:16:01 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/discrete_signal_processing_cheat_note/</guid><description>&lt;h2 class="relative group"&gt;1. Fourier series coefficients for Continuous signal
+ &lt;div id="1-fourier-series-coefficients-for-continuous-signal" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-fourier-series-coefficients-for-continuous-signal" aria-label="アンカー"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Asking deriving coefficients comes with periodic signal.: \(x(t) \rightarrow a_k\)&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/discrete_signal_processing_cheat_note/features.png"/></item></channel></rss>

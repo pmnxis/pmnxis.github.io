@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>회고록 on Jinwoo Park Blog</title><link>https://pmnxis.github.io/ja/tags/%ED%9A%8C%EA%B3%A0%EB%A1%9D/</link><description>Recent content in 회고록 on Jinwoo Park Blog</description><generator>Hugo -- gohugo.io</generator><language>ja-JP</language><copyright>© 2026</copyright><lastBuildDate>Mon, 13 Nov 2023 21:00:00 +0900</lastBuildDate><atom:link href="https://pmnxis.github.io/ja/tags/%ED%9A%8C%EA%B3%A0%EB%A1%9D/index.xml" rel="self" type="application/rss+xml"/><item><title>Developing a Mass-Produced Rust Embedded Product - 4 Leveraging Build Scripts</title><link>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_4/</link><pubDate>Mon, 13 Nov 2023 21:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_4/</guid><description>&lt;div
+ 
+ class="flex px-4 py-3 rounded-md shadow bg-primary-100 dark:bg-primary-900"
+ 
+ &gt;
+ &lt;span
+ 
+ class="text-primary-400 pe-3 flex items-center"
+ 
+ &gt;
+ &lt;span class="relative block icon"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+ &lt;/span&gt;
+
+ &lt;span
+ 
+ class="dark:text-neutral-300"
+ 
+ &gt;&lt;strong&gt;WARN!&lt;/strong&gt; This article is still a work in progress. Content may change at any time.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="constcat"
+ width="1248"
+ height="722"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature_hu_545b38c9eda80588.jpg"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature_hu_545b38c9eda80588.jpg 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature.jpg 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature.jpg"&gt;&lt;/figure&gt;
+&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_4/feature.jpg"/></item><item><title>Developing a Mass-Produced Rust Embedded Product - 3 Leave It to Compile Time</title><link>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_3/</link><pubDate>Sun, 12 Nov 2023 21:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_3/</guid><description>&lt;div
+ 
+ class="flex px-4 py-3 rounded-md shadow bg-primary-100 dark:bg-primary-900"
+ 
+ &gt;
+ &lt;span
+ 
+ class="text-primary-400 pe-3 flex items-center"
+ 
+ &gt;
+ &lt;span class="relative block icon"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+ &lt;/span&gt;
+
+ &lt;span
+ 
+ class="dark:text-neutral-300"
+ 
+ &gt;&lt;strong&gt;WARN!&lt;/strong&gt; This article is still a work in progress. Content may change at any time.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="constcat"
+ width="1733"
+ height="1089"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature_hu_9ec4bf05efa60cf5.jpg"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature_hu_9ec4bf05efa60cf5.jpg 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature_hu_45b22647645aad2f.jpg 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature.jpg"&gt;&lt;/figure&gt;
+&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_3/feature.jpg"/></item><item><title>Developing a Mass-Produced Rust Embedded Product - 2 Study Methods and Key Characteristics</title><link>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_2/</link><pubDate>Sat, 04 Nov 2023 21:00:00 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_2/</guid><description>&lt;div
+ 
+ class="flex px-4 py-3 rounded-md shadow bg-primary-100 dark:bg-primary-900"
+ 
+ &gt;
+ &lt;span
+ 
+ class="text-primary-400 pe-3 flex items-center"
+ 
+ &gt;
+ &lt;span class="relative block icon"&gt;&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"&gt;&lt;path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+ &lt;/span&gt;
+
+ &lt;span
+ 
+ class="dark:text-neutral-300"
+ 
+ &gt;&lt;strong&gt;WARN!&lt;/strong&gt; This article is still a work in progress. Content may change at any time.&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="riir_beam"
+ width="1920"
+ height="1147"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature_hu_fd1bfa00a183f578.jpg"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature_hu_fd1bfa00a183f578.jpg 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature_hu_cc285d5bcd5e4f03.jpg 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature.jpg"&gt;&lt;/figure&gt;
+
+&lt;em&gt;RIIR BEAM&lt;/em&gt;&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_2/feature.jpg"/></item><item><title>Rust Embedded Mass Production Development Story - 1: From Development to Production</title><link>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_1/</link><pubDate>Thu, 02 Nov 2023 00:49:05 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/my_first_commerical_rust_embedded_product_1/</guid><description>&lt;blockquote&gt;&lt;p&gt;This article is still being written. Content may change along the way.&lt;/p&gt;
+&lt;/blockquote&gt;&lt;p&gt;&lt;figure&gt;&lt;img
+ class="my-0 rounded-md"
+ loading="lazy"
+ decoding="async"
+ fetchpriority="auto"
+ alt="image"
+ width="1920"
+ height="884"
+ src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout_hu_5eee6045b1830153.JPG"
+ srcset="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout_hu_5eee6045b1830153.JPG 800w, https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout_hu_79080e5e0d0f58af.JPG 1280w"
+ sizes="(min-width: 768px) 50vw, 65vw"
+ data-zoom-src="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/tapeout.JPG"&gt;&lt;/figure&gt;
+
+&lt;em&gt;A test unit recently sent out to the field&lt;/em&gt;&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/my_first_commerical_rust_embedded_product_1/feature.JPG"/></item><item><title>About Five Months After Using Rust at Work</title><link>https://pmnxis.github.io/ja/posts/five_mothes_ago_from_using_rust_as_work_kr/</link><pubDate>Sun, 27 Nov 2022 01:05:52 +0900</pubDate><guid>https://pmnxis.github.io/ja/posts/five_mothes_ago_from_using_rust_as_work_kr/</guid><description>&lt;p&gt;I have been using Rust at the company I recently joined. Five months have passed since I switched jobs, and I would like to describe what I have felt so far.
+Setting aside the detailed syntactic advantages, I will simply describe my general impressions.&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://pmnxis.github.io/en/posts/five_mothes_ago_from_using_rust_as_work_kr/feature.png"/></item></channel></rss>
