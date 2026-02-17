@@ -607,6 +607,98 @@ Chama Opticsのテーマには40以上の設定パラメータがあります �
 
 組み込みでの `build.rs` 乱用と `const fn` 執着がこのような形で応用されました。正直proc_macroでやるのがスマートかどうかは分かりません ―― 本人も「異様だ」と思っている部分です。しかし**40以上のパラメータを3つのプラットフォームで手動同期するよりは確実にマシです。** Rustの手続き型マクロ（procedural macro）についてもっと知りたければ [この記事](https://priver.dev/blog/rust/procedural-macros/) が良い参考になります。
 
+### 12. 多言語翻訳システム：YAML一つで3プラットフォームの翻訳を自動生成
+
+4つの言語（英語、韓国語、日本語、インドネシア語）をサポートしながら**翻訳文字列が3つのプラットフォームで同期されなければなりません。** 翻訳キーを一つ追加したり文言を修正するたびにiOSの `.strings`、Androidの `strings.xml`、デスクトップのRustコードをそれぞれ手で直さなければならないとしたら？　結局漏れたりずれたりします。
+
+解決方法はシンプルです。**rust-coreのYAMLファイルを唯一の原本とし、ビルド時に各プラットフォームのフォーマットに自動変換する**ことです。
+
+![i18n ビルドパイプライン](i18n_build_pipeline.svg)
+
+#### YAML：翻訳の原本
+
+`rust-core/locales/` ディレクトリに23個のYAMLファイルがあります。`common.yml`、`gallery.yml`、`theme.yml`、`face_detection.yml` など機能単位で分割されており、合計約3,900行です。
+
+```yaml
+# rust-core/locales/gallery.yml
+gallery:
+  empty_state_title:
+    en: "No Images Yet"
+    ko: "이미지 없음"
+    ja: "画像がありません"
+    id: "Belum Ada Gambar"
+```
+
+この構造は `rust_i18n` クレートが要求するフォーマットそのままです。デスクトップでは `rust_i18n::i18n!("locales")` でコンパイルタイムにYAMLを埋め込み、`t!("gallery.empty_state_title")` で呼び出します。別途の変換は不要です。`build.rs`で `cargo:rerun-if-changed=locales` を宣言してあるため、YAMLが修正されると自動的に再コンパイルされます。
+
+問題はiOSとAndroidです。
+
+#### iOS: generate_ios_strings.sh
+
+iOSは `NSLocalizedString` と `.strings` ファイルを使用します。`generate_ios_strings.sh` はPython3 + PyYAMLでYAMLをパースし、各ロケール別の `Localizable.strings` を生成します。
+
+```bash
+# build_ios.sh から自動呼び出し
+./generate_ios_strings.sh
+```
+
+YAMLの階層構造をドット（`.`）表記法で平坦化して `.strings` フォーマットに変換します。
+
+```
+/* Auto-generated from rust-core/locales - DO NOT EDIT */
+"gallery.empty_state_title" = "이미지 없음";
+"common.actions.save" = "저장";
+```
+
+iOS固有の要件もありました。同じキーでもiOSでは異なる文言を使うべき場合があります ―― 例えばデスクトップで「ファイル読み込み」と書く箇所をiOSでは「写真を選択」と書く方が自然です。これに対応するため **`_ios` サフィックスオーバーライド**を実装しました。YAMLで `import.label_ios` が定義されていればiOSビルドでは `import.label` の代わりにその値を使用します。デスクトップとAndroidには影響しません。
+
+このスクリプトは `build_ios.sh` でRustクロスコンパイル前に自動的に呼び出されるため、YAMLを修正してXcodeビルドを実行すれば翻訳が自動反映されます。
+
+#### Android: generate_android_strings.sh
+
+Androidは `strings.xml` と `R.string.*` リソースシステムを使用します。核心的な違いが2つあります。
+
+**第一に、キーフォーマットが異なります。** Androidリソース名にはドット（`.`）を使用できません。YAMLの `gallery.empty_state_title` をAndroidでは `gallery_empty_state_title` に変換する必要があります。
+
+```python
+def yml_key_to_android_key(yml_key):
+    return yml_key.replace('.', '_')
+```
+
+**第二に、ロケールディレクトリ規則が異なります。** Androidはインドネシア語を `id` ではなく `in` で表記します ―― `values-in/strings.xml`。このマッピングをスクリプトで処理します。
+
+```bash
+ANDROID_LOCALE_MAP["en"]="values"
+ANDROID_LOCALE_MAP["ko"]="values-ko"
+ANDROID_LOCALE_MAP["ja"]="values-ja"
+ANDROID_LOCALE_MAP["id"]="values-in"    # Android uses "in" for Indonesian
+```
+
+iOSスクリプトとのもう一つの違いは**diff基盤同期**だということです。iOSは毎回ファイルを丸ごと上書きしますが、Androidスクリプトは既存の `strings.xml` に既にあるキーには触れず**不足しているキーのみ追加**します。Android側で手動管理しているエントリ（アプリ名など）を保持するためです。`--check` モードで実行するとファイルを修正せず不足している翻訳のみ報告します。
+
+Androidでこれらのキーを実際に使用する際は `ThemeI18n.kt` でYAMLドット表記法キーを `R.string.*` リソースIDにマッピングします。
+
+```kotlin
+object ThemeI18n {
+    fun translate(context: Context, key: String): String {
+        val resourceId = keyToResourceId(key)
+        return if (resourceId != 0) context.getString(resourceId) else key
+    }
+}
+```
+
+#### 3プラットフォームのキー変換比較
+
+| 要素 | Desktop (Rust) | iOS (Swift) | Android (Kotlin) |
+|:---|:---|:---|:---|
+| **原本** | `t!("gallery.empty_state_title")` | `NSLocalizedString("gallery.empty_state_title")` | `R.string.gallery_empty_state_title` |
+| **キー区切り** | `.`（ドット） | `.`（ドット） | `_`（アンダースコア） |
+| **生成方式** | コンパイルタイム埋め込み | ビルドスクリプト自動生成 | ビルドスクリプトdiff同期 |
+| **プラットフォームオーバーライド** | — | `_ios` サフィックス | — |
+| **インドネシア語コード** | `id` | `id` | `in` |
+
+この構造のおかげで翻訳を追加または修正する際に**YAMLファイル一つを直すだけで** 3つのプラットフォーム全てに反映されます。23個のYAMLファイル、4つの言語、3つのプラットフォームを手動で同期するのは現実的に不可能です ―― 自分が考えた方法は自動化だけでした。
+
 ---
 
 ## オープンソース貢献活動

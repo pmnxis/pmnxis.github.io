@@ -607,6 +607,98 @@ As a result, a single Rust struct simultaneously serves as **UI specification, d
 
 The `build.rs` overuse and `const fn` obsession from embedded development found its application here. Honestly, I'm not sure if using proc_macro for this is clean -- even I think it's "grotesque." But **it's definitely better than manually synchronizing 40+ parameters across 3 platforms.** For those wanting to learn more about Rust's procedural macros, [this article](https://priver.dev/blog/rust/procedural-macros/) is a good reference.
 
+### 12. Multilingual Translation System: Auto-Generating Translations for 3 Platforms from a Single YAML
+
+Supporting 4 languages (English, Korean, Japanese, Indonesian) while **keeping translation strings synchronized across 3 platforms.** If you had to manually edit iOS's `.strings`, Android's `strings.xml`, and the desktop's Rust code every time you add or modify a translation key? You'd inevitably miss something or fall out of sync.
+
+The solution is simple. **Use YAML files in rust-core as the single source of truth, and automatically convert them to each platform's format at build time.**
+
+![i18n build pipeline](i18n_build_pipeline.svg)
+
+#### YAML: The Source of Truth
+
+There are 23 YAML files in the `rust-core/locales/` directory. They're split by feature -- `common.yml`, `gallery.yml`, `theme.yml`, `face_detection.yml`, etc. -- totaling approximately 3,900 lines.
+
+```yaml
+# rust-core/locales/gallery.yml
+gallery:
+  empty_state_title:
+    en: "No Images Yet"
+    ko: "이미지 없음"
+    ja: "画像がありません"
+    id: "Belum Ada Gambar"
+```
+
+This structure matches the format required by the `rust_i18n` crate exactly. On desktop, `rust_i18n::i18n!("locales")` embeds the YAML at compile time, and `t!("gallery.empty_state_title")` is called at runtime. No separate conversion needed. Since `cargo:rerun-if-changed=locales` is declared in `build.rs`, modifying YAML triggers automatic recompilation.
+
+The problem is iOS and Android.
+
+#### iOS: generate_ios_strings.sh
+
+iOS uses `NSLocalizedString` and `.strings` files. `generate_ios_strings.sh` parses YAML using Python3 + PyYAML and generates per-locale `Localizable.strings`.
+
+```bash
+# Automatically called from build_ios.sh
+./generate_ios_strings.sh
+```
+
+It flattens the YAML hierarchy into dot notation for the `.strings` format.
+
+```
+/* Auto-generated from rust-core/locales - DO NOT EDIT */
+"gallery.empty_state_title" = "이미지 없음";
+"common.actions.save" = "저장";
+```
+
+There were also iOS-specific requirements. Sometimes the same key needs different phrasing on iOS -- for example, where desktop says "Load file," iOS should say "Select photo" for a more natural feel. To handle this, I implemented **`_ios` suffix overrides**. If `import.label_ios` is defined in YAML, the iOS build uses that value instead of `import.label`. Desktop and Android are unaffected.
+
+This script is automatically called from `build_ios.sh` before Rust cross-compilation, so editing YAML and running an Xcode build automatically reflects the translations.
+
+#### Android: generate_android_strings.sh
+
+Android uses `strings.xml` and the `R.string.*` resource system. There are two key differences.
+
+**First, the key format is different.** Android resource names cannot use dots (`.`). YAML's `gallery.empty_state_title` must be converted to `gallery_empty_state_title` for Android.
+
+```python
+def yml_key_to_android_key(yml_key):
+    return yml_key.replace('.', '_')
+```
+
+**Second, the locale directory conventions differ.** Android represents Indonesian as `in` instead of `id` -- `values-in/strings.xml`. The script handles this mapping.
+
+```bash
+ANDROID_LOCALE_MAP["en"]="values"
+ANDROID_LOCALE_MAP["ko"]="values-ko"
+ANDROID_LOCALE_MAP["ja"]="values-ja"
+ANDROID_LOCALE_MAP["id"]="values-in"    # Android uses "in" for Indonesian
+```
+
+Another difference from the iOS script is that it uses **diff-based synchronization**. While iOS overwrites files entirely each time, the Android script leaves already-existing keys untouched and **only adds missing keys**. This preserves entries managed manually on the Android side (like app names). Running with `--check` mode reports missing translations without modifying files.
+
+When actually using these keys in Android, `ThemeI18n.kt` maps YAML dot-notation keys to `R.string.*` resource IDs.
+
+```kotlin
+object ThemeI18n {
+    fun translate(context: Context, key: String): String {
+        val resourceId = keyToResourceId(key)
+        return if (resourceId != 0) context.getString(resourceId) else key
+    }
+}
+```
+
+#### Key Conversion Comparison Across Three Platforms
+
+| Element | Desktop (Rust) | iOS (Swift) | Android (Kotlin) |
+|:---|:---|:---|:---|
+| **Source** | `t!("gallery.empty_state_title")` | `NSLocalizedString("gallery.empty_state_title")` | `R.string.gallery_empty_state_title` |
+| **Key separator** | `.` (dot) | `.` (dot) | `_` (underscore) |
+| **Generation method** | Compile-time embedding | Build script auto-generation | Build script diff sync |
+| **Platform override** | — | `_ios` suffix | — |
+| **Indonesian code** | `id` | `id` | `in` |
+
+Thanks to this structure, **editing a single YAML file** reflects changes across all three platforms. Manually synchronizing 23 YAML files, 4 languages, and 3 platforms is practically impossible -- automation was the only approach I could think of.
+
 ---
 
 ## Open-Source Contributions
