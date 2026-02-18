@@ -18,7 +18,9 @@ tag = 'tags'
   author = "authors"
   series = "series"
 
-googleAnalytics = "G-VCBQVYZX51"
+[services]
+  [services.googleAnalytics]
+    id = "G-VCBQVYZX51"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
