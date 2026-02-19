@@ -22,8 +22,8 @@
   <rect width="860" height="480" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
 
   <!-- Title -->
-  <text x="430" y="32" text-anchor="middle" class="title">Speed Mode: Fast (max_depth = 1)</text>
-  <text x="430" y="52" text-anchor="middle" class="subtitle">Panorama / unusual aspect ratios | Short-side sliding windows added</text>
+  <text x="430" y="32" text-anchor="middle" class="title">Speed Mode: Fast (Desktop · ONNX)</text>
+  <text x="430" y="52" text-anchor="middle" class="subtitle">Panorama / unusual aspect ratios | Short-side square sliding windows → ONNX per crop</text>
 
   <!-- Original Image -->
   <rect x="40" y="75" width="360" height="240" rx="4" fill="#e8eef5" stroke="#b0bec5" stroke-width="1.5"/>
