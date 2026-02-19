@@ -520,14 +520,18 @@ Fastest scales the entire image to a single 640x640 and finishes in ~0.5 seconds
 
 Execution providers are also optimized per platform:
 
-- **macOS/iOS**: CoreML Execution Provider auto-selected -- leveraging Apple's Neural Engine/GPU acceleration
+- **macOS**: CoreML Execution Provider auto-selected -- leveraging Apple's Neural Engine/GPU acceleration
 - **Windows/Linux**: CPU or OnnxAuto (auto-detection)
 
 On macOS, even if the user selects CPU, it's internally switched to CoreML to **leverage Apple Silicon's Neural Engine**. This provides several times the performance improvement over CPU.
 
-Meanwhile, iOS and Android use each platform's native face detection API instead of this ONNX pipeline:
-- **iOS**: Apple Vision Framework -- fast and accurate without ONNX models
-- **Android**: Google ML Kit (`com.google.mlkit:face-detection`) -- FAST/ACCURATE performance modes mapped to Rust core's speed_mode (Fastest/Fast -> FAST performance, Slow and above -> ACCURATE performance)
+On iOS, the sliding window algorithm structure (Fastest/Fast/pyramid depth) is identical to the desktop, but **Apple Vision Framework (`VNDetectFaceRectanglesRequest`)** is used as the inference engine instead of InsightFace ONNX. Since Vision handles scaling internally, the 640×640 resize step is unnecessary, and accurate face detection is possible without an ONNX model.
+
+On Android, Google ML Kit (`com.google.mlkit:face-detection`) is used with a multi-pass cumulative structure:
+- **Pass 1 (all speeds)**: Decode whole image at max ~1024px, `PERFORMANCE_MODE_FAST`, `minFaceSize=0.2`
+- **Pass 2 (Fast and above)**: Sliding square window of `min(w,h)` size with 10% overlap on the 1024px bitmap
+- **Pass 3+ (Normal and above)**: Pyramid multi-level decode -- `base = floor(min(minSide/2, maxSide/3) × 1.1)`, Normal searches L0, Slow L0–L1, Slowest L0–L2, all with `PERFORMANCE_MODE_ACCURATE`, `minFaceSize=0.1`
+- All pass results merged via NMS (IoU 0.4) to remove duplicates
 
 ### 8. iOS Native Integration
 

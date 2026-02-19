@@ -520,14 +520,18 @@ Fastestが画像全体を640×640一つに縮小して~0.5秒で終わるのに�
 
 実行環境（Execution Provider）もプラットフォームごとに最適化されています。
 
-- **macOS/iOS**: CoreML Execution Provider自動選択 ―― AppleのNeural Engine/GPUアクセラレーション活用
+- **macOS**: CoreML Execution Provider自動選択 ―― AppleのNeural Engine/GPUアクセラレーション活用
 - **Windows/Linux**: CPUまたはOnnxAuto（自動検出）
 
 macOSではユーザーがCPUを選択しても内部的にCorMLに自動切り替えされ、**Apple SiliconのNeural Engineを活用**します。これはCPU比で数倍のパフォーマンス向上をもたらします。
 
-一方、iOSとAndroidではこのONNXパイプラインの代わりに各プラットフォームのネイティブ顔認識APIを使用します。
-- **iOS**: Apple Vision Framework ―― ONNXモデルなしでも高速・高精度
-- **Android**: Google ML Kit（`com.google.mlkit:face-detection`） ―― FAST/ACCURATEパフォーマンスモードをRustコアのspeed_modeにマッピング（Fastest/Fast → FASTパフォーマンス、Slow以上 → ACCURATEパフォーマンス）
+iOSでは、スライディングウィンドウアルゴリズムの構造（Fastest/Fast/ピラミッド深度）はデスクトップと同一ですが、推論エンジンとしてInsightFace ONNXの代わりに**Apple Vision Framework（`VNDetectFaceRectanglesRequest`）**を使用します。Visionが内部的にスケーリングを処理するため640×640リサイズ手順が不要で、ONNXモデルなしでも正確な顔認識が可能です。
+
+Androidでは、Google ML Kit（`com.google.mlkit:face-detection`）を多段階累積構造で使用します。
+- **Pass 1（全速度）**: 全体イメージを最大1024pxでデコード、`PERFORMANCE_MODE_FAST`、`minFaceSize=0.2`
+- **Pass 2（Fast以上）**: 1024pxビットマップ上で`min(w,h)`サイズの正方ウィンドウを10%オーバーラップでスライディング
+- **Pass 3+（Normal以上）**: ピラミッドマルチレベルデコード ―― `base = floor(min(minSide/2, maxSide/3) × 1.1)`を基準に、NormalはL0、SlowはL0–L1、SlowestはL0–L2まで`PERFORMANCE_MODE_ACCURATE`、`minFaceSize=0.1`で探索
+- 全Passの結果をNMS（IoU 0.4）でマージして重複除去
 
 ### 8. iOSネイティブ統合
 

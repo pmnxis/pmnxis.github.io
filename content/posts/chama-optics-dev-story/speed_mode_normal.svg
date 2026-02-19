@@ -25,8 +25,8 @@
   <rect width="860" height="530" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
 
   <!-- Title -->
-  <text x="430" y="32" text-anchor="middle" class="title">Speed Mode: Normal (max_depth = 1)</text>
-  <text x="430" y="52" text-anchor="middle" class="subtitle">~10 person group photo | 2560x2560 coarse sliding windows added</text>
+  <text x="430" y="32" text-anchor="middle" class="title">Speed Mode: Normal — Desktop · ONNX (num_levels = 1)</text>
+  <text x="430" y="52" text-anchor="middle" class="subtitle">~10 person group | Pyramid depth 0: 2560×2560 windows → ONNX per crop (6000×4000, m_max=2)</text>
 
   <!-- Original Image -->
   <rect x="40" y="75" width="360" height="240" rx="4" fill="#e8eef5" stroke="#b0bec5" stroke-width="1.5"/>
@@ -94,7 +94,7 @@
   <text x="60" y="478" class="label-bold" fill="#FF9800">Normal</text>
   <text x="115" y="478" class="label">: Whole resize + short-side + 2560x2560 coarse windows. Begins detecting medium-distance faces.</text>
   <text x="60" y="498" class="time">Avg ~7s</text>
-  <text x="165" y="498" class="label-sm">| Depth loop begins at this level (1 level) | Ideal for groups of ~10</text>
+  <text x="165" y="498" class="label-sm">| Pyramid depth loop: 1 level (depth 0 only) | Ideal for groups of ~10</text>
 
   <!-- Legend -->
   <rect x="40" y="380" width="14" height="12" rx="2" fill="#4A90D9" fill-opacity="0.15" stroke="#4A90D9" stroke-width="1"/>
@@ -105,6 +105,6 @@
   <text x="300" y="391" class="label-sm">2560x2560 windows</text>
 
   <!-- Note -->
-  <text x="40" y="420" class="label-sm" fill="#999">* Depth loop starts from Normal. 2560x2560 windows cover large areas for coarse face detection.</text>
-  <text x="40" y="436" class="label-sm" fill="#999">* Each 2560x2560 window is resized to 640x640 for ONNX inference.</text>
+  <text x="40" y="420" class="label-sm" fill="#999">* Pyramid loop starts from Normal. Window size depends on m_max = floor(log2(min_side × 0.9 / 640)).</text>
+  <text x="40" y="436" class="label-sm" fill="#999">* Each window is resized to 640×640 for ONNX inference. Example: 6000×4000 → m_max=2 → depth 0 = 2560×2560.</text>
 </svg>

@@ -459,23 +459,47 @@ M4 Max(Stable Rust) 기준 처리 시간 (JPEG 디코딩/인코딩 시간 포함
 
 이 문제를 해결하기 위해 **Speed Mode에 따른 다단계 슬라이딩 윈도우 알고리즘**을 구현했다.
 
-| 모드 | max_depth | Depth Loop 윈도우 크기 | 전체 동작 |
-|:---|:---:|:---|:---|
-| Fastest | 0 | (없음) | 전체 이미지 → 640×640 리사이즈 → 단일 추론 |
-| Fast | 1 | (없음, depth loop 미실행) | + 짧은변(`min(W,H)`) 크기 슬라이딩 윈도우 |
-| Normal | 1 | 640×640 | + 640×640 세밀 윈도우 |
-| Slow | 2 | 1280×1280 → 640×640 | + 1280→640 다단계 윈도우 |
-| Slowest | 3 | 2560×2560 → 1280×1280 → 640×640 | + 2560→1280→640 전체 다단계 윈도우 |
+먼저, 이미지의 짧은 변을 기준으로 **피라미드 최대 깊이 `m_max`** 를 동적 계산한다.
 
-> **Depth Loop 윈도우 크기 공식**: `window = 640 × 2^(max_depth - depth - 1)`
->
-> 예: Slowest(max_depth=3) → depth 0: 2560, depth 1: 1280, depth 2: 640
+```
+m_max = floor(log2(min_side × 0.9 / 640))
+```
+
+각 depth에서의 윈도우 크기는 다음과 같다.
+
+```
+depth 0 → window = 640 × 2^(m_max)       ← 가장 큰 윈도우
+depth 1 → window = 640 × 2^(m_max - 1)
+...
+depth m_max → window = 640               ← 가장 작은 윈도우
+```
+
+Speed Mode는 이 피라미드에서 **실제 탐색하는 깊이 수(`num_levels`)** 를 제한한다.
+
+| 모드 | num_levels | 전체 동작 |
+|:---|:---:|:---|
+| Fastest | 0 | 전체 이미지 → 640×640 리사이즈 → 단일 추론 |
+| Fast | 0 | + 짧은변(`min(W,H)`) 크기 정사각 슬라이딩 윈도우 |
+| Normal | min(1, m_max+1) | + 피라미드 depth 0 (가장 큰 윈도우) |
+| Slow | min(2, m_max+1) | + 피라미드 depth 0..1 |
+| Slowest | min(3, m_max+1) | + 피라미드 depth 0..2 |
+| Slowest + ILC | m_max+1 | + 피라미드 전체 (640px 베이스까지) |
+
+> **ILC 카메라 확장**: `Slowest` 모드에서 EXIF Make가 전문 ILC 브랜드(Panasonic, Sony, Canon, Sigma, Fuji, Hasselblad, Nikon, Leica)와 일치하면 `num_levels = m_max + 1`로 확장하여 640px 베이스 윈도우까지 탐색한다. 고해상도 ILC 사진에서 먼 거리의 작은 얼굴까지 빠짐없이 검출하기 위한 확장이다.
+
+아래 표는 카메라별 실제 예시다.
+
+| 카메라 | min_side | m_max | Normal | Slow | Slowest | Slowest+ILC |
+|:---|:---:|:---:|:---|:---|:---|:---|
+| S5M2 | 4000 | 2 | 2560 | 2560, 1280 | 2560, 1280, 640 | (동일) |
+| S1R | 5424 | 2 | 2560 | 2560, 1280 | 2560, 1280, 640 | (동일) |
+| A7R5 | 6336 | 3 | 5120 | 5120, 2560 | 5120, 2560, 1280 | +640 |
 
 알고리즘의 흐름은 다음과 같다.
 
 1. **1단계 (공통)**: 전체 이미지를 640×640으로 리사이즈하여 단일 추론. 큰 얼굴은 이 단계에서 잡힌다.
-2. **2단계 (Fast 이상)**: 이미지의 짧은 변(`min(width, height)`) 크기의 슬라이딩 윈도우를 10% 겹침으로 이동시키며 각 윈도우를 640×640으로 축소하여 추론. 비정상적인 종횡비(파노라마 등)에서의 누락을 방지.
-3. **3단계 (Normal 이상)**: `640 × 2^(max_depth - depth - 1)` 크기의 윈도우를 depth별로 순회. Slowest는 2560→1280→640, Slow는 1280→640, Normal은 640 단일 depth.
+2. **2단계 (Fast 이상)**: 이미지의 짧은 변(`min(width, height)`) 크기의 정사각 슬라이딩 윈도우를 10% 겹침으로 이동시키며 각 윈도우를 640×640으로 축소하여 추론. 비정상적인 종횡비(파노라마 등)에서의 누락을 방지.
+3. **3단계 (Normal 이상)**: `640 × 2^(m_max - depth)` 크기의 윈도우를 depth별로 순회. 큰 윈도우부터 작은 윈도우 순으로 점진적 세밀화.
 4. **최종**: NMS(Non-Maximum Suppression, IoU 임계값 0.4)로 중복 감지 제거.
 
 각 Speed Mode의 동작을 시각화한 다이어그램 (6000×4000 원본 이미지 기준):
@@ -520,19 +544,23 @@ Fastest가 전체를 640×640 하나로 축소하여 ~0.5초만에 끝나는 반
 
 실행 환경(Execution Provider)도 플랫폼별로 최적화되어 있다.
 
-- **macOS/iOS**: CoreML Execution Provider 자동 선택 — Apple의 Neural Engine/GPU 가속 활용
+- **macOS**: CoreML Execution Provider 자동 선택 — Apple의 Neural Engine/GPU 가속 활용
 - **Windows/Linux**: CPU 또는 OnnxAuto (자동 감지)
 
 macOS에서는 사용자가 CPU를 선택하더라도 내부적으로 CoreML로 자동 전환되어 **Apple Silicon의 Neural Engine을 활용**한다. 이는 CPU 대비 수 배의 성능 향상을 가져온다.
 
-한편 iOS와 Android에서는 이 ONNX 파이프라인 대신 각 플랫폼의 네이티브 얼굴 인식 API를 사용한다.
-- **iOS**: Apple Vision Framework — ONNX 모델 없이도 빠르고 정확
-- **Android**: Google ML Kit (`com.google.mlkit:face-detection`) — FAST/ACCURATE 성능 모드를 Rust 코어의 speed_mode와 매핑 (Fastest/Fast → FAST 퍼포먼스, Slow 이상 → ACCURATE 퍼포먼스)
+iOS에서는 슬라이딩 윈도우 알고리즘 구조(Fastest/Fast/피라미드 깊이)는 데스크탑과 동일하지만, 추론 엔진으로 InsightFace ONNX 대신 **Apple Vision Framework(`VNDetectFaceRectanglesRequest`)**를 사용한다. Vision이 내부적으로 스케일링을 처리하므로 640×640 리사이즈 단계가 불필요하며, ONNX 모델 없이도 정확한 얼굴 인식이 가능하다.
+
+한편 Android에서는 Google ML Kit (`com.google.mlkit:face-detection`)를 사용하며, 다단계 누적 구조로 동작한다.
+- **Pass 1 (모든 속도)**: 전체 이미지를 최대 1024px로 디코드, `PERFORMANCE_MODE_FAST`, `minFaceSize=0.2`
+- **Pass 2 (Fast 이상)**: Pass 1의 1024px 비트맵에서 `min(w,h)` 크기 정사각 윈도우를 10% 겹침으로 슬라이딩
+- **Pass 3+ (Normal 이상)**: 피라미드 멀티레벨 디코드 — `base = floor(min(minSide/2, maxSide/3) × 1.1)` 기준으로 Normal은 L0, Slow는 L0–L1, Slowest는 L0–L2까지 `PERFORMANCE_MODE_ACCURATE`, `minFaceSize=0.1`로 탐색
+- 모든 Pass 결과를 NMS(IoU 0.4)로 병합하여 중복 제거
 
 ### 8. iOS 네이티브 통합
 
 iOS 앱은 단순히 Rust 코어를 감싸는 것이 아니라, 플랫폼의 장점을 최대한 활용했다.
-- **Vision Framework** — 얼굴 인식을 iOS 네이티브로 처리하여 ONNX 모델 없이도 빠르고 정확한 인식
+- **Apple Vision Framework (VisionKit)** — `VNDetectFaceRectanglesRequest` 기반 슬라이딩 윈도우 얼굴 인식. 데스크탑과 동일한 Fastest/Fast/피라미드 depth 구조를 사용하되, ONNX 모델 없이 Vision이 스케일링과 추론을 직접 처리
 - **PhotosUI** — iOS 사진 라이브러리에서 직접 이미지 선택
 - **Metal 렌더링** — GPU 가속 이미지 처리
 - **iPad 지원** — 넓은 화면에 최적화된 레이아웃

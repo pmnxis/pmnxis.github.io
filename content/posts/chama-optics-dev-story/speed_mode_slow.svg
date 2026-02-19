@@ -28,8 +28,8 @@
   <rect width="860" height="570" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
 
   <!-- Title -->
-  <text x="430" y="32" text-anchor="middle" class="title">Speed Mode: Slow (max_depth = 2)</text>
-  <text x="430" y="52" text-anchor="middle" class="subtitle">40-50 person group | 2560x2560 + 1280x1280 multi-depth windows</text>
+  <text x="430" y="32" text-anchor="middle" class="title">Speed Mode: Slow — Desktop · ONNX (num_levels = 2)</text>
+  <text x="430" y="52" text-anchor="middle" class="subtitle">40-50 person group | Pyramid depth 0–1 → ONNX per crop (6000×4000, m_max=2 example)</text>
 
   <!-- Original Image -->
   <rect x="40" y="75" width="360" height="240" rx="4" fill="#e8eef5" stroke="#b0bec5" stroke-width="1.5"/>
@@ -83,7 +83,7 @@
 
   <!-- Depth explanation -->
   <rect x="440" y="330" width="370" height="90" rx="6" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="1" stroke-dasharray="5,3"/>
-  <text x="460" y="352" class="label-bold" fill="#7B1FA2">Depth Loop (max_depth=2):</text>
+  <text x="460" y="352" class="label-bold" fill="#7B1FA2">Pyramid Loop (num_levels=2):</text>
   <text x="460" y="372" class="label-sm">Level 0: <tspan font-weight="bold" fill="#FF9800">2560x2560</tspan> windows (coarse)</text>
   <text x="460" y="392" class="label-sm">Level 1: <tspan font-weight="bold" fill="#AB47BC">1280x1280</tspan> windows (medium)</text>
   <text x="460" y="412" class="label-sm" fill="#999">Large windows (2560) → medium windows (1280) progressive refinement</text>
