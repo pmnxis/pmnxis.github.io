@@ -149,6 +149,10 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-cheki-sample.webp" alt="체키 출력 결과" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">출력 결과</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
 <img src="ss-ko-cheki.webp" alt="체키 모드 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">체키 모드 (iPhone)</div>
 </div>

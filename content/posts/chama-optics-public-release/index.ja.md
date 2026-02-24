@@ -149,6 +149,10 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-cheki-sample.webp" alt="チェキ出力結果" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">出力結果</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
 <img src="ss-ja-cheki.webp" alt="チェキモード (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">チェキモード (iPhone)</div>
 </div>
