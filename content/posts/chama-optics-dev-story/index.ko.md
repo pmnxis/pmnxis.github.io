@@ -20,6 +20,8 @@ description: "EXIF 기반 사진 프레임 + 얼굴 자동인식 프로그램, R
 2026년 2월 마지막 주에 **0.2.0**에 iOS / Android / macOS / Linux / Windows 의 정식 배포를 할 예정이며 App Store, Google Play 승인 전 개발 과정을 서술하고 있습니다.
 
 > 🌐 [English Article](/en/posts/chama-optics-dev-story/) | [日本語アーティクル](/ja/posts/chama-optics-dev-story/)
+>
+> 어플리케이션 소개 및 릴리즈 노트는 [여기](/ko/posts/chama-optics-public-release/)에서 볼 수 있습니다.
 
 ---
 
@@ -717,13 +719,18 @@ object ThemeI18n {
 
 #### 세 플랫폼의 키 변환 비교
 
-| 요소 | Desktop (Rust) | iOS (Swift) | Android (Kotlin) |
-|:---|:---|:---|:---|
-| **원본** | `t!("gallery.empty_state_title")` | `NSLocalizedString("gallery.empty_state_title")` | `R.string.gallery_empty_state_title` |
-| **키 구분자** | `.` (점) | `.` (점) | `_` (밑줄) |
-| **생성 방식** | 컴파일 타임 임베딩 | 빌드 스크립트 자동 생성 | 빌드 스크립트 diff 동기화 |
-| **플랫폼 오버라이드** | — | `_ios` 접미어 | — |
-| **인도네시아어 코드** | `id` | `id` | `in` |
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th style="white-space:nowrap;">요소</th><th>Desktop (Rust)</th><th>iOS (Swift)</th><th>Android (Kotlin)</th></tr></thead>
+<tbody>
+<tr><td style="white-space:nowrap;"><b>원본</b></td><td><code>t!("gallery.empty_state_title")</code></td><td><code>NSLocalizedString("gallery.empty_state_title")</code></td><td><code>R.string.gallery_empty_state_title</code></td></tr>
+<tr><td style="white-space:nowrap;"><b>키 구분자</b></td><td><code>.</code> (점)</td><td><code>.</code> (점)</td><td><code>_</code> (밑줄)</td></tr>
+<tr><td style="white-space:nowrap;"><b>생성 방식</b></td><td>컴파일 타임 임베딩</td><td>빌드 스크립트 자동 생성</td><td>빌드 스크립트 diff 동기화</td></tr>
+<tr><td style="white-space:nowrap;"><b>플랫폼 오버라이드</b></td><td>—</td><td><code>_ios</code> 접미어</td><td>—</td></tr>
+<tr><td style="white-space:nowrap;"><b>인도네시아어 코드</b></td><td><code>id</code></td><td><code>id</code></td><td><code>in</code></td></tr>
+</tbody>
+</table>
+</div>
 
 이 구조 덕분에 번역을 추가하거나 수정할 때 **YAML 파일 하나만 고치면** 세 플랫폼 모두에 반영된다. 23개 YAML 파일, 4개 언어, 3개 플랫폼을 수동으로 동기화하는 것은 현실적으로 불가능하다 — 내가 생각한 방법은 자동화뿐이었다.
 

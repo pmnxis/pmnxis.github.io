@@ -39,11 +39,11 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-exif.webp" alt="EXIF\u7de8\u96c6 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ja-exif.webp" alt="EXIF\u7de8\u96c6 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-exif-ipad.webp" alt="EXIF\u7de8\u96c6 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ja-exif-ipad.webp" alt="EXIF\u7de8\u96c6 (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
@@ -97,12 +97,20 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-face.webp" alt="顔検出 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ja-face.webp" alt="顔検出 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-face-ipad.webp" alt="顔検出 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ja-face-ipad.webp" alt="顔検出 (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="/img/chama-optics/IMG_2194-OPTICS.webp" alt="顔検出結果（結婚式）" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">結果（結婚式）</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="/img/chama-optics/IMG_2195-OPTICS.webp" alt="顔検出結果（イベント）" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">結果（イベント）</div>
 </div>
 </div>
 
@@ -117,11 +125,11 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-lut.webp" alt="LUT選択 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ja-lut.webp" alt="LUT選択 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-lut-ipad.webp" alt="LUT選択 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ja-lut-ipad.webp" alt="LUT選択 (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
@@ -131,6 +139,10 @@ heroStyle: "background"
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
 <img src="https://github.com/user-attachments/assets/4d49174c-2624-4b3c-a8a1-fc2b56d357c1" alt="適用結果" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">適用結果 (デスクトップ)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="/img/chama-optics/IMG_2193-OPTICS.webp" alt="LUT適用結果" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">適用結果 (写真)</div>
 </div>
 </div>
 
@@ -149,23 +161,23 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-cheki-sample.webp" alt="チェキ出力結果" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-cheki-sample.webp" alt="チェキ出力結果" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">出力結果</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-cheki.webp" alt="チェキモード (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ja-cheki.webp" alt="チェキモード (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">チェキモード (iPhone)</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-cheki-ipad.webp" alt="チェキモード (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ja-cheki-ipad.webp" alt="チェキモード (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">チェキモード (iPad)</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-cheki-text.webp" alt="テキスト設定 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ja-cheki-text.webp" alt="テキスト設定 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">テキスト設定 (iPhone)</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-cheki-text-ipad.webp" alt="テキスト設定 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ja-cheki-text-ipad.webp" alt="テキスト設定 (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">テキスト設定 (iPad)</div>
 </div>
 </div>
@@ -181,20 +193,12 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="https://github.com/user-attachments/assets/65adb13a-18ee-41d2-976e-dd50d0c4dd40" alt="ギャラリー (iPhone)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">ギャラリー (iPhone)</div>
+<img src="/img/chama-optics/ios-preview.webp" alt="iOSプレビュー" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iOS</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-gallery-ipad.webp" alt="ギャラリー (iPad)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">ギャラリー (iPad)</div>
-</div>
-<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="https://github.com/user-attachments/assets/4abef726-89b4-44f9-873d-685b2f9bcfb7" alt="編集 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">編集 (iPhone)</div>
-</div>
-<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ja-exif-ipad.webp" alt="編集 (iPad)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">編集 (iPad)</div>
+<img src="/img/chama-optics/android-preview.webp" alt="Androidプレビュー" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Android</div>
 </div>
 </div>
 

@@ -20,6 +20,8 @@ description: "EXIF ベースの写真フレーム＋顔自動認識アプリ、R
 2026年2月最終週に **0.2.0** で iOS / Android / macOS / Linux / Windows の正式リリースを予定しており、App Store・Google Play 承認前の開発過程を記述しています。
 
 > 🌐 [한국어 아티클](/ko/posts/chama-optics-dev-story/) | [English Article](/en/posts/chama-optics-dev-story/)
+>
+> アプリ紹介およびリリースノートは[こちら](/ja/posts/chama-optics-public-release/)からご覧いただけます。
 
 ---
 
@@ -693,13 +695,18 @@ object ThemeI18n {
 
 #### 3プラットフォームのキー変換比較
 
-| 要素 | Desktop (Rust) | iOS (Swift) | Android (Kotlin) |
-|:---|:---|:---|:---|
-| **原本** | `t!("gallery.empty_state_title")` | `NSLocalizedString("gallery.empty_state_title")` | `R.string.gallery_empty_state_title` |
-| **キー区切り** | `.`（ドット） | `.`（ドット） | `_`（アンダースコア） |
-| **生成方式** | コンパイルタイム埋め込み | ビルドスクリプト自動生成 | ビルドスクリプトdiff同期 |
-| **プラットフォームオーバーライド** | — | `_ios` サフィックス | — |
-| **インドネシア語コード** | `id` | `id` | `in` |
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th style="white-space:nowrap;">要素</th><th>Desktop (Rust)</th><th>iOS (Swift)</th><th>Android (Kotlin)</th></tr></thead>
+<tbody>
+<tr><td style="white-space:nowrap;"><b>原本</b></td><td><code>t!("gallery.empty_state_title")</code></td><td><code>NSLocalizedString("gallery.empty_state_title")</code></td><td><code>R.string.gallery_empty_state_title</code></td></tr>
+<tr><td style="white-space:nowrap;"><b>キー区切り</b></td><td><code>.</code>（ドット）</td><td><code>.</code>（ドット）</td><td><code>_</code>（アンダースコア）</td></tr>
+<tr><td style="white-space:nowrap;"><b>生成方式</b></td><td>コンパイルタイム埋め込み</td><td>ビルドスクリプト自動生成</td><td>ビルドスクリプトdiff同期</td></tr>
+<tr><td style="white-space:nowrap;"><b>プラットフォームオーバーライド</b></td><td>—</td><td><code>_ios</code> サフィックス</td><td>—</td></tr>
+<tr><td style="white-space:nowrap;"><b>インドネシア語コード</b></td><td><code>id</code></td><td><code>id</code></td><td><code>in</code></td></tr>
+</tbody>
+</table>
+</div>
 
 この構造のおかげで翻訳を追加または修正する際に**YAMLファイル一つを直すだけで** 3つのプラットフォーム全てに反映されます。23個のYAMLファイル、4つの言語、3つのプラットフォームを手動で同期するのは現実的に不可能です ―― 自分が考えた方法は自動化だけでした。
 

@@ -20,6 +20,8 @@ This post introduces the development journey of [Chama Optics](https://github.co
 The official release of **0.2.0** for iOS / Android / macOS / Linux / Windows is planned for the last week of February 2026, and this article covers the development process before App Store and Google Play approval.
 
 > 🌐 [한국어 아티클](/ko/posts/chama-optics-dev-story/) | [日本語アーティクル](/ja/posts/chama-optics-dev-story/)
+>
+> For the app introduction and release notes, see [here](/en/posts/chama-optics-public-release/).
 
 ---
 
@@ -693,13 +695,18 @@ object ThemeI18n {
 
 #### Key Conversion Comparison Across Three Platforms
 
-| Element | Desktop (Rust) | iOS (Swift) | Android (Kotlin) |
-|:---|:---|:---|:---|
-| **Source** | `t!("gallery.empty_state_title")` | `NSLocalizedString("gallery.empty_state_title")` | `R.string.gallery_empty_state_title` |
-| **Key separator** | `.` (dot) | `.` (dot) | `_` (underscore) |
-| **Generation method** | Compile-time embedding | Build script auto-generation | Build script diff sync |
-| **Platform override** | — | `_ios` suffix | — |
-| **Indonesian code** | `id` | `id` | `in` |
+<div style="overflow-x:auto;">
+<table>
+<thead><tr><th style="white-space:nowrap;">Element</th><th>Desktop (Rust)</th><th>iOS (Swift)</th><th>Android (Kotlin)</th></tr></thead>
+<tbody>
+<tr><td style="white-space:nowrap;"><b>Source</b></td><td><code>t!("gallery.empty_state_title")</code></td><td><code>NSLocalizedString("gallery.empty_state_title")</code></td><td><code>R.string.gallery_empty_state_title</code></td></tr>
+<tr><td style="white-space:nowrap;"><b>Key separator</b></td><td><code>.</code> (dot)</td><td><code>.</code> (dot)</td><td><code>_</code> (underscore)</td></tr>
+<tr><td style="white-space:nowrap;"><b>Generation method</b></td><td>Compile-time embedding</td><td>Build script auto-generation</td><td>Build script diff sync</td></tr>
+<tr><td style="white-space:nowrap;"><b>Platform override</b></td><td>—</td><td><code>_ios</code> suffix</td><td>—</td></tr>
+<tr><td style="white-space:nowrap;"><b>Indonesian code</b></td><td><code>id</code></td><td><code>id</code></td><td><code>in</code></td></tr>
+</tbody>
+</table>
+</div>
 
 Thanks to this structure, **editing a single YAML file** reflects changes across all three platforms. Manually synchronizing 23 YAML files, 4 languages, and 3 platforms is practically impossible -- automation was the only approach I could think of.
 

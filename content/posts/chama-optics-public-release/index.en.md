@@ -39,11 +39,11 @@ Photos taken with a camera contain shooting information such as camera model, le
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-exif.webp" alt="EXIF Editor (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-en-exif.webp" alt="EXIF Editor (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-exif-ipad.webp" alt="EXIF Editor (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-en-exif-ipad.webp" alt="EXIF Editor (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
@@ -97,12 +97,20 @@ When other people's faces are captured at events or tourist spots, faces are aut
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-face.webp" alt="Face Detection (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-en-face.webp" alt="Face Detection (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-face-ipad.webp" alt="Face Detection (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-en-face-ipad.webp" alt="Face Detection (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="/img/chama-optics/IMG_2194-OPTICS.webp" alt="Face Detection Result (Wedding)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Result (Wedding)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="/img/chama-optics/IMG_2195-OPTICS.webp" alt="Face Detection Result (Event)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Result (Event)</div>
 </div>
 </div>
 
@@ -117,11 +125,11 @@ You can apply **LUT (Look-Up Table)** files, used in film and photography to app
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-lut.webp" alt="LUT Selection (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-en-lut.webp" alt="LUT Selection (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-lut-ipad.webp" alt="LUT Selection (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-en-lut-ipad.webp" alt="LUT Selection (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
@@ -131,6 +139,10 @@ You can apply **LUT (Look-Up Table)** files, used in film and photography to app
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
 <img src="https://github.com/user-attachments/assets/4d49174c-2624-4b3c-a8a1-fc2b56d357c1" alt="Result" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Result (Desktop)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="/img/chama-optics/IMG_2193-OPTICS.webp" alt="LUT Result" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Result (Photo)</div>
 </div>
 </div>
 
@@ -149,23 +161,23 @@ Automatically generates Polaroid-style cheki frames. You can customize random ch
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-cheki-sample.webp" alt="Cheki Output" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-cheki-sample.webp" alt="Cheki Output" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Output</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-cheki.webp" alt="Cheki Mode (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-en-cheki.webp" alt="Cheki Mode (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Cheki Mode (iPhone)</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-cheki-ipad.webp" alt="Cheki Mode (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-en-cheki-ipad.webp" alt="Cheki Mode (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Cheki Mode (iPad)</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-cheki-text.webp" alt="Text Settings (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-en-cheki-text.webp" alt="Text Settings (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Text Settings (iPhone)</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-cheki-text-ipad.webp" alt="Text Settings (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-en-cheki-text-ipad.webp" alt="Text Settings (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Text Settings (iPad)</div>
 </div>
 </div>
@@ -181,20 +193,12 @@ Available via iOS TestFlight since February 2026. The same features as the deskt
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="https://github.com/user-attachments/assets/65adb13a-18ee-41d2-976e-dd50d0c4dd40" alt="Gallery (iPhone)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Gallery (iPhone)</div>
+<img src="/img/chama-optics/ios-preview.webp" alt="iOS Preview" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iOS</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-gallery-ipad.webp" alt="Gallery (iPad)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Gallery (iPad)</div>
-</div>
-<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="https://github.com/user-attachments/assets/4abef726-89b4-44f9-873d-685b2f9bcfb7" alt="Editor (iPhone)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Editor (iPhone)</div>
-</div>
-<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-en-exif-ipad.webp" alt="Editor (iPad)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Editor (iPad)</div>
+<img src="/img/chama-optics/android-preview.webp" alt="Android Preview" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Android</div>
 </div>
 </div>
 

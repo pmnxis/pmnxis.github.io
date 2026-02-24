@@ -39,11 +39,11 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-exif.webp" alt="EXIF 편집 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ko-exif.webp" alt="EXIF 편집 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-exif-ipad.webp" alt="EXIF 편집 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ko-exif-ipad.webp" alt="EXIF 편집 (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
@@ -97,12 +97,20 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-face.webp" alt="얼굴 감지 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ko-face.webp" alt="얼굴 감지 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-face-ipad.webp" alt="얼굴 감지 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ko-face-ipad.webp" alt="얼굴 감지 (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="/img/chama-optics/IMG_2194-OPTICS.webp" alt="얼굴 감지 결과 (결혼식)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">결과 (결혼식)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="/img/chama-optics/IMG_2195-OPTICS.webp" alt="얼굴 감지 결과 (행사)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">결과 (행사)</div>
 </div>
 </div>
 
@@ -117,11 +125,11 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-lut.webp" alt="LUT 선택 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ko-lut.webp" alt="LUT 선택 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-lut-ipad.webp" alt="LUT 선택 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ko-lut-ipad.webp" alt="LUT 선택 (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
@@ -131,6 +139,10 @@ heroStyle: "background"
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
 <img src="https://github.com/user-attachments/assets/4d49174c-2624-4b3c-a8a1-fc2b56d357c1" alt="적용 결과" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">적용 결과 (데스크탑)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="/img/chama-optics/IMG_2193-OPTICS.webp" alt="LUT 적용 결과" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">적용 결과 (사진)</div>
 </div>
 </div>
 
@@ -149,23 +161,23 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-cheki-sample.webp" alt="체키 출력 결과" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-cheki-sample.webp" alt="체키 출력 결과" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">출력 결과</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-cheki.webp" alt="체키 모드 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ko-cheki.webp" alt="체키 모드 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">체키 모드 (iPhone)</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-cheki-ipad.webp" alt="체키 모드 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ko-cheki-ipad.webp" alt="체키 모드 (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">체키 모드 (iPad)</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-cheki-text.webp" alt="텍스트 설정 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ko-cheki-text.webp" alt="텍스트 설정 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">텍스트 설정 (iPhone)</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-cheki-text-ipad.webp" alt="텍스트 설정 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<img src="/img/chama-optics/ss-ko-cheki-text-ipad.webp" alt="텍스트 설정 (iPad)" style="height:420px; width:auto; border-radius:8px;">
 <div style="font-size:0.85em; opacity:0.7; margin-top:4px;">텍스트 설정 (iPad)</div>
 </div>
 </div>
@@ -181,20 +193,12 @@ heroStyle: "background"
 
 <div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="https://github.com/user-attachments/assets/65adb13a-18ee-41d2-976e-dd50d0c4dd40" alt="갤러리 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">갤러리 (iPhone)</div>
+<img src="/img/chama-optics/ios-preview.webp" alt="iOS 미리보기" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iOS</div>
 </div>
 <div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-gallery-ipad.webp" alt="갤러리 (iPad)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">갤러리 (iPad)</div>
-</div>
-<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="https://github.com/user-attachments/assets/4abef726-89b4-44f9-873d-685b2f9bcfb7" alt="편집 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">편집 (iPhone)</div>
-</div>
-<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
-<img src="ss-ko-exif-ipad.webp" alt="편집 (iPad)" style="height:420px; width:auto; border-radius:8px;">
-<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">편집 (iPad)</div>
+<img src="/img/chama-optics/android-preview.webp" alt="Android 미리보기" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Android</div>
 </div>
 </div>
 
