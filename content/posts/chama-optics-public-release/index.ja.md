@@ -37,13 +37,48 @@ heroStyle: "background"
 
 カメラで撮影した写真には、カメラ機種、レンズ、シャッタースピード、絞り、ISOなどの撮影情報が含まれています。Chama Opticsはこの情報を自動で読み取り、さまざまなテーマのフレームに配置します。
 
-| Film Date | Strap | Monitor | Lightroom |
-|:---:|:---:|:---:|:---:|
-| ![Film Date](https://github.com/user-attachments/assets/a6bf0e51-d3b1-4779-9d65-080b225958f4) | ![Strap](https://github.com/user-attachments/assets/039ab49f-85b1-414b-95e3-2da166cea27f) | ![Monitor](https://github.com/user-attachments/assets/e92b81a0-4465-4dad-9097-7e8b4814fc15) | ![Lightroom](https://github.com/user-attachments/assets/ce1022cd-aea3-4260-9d5f-5e15997388de) |
-
-| One Line | Shot On Two Line | Nikon PhotoStyle | Lumix Photo Style + LUT |
-|:---:|:---:|:---:|:---:|
-| ![One Line](https://github.com/user-attachments/assets/337337f3-7c17-467a-b965-06481cba98c8) | ![Shot On 2](https://github.com/user-attachments/assets/a9ba4540-6540-418c-8e21-4f9961d7bff7) | ![Nikon](https://github.com/user-attachments/assets/28016fd2-2d4d-4043-88e1-c29f7577a32a) | ![Lumix](https://github.com/user-attachments/assets/62219e6a-c6cb-49ac-9803-cda29321b998) |
+<div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-exif.webp" alt="EXIF\u7de8\u96c6 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-exif-ipad.webp" alt="EXIF\u7de8\u96c6 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/a6bf0e51-d3b1-4779-9d65-080b225958f4" alt="Film Date" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Film Date</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/039ab49f-85b1-414b-95e3-2da166cea27f" alt="Strap" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Strap</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/e92b81a0-4465-4dad-9097-7e8b4814fc15" alt="Monitor" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Monitor</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/ce1022cd-aea3-4260-9d5f-5e15997388de" alt="Lightroom" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Lightroom</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/337337f3-7c17-467a-b965-06481cba98c8" alt="One Line" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">One Line</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/a9ba4540-6540-418c-8e21-4f9961d7bff7" alt="Shot On Two Line" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Shot On Two Line</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/28016fd2-2d4d-4043-88e1-c29f7577a32a" alt="Nikon PhotoStyle" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Nikon PhotoStyle</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/62219e6a-c6cb-49ac-9803-cda29321b998" alt="Lumix Photo Style + LUT" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Lumix Photo Style + LUT</div>
+</div>
+</div>
 
 カメラメーカーのロゴ（Canon、Nikon、Sony、Lumixなど）も撮影情報から自動認識してフレームに配置します。Lumixの場合は適用されたPhoto Style名やLUTファイル名まで表示できます。
 
@@ -54,7 +89,22 @@ heroStyle: "background"
 <details>
 <summary>写真内の顔を自動検出し、モザイクやステッカーで隠します。（詳細を見る）</summary>
 
-\<執筆中\>
+イベント会場や観光地で他の人の顔が写り込んだとき、顔を自動検出してモザイクやステッカーで隠します。
+
+- モザイク(Mosaic)、ストローク(Stroke)、ステッカー(Sticker)、モザイク+ストローク(Mosaic+Stroke)など多様な方式で隠せます
+- 検出された顔を個別に選択して、効果を適用または解除できます
+- 設定でカスタムステッカーを追加すると、チェキタブのサイコロにも自動的に含まれます
+
+<div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-face.webp" alt="顔検出 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-face-ipad.webp" alt="顔検出 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
+</div>
+</div>
 
 </details>
 
@@ -65,9 +115,24 @@ heroStyle: "background"
 
 映画や写真で特定の色味を適用するために使われる**LUT（Look-Up Table）**ファイルを適用できます。`.cube`ファイルを読み込めば、写真に映画のような色味を加えることができます。
 
-| カラーグレーディング UI | 適用結果 |
-|:---:|:---:|
-| ![LUT UI](https://github.com/user-attachments/assets/554f96b2-217a-4603-93f5-1df41309f77e) | ![LUT Result](https://github.com/user-attachments/assets/4d49174c-2624-4b3c-a8a1-fc2b56d357c1) |
+<div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-lut.webp" alt="LUT選択 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-lut-ipad.webp" alt="LUT選択 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/554f96b2-217a-4603-93f5-1df41309f77e" alt="カラーグレーディング UI" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">カラーグレーディング UI (デスクトップ)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/4d49174c-2624-4b3c-a8a1-fc2b56d357c1" alt="適用結果" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">適用結果 (デスクトップ)</div>
+</div>
+</div>
 
 </details>
 
@@ -76,7 +141,30 @@ heroStyle: "background"
 <details>
 <summary>ポラロイド風チェキフレームを自動生成します。（詳細を見る）</summary>
 
-\<執筆中\>
+ポラロイド風チェキフレームを自動生成します。ランダムキャラクターステッカー配置、日付/署名テキスト、枠線設定などをカスタマイズできます。
+
+- チェキ有効化でポラロイド風の下部余白が自動生成されます
+- サイコロでランダムにキャラクターステッカーを画像に配置できます
+- テキスト/署名、フォント、色、位置（TL/TC/TR/BL/BC/BR）を自由に設定できます
+
+<div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-cheki.webp" alt="チェキモード (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">チェキモード (iPhone)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-cheki-ipad.webp" alt="チェキモード (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">チェキモード (iPad)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-cheki-text.webp" alt="テキスト設定 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">テキスト設定 (iPhone)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-cheki-text-ipad.webp" alt="テキスト設定 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">テキスト設定 (iPad)</div>
+</div>
+</div>
 
 </details>
 
@@ -87,9 +175,24 @@ heroStyle: "background"
 
 2026年2月よりiOS TestFlightで配布中です。デスクトップと同じ機能をiPhoneで利用できます。
 
-| ギャラリー | 編集 |
-|:---:|:---:|
-| ![Gallery](https://github.com/user-attachments/assets/65adb13a-18ee-41d2-976e-dd50d0c4dd40) | ![Editor](https://github.com/user-attachments/assets/4abef726-89b4-44f9-873d-685b2f9bcfb7) |
+<div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/65adb13a-18ee-41d2-976e-dd50d0c4dd40" alt="ギャラリー (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">ギャラリー (iPhone)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-gallery-ipad.webp" alt="ギャラリー (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">ギャラリー (iPad)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/4abef726-89b4-44f9-873d-685b2f9bcfb7" alt="編集 (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">編集 (iPhone)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-ja-exif-ipad.webp" alt="編集 (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">編集 (iPad)</div>
+</div>
+</div>
 
 </details>
 

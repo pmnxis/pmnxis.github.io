@@ -37,13 +37,48 @@ heroStyle: "background"
 
 Photos taken with a camera contain shooting information such as camera model, lens, shutter speed, aperture, and ISO. Chama Optics automatically reads this data and places it in various themed frames.
 
-| Film Date | Strap | Monitor | Lightroom |
-|:---:|:---:|:---:|:---:|
-| ![Film Date](https://github.com/user-attachments/assets/a6bf0e51-d3b1-4779-9d65-080b225958f4) | ![Strap](https://github.com/user-attachments/assets/039ab49f-85b1-414b-95e3-2da166cea27f) | ![Monitor](https://github.com/user-attachments/assets/e92b81a0-4465-4dad-9097-7e8b4814fc15) | ![Lightroom](https://github.com/user-attachments/assets/ce1022cd-aea3-4260-9d5f-5e15997388de) |
-
-| One Line | Shot On Two Line | Nikon PhotoStyle | Lumix Photo Style + LUT |
-|:---:|:---:|:---:|:---:|
-| ![One Line](https://github.com/user-attachments/assets/337337f3-7c17-467a-b965-06481cba98c8) | ![Shot On 2](https://github.com/user-attachments/assets/a9ba4540-6540-418c-8e21-4f9961d7bff7) | ![Nikon](https://github.com/user-attachments/assets/28016fd2-2d4d-4043-88e1-c29f7577a32a) | ![Lumix](https://github.com/user-attachments/assets/62219e6a-c6cb-49ac-9803-cda29321b998) |
+<div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-exif.webp" alt="EXIF Editor (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-exif-ipad.webp" alt="EXIF Editor (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/a6bf0e51-d3b1-4779-9d65-080b225958f4" alt="Film Date" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Film Date</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/039ab49f-85b1-414b-95e3-2da166cea27f" alt="Strap" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Strap</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/e92b81a0-4465-4dad-9097-7e8b4814fc15" alt="Monitor" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Monitor</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/ce1022cd-aea3-4260-9d5f-5e15997388de" alt="Lightroom" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Lightroom</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/337337f3-7c17-467a-b965-06481cba98c8" alt="One Line" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">One Line</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/a9ba4540-6540-418c-8e21-4f9961d7bff7" alt="Shot On Two Line" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Shot On Two Line</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/28016fd2-2d4d-4043-88e1-c29f7577a32a" alt="Nikon PhotoStyle" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Nikon PhotoStyle</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/62219e6a-c6cb-49ac-9803-cda29321b998" alt="Lumix Photo Style + LUT" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Lumix Photo Style + LUT</div>
+</div>
+</div>
 
 Camera manufacturer logos (Canon, Nikon, Sony, Lumix, etc.) are also automatically detected from the shooting data and included in the frame. For Lumix, the applied Photo Style name or LUT filename can also be displayed.
 
@@ -54,7 +89,22 @@ Camera manufacturer logos (Canon, Nikon, Sony, Lumix, etc.) are also automatical
 <details>
 <summary>Automatically detects faces in photos and covers them with mosaic or stickers. (Show details)</summary>
 
-\<Work in progress\>
+When other people's faces are captured at events or tourist spots, faces are automatically detected and covered with mosaic or stickers.
+
+- Cover faces using Mosaic, Stroke, Sticker, or Mosaic+Stroke modes
+- Select individual detected faces to apply or remove effects
+- Custom stickers added in Settings are also included in the Cheki tab's dice roll
+
+<div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-face.webp" alt="Face Detection (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-face-ipad.webp" alt="Face Detection (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
+</div>
+</div>
 
 </details>
 
@@ -65,9 +115,24 @@ Camera manufacturer logos (Canon, Nikon, Sony, Lumix, etc.) are also automatical
 
 You can apply **LUT (Look-Up Table)** files, used in film and photography to apply specific color tones. Load a `.cube` file to give your photos a cinematic color grade.
 
-| Color Grading UI | Result |
-|:---:|:---:|
-| ![LUT UI](https://github.com/user-attachments/assets/554f96b2-217a-4603-93f5-1df41309f77e) | ![LUT Result](https://github.com/user-attachments/assets/4d49174c-2624-4b3c-a8a1-fc2b56d357c1) |
+<div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-lut.webp" alt="LUT Selection (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPhone</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-lut-ipad.webp" alt="LUT Selection (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">iPad</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/554f96b2-217a-4603-93f5-1df41309f77e" alt="Color Grading UI" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Color Grading UI (Desktop)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/4d49174c-2624-4b3c-a8a1-fc2b56d357c1" alt="Result" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Result (Desktop)</div>
+</div>
+</div>
 
 </details>
 
@@ -76,7 +141,30 @@ You can apply **LUT (Look-Up Table)** files, used in film and photography to app
 <details>
 <summary>Automatically generates Polaroid-style cheki frames. (Show details)</summary>
 
-\<Work in progress\>
+Automatically generates Polaroid-style cheki frames. You can customize random character sticker placement, date/signature text, and border settings.
+
+- Enabling cheki mode automatically adds a Polaroid-style bottom margin
+- Use the dice roll to randomly place character stickers on the image
+- Freely configure text/signature, font, color, and position (TL/TC/TR/BL/BC/BR)
+
+<div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-cheki.webp" alt="Cheki Mode (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Cheki Mode (iPhone)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-cheki-ipad.webp" alt="Cheki Mode (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Cheki Mode (iPad)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-cheki-text.webp" alt="Text Settings (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Text Settings (iPhone)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-cheki-text-ipad.webp" alt="Text Settings (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Text Settings (iPad)</div>
+</div>
+</div>
 
 </details>
 
@@ -87,9 +175,24 @@ You can apply **LUT (Look-Up Table)** files, used in film and photography to app
 
 Available via iOS TestFlight since February 2026. The same features as the desktop version can be used on iPhone.
 
-| Gallery | Editor |
-|:---:|:---:|
-| ![Gallery](https://github.com/user-attachments/assets/65adb13a-18ee-41d2-976e-dd50d0c4dd40) | ![Editor](https://github.com/user-attachments/assets/4abef726-89b4-44f9-873d-685b2f9bcfb7) |
+<div style="display:flex; gap:12px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:8px 0; scroll-snap-type:x mandatory;">
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/65adb13a-18ee-41d2-976e-dd50d0c4dd40" alt="Gallery (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Gallery (iPhone)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-gallery-ipad.webp" alt="Gallery (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Gallery (iPad)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="https://github.com/user-attachments/assets/4abef726-89b4-44f9-873d-685b2f9bcfb7" alt="Editor (iPhone)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Editor (iPhone)</div>
+</div>
+<div style="flex:0 0 auto; text-align:center; scroll-snap-align:start;">
+<img src="ss-en-exif-ipad.webp" alt="Editor (iPad)" style="height:420px; width:auto; border-radius:8px;">
+<div style="font-size:0.85em; opacity:0.7; margin-top:4px;">Editor (iPad)</div>
+</div>
+</div>
 
 </details>
 
