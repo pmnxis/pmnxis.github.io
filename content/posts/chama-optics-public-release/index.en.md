@@ -117,6 +117,9 @@ Camera manufacturer logos (Canon, Nikon, Sony, Lumix, etc.) are also automatical
 <div class="cap">Result (Event)</div>
 </div>
 </div>
+
+> ‼️ For group photos or scenes with 20+ people, set <strong>"Settings" → "Face Detection" → "Detection Speed" → "Slowest"</strong>.
+
 <details>
 <summary>Show details</summary>
 

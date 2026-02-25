@@ -117,6 +117,9 @@ heroStyle: "background"
 <div class="cap">결과 (행사)</div>
 </div>
 </div>
+
+> ‼️ 단체사진이나 사람이 20명 이상인 경우, <strong>"설정" → "얼굴 감지" → "감지 속도" → "Slowest"</strong>로 설정해주세요.
+
 <details>
 <summary>자세히 보기</summary>
 

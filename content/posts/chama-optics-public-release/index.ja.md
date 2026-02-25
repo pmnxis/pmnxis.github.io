@@ -117,6 +117,9 @@ heroStyle: "background"
 <div class="cap">結果（イベント）</div>
 </div>
 </div>
+
+> ‼️ 集合写真や20人以上が写っている場合は、<strong>「設定」→「顔検出」→「検出速度」→「Slowest」</strong>に設定してください。
+
 <details>
 <summary>写真内の顔を自動検出し、モザイクやステッカーで隠します。（詳細を見る）</summary>
 
