@@ -29,7 +29,7 @@
 
   <!-- Title -->
   <text x="460" y="28" text-anchor="middle" class="title">Theme Parameter System: Rust → JSON → Platform UI</text>
-  <text x="460" y="46" text-anchor="middle" class="subtitle">proc_macro derives JSON schema from Rust structs — mobile generates UI, egui renders directly</text>
+  <text x="460" y="46" text-anchor="middle" class="subtitle">proc_macro derives JSON schema from Rust structs — mobile generates UI, egui (Desktop &amp; Web) renders directly</text>
 
   <!-- ===== Left: Rust Struct Definition ===== -->
   <rect x="25" y="65" width="260" height="220" rx="6" fill="#FFEBEE" stroke="#ce422b" stroke-width="1.2"/>
@@ -137,28 +137,28 @@
   <!-- Arrow: FFI → Mobile -->
   <line x1="505" y1="380" x2="560" y2="250" stroke="#E65100" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#ar-tp)"/>
 
-  <!-- ===== Right Bottom: Desktop ===== -->
+  <!-- ===== Right Bottom: Desktop & Web ===== -->
   <rect x="550" y="290" width="345" height="115" rx="6" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.2"/>
-  <text x="722" y="310" text-anchor="middle" class="label-bold" fill="#1565C0">Desktop (egui)</text>
+  <text x="722" y="310" text-anchor="middle" class="label-bold" fill="#1565C0">Desktop &amp; Web (egui)</text>
 
   <rect x="565" y="320" width="315" height="35" rx="4" fill="white" stroke="#BBDEFB"/>
   <text x="722" y="335" text-anchor="middle" class="code-sm" fill="#1565C0">ui.add(Slider::new(&amp;mut config.font_weight, 100..=900));</text>
   <text x="722" y="348" text-anchor="middle" class="code-sm" fill="#1565C0">ui.checkbox(&amp;mut config.show_logo, "Show Logo");</text>
 
   <rect x="565" y="365" width="315" height="28" rx="3" fill="#E3F2FD" stroke="#1565C0" stroke-width="1"/>
-  <text x="722" y="383" text-anchor="middle" class="label-xs" fill="#1565C0">Direct Rust struct access — no JSON serialization needed</text>
+  <text x="722" y="383" text-anchor="middle" class="label-xs" fill="#1565C0">Direct Rust struct — same code on native desktop &amp; WASM</text>
 
-  <!-- Arrow: Direct → Desktop -->
+  <!-- Arrow: Direct → Desktop & Web -->
   <line x1="505" y1="310" x2="560" y2="340" stroke="#1565C0" stroke-width="1.5" marker-end="url(#ar-tp-b)"/>
   <text x="530" y="318" text-anchor="middle" class="code-sm" fill="#1565C0">Direct</text>
 
   <!-- ===== Bottom: Summary ===== -->
-  <rect x="25" y="425" width="870" height="80" rx="6" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="25" y="425" width="870" height="90" rx="6" fill="white" stroke="#e0e0e0" stroke-width="1"/>
 
   <text x="45" y="448" class="label-bold" fill="#7B1FA2">proc_macro generates:</text>
   <text x="220" y="448" class="label-sm">JSON schema with UI type hints (slider/toggle/enum/color picker/...)</text>
   <text x="45" y="468" class="label-bold" fill="#2E7D32">Mobile benefit:</text>
   <text x="175" y="468" class="label-sm">40+ parameters → zero manual UI code. Add a field in Rust → mobile UI appears automatically.</text>
-  <text x="45" y="488" class="label-bold" fill="#1565C0">Desktop benefit:</text>
-  <text x="185" y="488" class="label-sm">Same Rust struct used directly by egui — no serialization overhead, compile-time type safety.</text>
+  <text x="45" y="488" class="label-bold" fill="#1565C0">Desktop &amp; Web benefit:</text>
+  <text x="225" y="488" class="label-sm">Same Rust struct used directly by egui (native &amp; WASM) — no serialization, compile-time type safety.</text>
 </svg>
