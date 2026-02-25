@@ -268,7 +268,6 @@ heroStyle: "background"
 <b>ChamaOptics (Desktop Core)</b>: <b>MIT / NON-AI-MIT</b> 혼용 라이선스 · <a href="https://github.com/pmnxis/chama-optics" target="_blank" rel="noopener">GitHub</a><br>
 <b>ChamaOptics Mobile</b>: Closed Software License<br>
 <b>앱 아이콘</b>: <b>NON-AI / CC-BY-NC</b> · 일러스트레이터 <b>シエミカ</b> (<a href="https://x.com/shiemika324" target="_blank" rel="noopener">@shiemika324</a>) 님의 팬아트이며, 사용 허가를 받은 원화입니다.<br>
-<b>체키 탭 아이콘</b>: <a href="https://www.irasutoya.com/2020/08/blog-post_978.html" target="_blank" rel="noopener">いらすとや</a> (みふねたかし) 일러스트를 단색으로 변환하여 사용 · <a href="https://www.irasutoya.com/p/terms.html" target="_blank" rel="noopener">이용약관</a><br>
 ※ NON-AI 라이선스는 본 소프트웨어 소스코드 일부에 적용되어 있으며, 관련 리소스(아이콘, 일러스트, 문서 포함)를 인공지능(AI)에 의한 학습, 데이터셋 구축, 검색, 분석, 파생 생성에 사용하는 것을 금지합니다.</p>
 </div>
 
