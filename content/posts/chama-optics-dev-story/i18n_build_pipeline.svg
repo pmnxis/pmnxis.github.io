@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 640">
   <defs>
     <marker id="ar-i18n" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
       <polygon points="0 0, 8 3, 0 6" fill="#546E7A"/>
@@ -27,11 +27,11 @@
   </defs>
 
   <!-- Background -->
-  <rect width="920" height="620" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+  <rect width="920" height="640" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
 
   <!-- Title -->
-  <text x="460" y="28" text-anchor="middle" class="title">i18n Build Pipeline: One YAML, Three Platforms</text>
-  <text x="460" y="46" text-anchor="middle" class="subtitle">23 YAML files in rust-core/locales/ → auto-generate .strings (iOS), strings.xml (Android), compile-time embed (Desktop)</text>
+  <text x="460" y="28" text-anchor="middle" class="title">i18n Build Pipeline: One YAML, Four Platforms</text>
+  <text x="460" y="46" text-anchor="middle" class="subtitle">23 YAML files in rust-core/locales/ → auto-generate .strings (iOS), strings.xml (Android), compile-time embed (Desktop &amp; Web)</text>
 
   <!-- ═══ YAML Source ═══ -->
   <rect x="25" y="62" width="870" height="130" rx="6" fill="#FFEBEE" stroke="#ce422b" stroke-width="1.5"/>
@@ -94,11 +94,11 @@
   <text x="47" y="366" class="label-xs" fill="#1565C0">Auto-called from build_ios.sh</text>
   <text x="47" y="380" class="label-xs">Output: {locale}.lproj/Localizable.strings × 4</text>
 
-  <!-- ═══ Desktop Pipeline ═══ -->
+  <!-- ═══ Desktop & Web Pipeline ═══ -->
   <rect x="322" y="235" width="275" height="175" rx="6" fill="#EDE7F6" stroke="#7B1FA2" stroke-width="1.5"/>
   <circle cx="342" cy="251" r="10" fill="#7B1FA2"/>
   <text x="342" y="255" text-anchor="middle" class="step-num">2</text>
-  <text x="362" y="255" class="label-bold" fill="#7B1FA2">Desktop — rust_i18n crate</text>
+  <text x="362" y="255" class="label-bold" fill="#7B1FA2">Desktop &amp; Web — rust_i18n</text>
 
   <rect x="334" y="268" width="251" height="130" rx="4" fill="white" stroke="#CE93D8" stroke-width="1"/>
   <text x="344" y="285" class="label-sm" fill="#7B1FA2" font-weight="bold">Direct compile-time embedding</text>
@@ -106,8 +106,8 @@
   <text x="344" y="315" class="code-sm">rust_i18n::set_locale("ko");</text>
   <text x="344" y="329" class="code-sm">t!("gallery.empty_state_title")</text>
   <line x1="344" y1="337" x2="575" y2="337" stroke="#CE93D8" stroke-width="1"/>
-  <text x="344" y="352" class="label-xs" fill="#7B1FA2">No conversion needed — reads YAML directly</text>
-  <text x="344" y="366" class="label-xs" fill="#7B1FA2">cargo:rerun-if-changed=locales</text>
+  <text x="344" y="352" class="label-xs" fill="#7B1FA2">No conversion — reads YAML directly</text>
+  <text x="344" y="366" class="label-xs" fill="#7B1FA2">Same binary for native &amp; WASM target</text>
   <text x="344" y="380" class="label-xs">Output: embedded in binary at compile time</text>
 
   <!-- ═══ Android Pipeline ═══ -->
@@ -132,53 +132,60 @@
   <line x1="757" y1="414" x2="757" y2="436" stroke="#2E7D32" stroke-width="2" marker-end="url(#ar-and)"/>
 
   <!-- ═══ Comparison Table ═══ -->
-  <rect x="25" y="445" width="870" height="165" rx="6" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="25" y="445" width="870" height="185" rx="6" fill="white" stroke="#e0e0e0" stroke-width="1"/>
 
   <!-- Table header -->
   <rect x="25" y="445" width="870" height="24" rx="6" fill="#ECEFF1"/>
   <rect x="25" y="457" width="870" height="12" fill="#ECEFF1"/>
   <text x="55" y="462" class="label-bold" fill="#546E7A">Aspect</text>
-  <text x="218" y="462" class="label-bold" fill="#1565C0">iOS (Swift)</text>
-  <text x="460" y="462" text-anchor="middle" class="label-bold" fill="#7B1FA2">Desktop (Rust/egui)</text>
-  <text x="720" y="462" class="label-bold" fill="#2E7D32">Android (Kotlin)</text>
+  <text x="190" y="462" class="label-bold" fill="#1565C0">iOS (Swift)</text>
+  <text x="380" y="462" class="label-bold" fill="#7B1FA2">Desktop &amp; Web</text>
+  <text x="620" y="462" class="label-bold" fill="#2E7D32">Android (Kotlin)</text>
   <line x1="35" y1="469" x2="885" y2="469" stroke="#CFD8DC" stroke-width="1"/>
 
   <!-- Row: Output Format -->
   <rect x="35" y="472" width="850" height="22" rx="0" fill="#E3F2FD" fill-opacity="0.2"/>
   <text x="55" y="487" class="label-sm">Output format</text>
-  <text x="218" y="487" class="code-sm">.strings (Localizable.strings)</text>
-  <text x="405" y="487" class="code-sm">Compiled into binary (no file)</text>
-  <text x="720" y="487" class="code-sm">.xml (strings.xml)</text>
+  <text x="190" y="487" class="code-sm">.strings (Localizable.strings)</text>
+  <text x="380" y="487" class="code-sm">Compiled into binary (native/WASM)</text>
+  <text x="620" y="487" class="code-sm">.xml (strings.xml)</text>
 
   <!-- Row: Key separator -->
   <text x="55" y="509" class="label-sm">Key separator</text>
-  <text x="218" y="509" class="code-sm">. (dot) preserved</text>
-  <text x="405" y="509" class="code-sm">. (dot) native</text>
-  <text x="720" y="509" class="code-sm">_ (underscore) converted</text>
+  <text x="190" y="509" class="code-sm">. (dot) preserved</text>
+  <text x="380" y="509" class="code-sm">. (dot) native</text>
+  <text x="620" y="509" class="code-sm">_ (underscore) converted</text>
 
   <!-- Row: Generation trigger -->
   <rect x="35" y="516" width="850" height="22" rx="0" fill="#E3F2FD" fill-opacity="0.2"/>
   <text x="55" y="531" class="label-sm">Build trigger</text>
-  <text x="218" y="531" class="code-sm">build_ios.sh (automatic)</text>
-  <text x="405" y="531" class="code-sm">cargo build (rerun-if-changed)</text>
-  <text x="720" y="531" class="code-sm">Manual / CI invocation</text>
+  <text x="190" y="531" class="code-sm">build_ios.sh (automatic)</text>
+  <text x="380" y="531" class="code-sm">cargo build / trunk build</text>
+  <text x="620" y="531" class="code-sm">Manual / CI invocation</text>
 
   <!-- Row: Sync strategy -->
   <text x="55" y="553" class="label-sm">Sync strategy</text>
-  <text x="218" y="553" class="code-sm">Full overwrite each build</text>
-  <text x="405" y="553" class="code-sm">N/A (direct YAML read)</text>
-  <text x="720" y="553" class="code-sm">Diff — add missing only</text>
+  <text x="190" y="553" class="code-sm">Full overwrite each build</text>
+  <text x="380" y="553" class="code-sm">N/A (direct YAML read)</text>
+  <text x="620" y="553" class="code-sm">Diff — add missing only</text>
 
   <!-- Row: Platform override -->
   <rect x="35" y="560" width="850" height="22" rx="0" fill="#E3F2FD" fill-opacity="0.2"/>
   <text x="55" y="575" class="label-sm">Platform override</text>
-  <text x="218" y="575" class="code-sm">_ios suffix supported</text>
-  <text x="405" y="575" class="code-sm">—</text>
-  <text x="720" y="575" class="code-sm">—</text>
+  <text x="190" y="575" class="code-sm">_ios suffix supported</text>
+  <text x="380" y="575" class="code-sm">—</text>
+  <text x="620" y="575" class="code-sm">—</text>
+
+  <!-- Row: Target -->
+  <text x="55" y="597" class="label-sm">Target binary</text>
+  <text x="190" y="597" class="code-sm">.app bundle</text>
+  <text x="380" y="597" class="code-sm">native binary / .wasm</text>
+  <text x="620" y="597" class="code-sm">.apk / .aab</text>
 
   <!-- Row: Indonesian locale -->
-  <text x="55" y="597" class="label-sm">Indonesian code</text>
-  <text x="218" y="597" class="code-sm">id.lproj/</text>
-  <text x="405" y="597" class="code-sm">id</text>
-  <text x="720" y="597" class="code-sm">values-in/ (Android convention)</text>
+  <rect x="35" y="604" width="850" height="22" rx="0" fill="#E3F2FD" fill-opacity="0.2"/>
+  <text x="55" y="619" class="label-sm">Indonesian code</text>
+  <text x="190" y="619" class="code-sm">id.lproj/</text>
+  <text x="380" y="619" class="code-sm">id</text>
+  <text x="620" y="619" class="code-sm">values-in/ (Android convention)</text>
 </svg>
