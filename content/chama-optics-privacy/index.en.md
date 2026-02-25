@@ -4,7 +4,7 @@ date: 2026-02-16T00:00:00+09:00
 draft: false
 ---
 
-**Effective Date: February 16, 2026**
+**Effective Date: February 25, 2026**
 
 > This page is managed via GitHub Pages automatic deployment. Any changes to this Privacy Policy can be verified through the commit history of the [GitHub repository](https://github.com/pmnxis/pmnxis.github.io).
 
@@ -48,16 +48,45 @@ Chama Optics may request the following device permissions to provide its photo p
 
 ## 4. Face Detection Processing
 
-Chama Optics provides a feature that automatically detects faces in photos and applies mosaic, stickers, or other overlays.
+Chama Optics provides a feature that automatically detects faces in photos and applies privacy-protection effects such as mosaic (pixelation), stickers, or border overlays.
+
+### 4.1 What Face Data Is Collected
+
+- The App collects **only face bounding box coordinates** (x position, y position, width, height) — the rectangular area indicating where a face is located in the image.
+- **No facial landmarks** (eyes, nose, mouth positions) are collected.
+- **No facial feature embeddings or biometric identifiers** are collected.
+- **No identity information** is collected — the App performs face **detection** (locating faces) only, not face **recognition** (identifying individuals).
+
+### 4.2 How Face Data Is Used
+
+- Face bounding box coordinates are used **solely** to apply user-selected privacy-protection effects: mosaic/pixelation, border stroke, and sticker overlays.
+- These effects help users obscure faces in photos before sharing on social media.
+- Face detection results are **never** used to identify, profile, or track individuals.
+
+### 4.3 Where Face Data Is Stored
 
 - **All face detection processing is performed entirely on-device.**
-- Face data is never transmitted to external servers.
-- Face data is not stored and is immediately removed from memory once processing is complete.
-- Face detection results are not used to identify individuals; they are used solely to determine the areas where mosaic or sticker effects are applied.
-- Technologies used by platform:
-  - **iOS**: Apple Vision Framework (on-device processing)
-  - **Android**: Google ML Kit Face Detection (on-device processing, no data sent to Google servers)
-  - **Desktop (macOS/Windows/Linux)**: ONNX Runtime + SCRFD model (on-device processing)
+- Face bounding box coordinates are stored **locally on the device** as part of the editing session state (in the app's local storage) so that the user can resume editing.
+- Face data is **never transmitted** to any external server, cloud service, or third party.
+
+### 4.4 Third-Party Sharing of Face Data
+
+- Face data is **never shared** with any third party.
+- The App contains no advertising SDKs, analytics SDKs, or any network code that could transmit face data.
+
+### 4.5 Face Data Retention
+
+- Face bounding box coordinates are retained locally on the device only for as long as the corresponding image remains in the App's gallery.
+- Face data is **permanently deleted** when:
+  - The user removes the image from the App's gallery, or
+  - The user uninstalls the App.
+- No face data is retained on any server at any time.
+
+### 4.6 Technologies Used by Platform
+
+- **iOS**: Apple Vision Framework (`VNDetectFaceRectanglesRequest`) — on-device processing
+- **Android**: Google ML Kit Face Detection — on-device processing, no data sent to Google servers
+- **Desktop (macOS/Windows/Linux)**: ONNX Runtime + SCRFD model — on-device processing
 
 > **Note for Android users**: Google ML Kit Face Detection operates entirely on-device. Face images and detection results are not transmitted to Google servers. For more details, see the [Google ML Kit Terms of Service](https://developers.google.com/ml-kit/terms).
 
@@ -74,9 +103,9 @@ Chama Optics provides a feature that automatically detects faces in photos and a
 ## 6. Data Retention and Deletion
 
 - Chama Optics does not store any user data on servers.
-- Temporary data generated during photo processing (such as face detection coordinates) is immediately deleted from memory upon completion.
+- Face bounding box coordinates are stored locally as part of the editing session and are deleted when the user removes the image from the App or uninstalls the App (see Section 4.5).
 - Processed result images are saved to the user's device storage and can be deleted by the user through the device's file management features.
-- Uninstalling the App removes all local data associated with it.
+- Uninstalling the App removes all local data associated with it, including any stored face coordinates.
 
 ---
 
