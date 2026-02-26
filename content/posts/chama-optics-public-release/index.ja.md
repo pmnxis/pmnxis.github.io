@@ -5,7 +5,7 @@ draft: false
 categories: ["Chama Optics"]
 tags: ["Hololive", "HAACHAMA", "Photography"]
 description: "はあとんが作った写真アプリ Chama Optics — イベント写真から推し活まで"
-summary: "Chama Opticsをリリースします。写真好きで旅するVTuber 赤井はあとからインスピレーションを受けて作った、ミラーレス・一眼レフカメラユーザー向けの写真後処理アプリ"
+summary: "Chama Opticsをリリースします。写真好きで旅するVTuber 赤井はあとから着想を得て作った、ミラーレス・一眼レフカメラユーザー向けの写真加工アプリ"
 showHero: true
 heroStyle: "background"
 ---
@@ -18,15 +18,15 @@ heroStyle: "background"
 
 > イベント会場で撮った写真を、その場で補正・フレーム・モザイクまで。
 
-**Chama Optics**は、写真好きで旅するVTuber [赤井はあと](https://www.youtube.com/@AkaiHaato)からインスピレーションを受けて作った、ミラーレス・一眼レフカメラユーザー向けの写真後処理アプリです。撮影情報フレーム、顔自動モザイク、カラーグレーディング、チェキ（ポラロイド風フレーム）などの機能を提供します。
+**Chama Optics**は、写真好きで旅するVTuber [赤井はあと](https://www.youtube.com/@AkaiHaato)から着想を得て作った、ミラーレス・一眼レフカメラユーザー向けの写真加工アプリです。EXIFフレーム、顔自動モザイク、色調補正、チェキ風フレームなどの機能を備えています。
 
-- **イベント・旅行・ストリート撮影** —<br>結婚式、VTuberオフラインイベント、街角や観光地など、他の人の顔にモザイクが必要なとき
+- **イベント・旅行・ストリート撮影** —<br>結婚式、VTuberオフイベント、街角や観光地など、他人の顔にモザイクをかける必要があるとき
 - **ファン写真ハッシュタグ参加者** —<br>[#推し活はあとん日記](https://x.com/hashtag/%E6%8E%A8%E3%81%97%E6%B4%BB%E3%81%AF%E3%81%82%E3%81%A8%E3%82%93%E6%97%A5%E8%A8%98)、[#Towavel](https://x.com/hashtag/Towavel) などのタグで写真を投稿するとき
-- **一眼レフ/ミラーレスカメラユーザー・機材レビュアー** —<br>撮影情報（機種、レンズ、絞りなど）をフレームに入れて共有するとき
+- **一眼レフ/ミラーレスカメラユーザー・機材レビュアー** —<br>撮影情報（機種、レンズ、絞りなど）をフレームに入れて共有したいとき
 
 <p style="text-align:right; font-size:0.85em; opacity:0.7;">技術的な開発過程については<a href="/ja/posts/chama-optics-dev-story/">開発記</a>をご覧ください。</p>
 
-<p style="text-align:center; margin:1.5em 0 0.5em;"><a href="#ダウンロード" style="font-size:1.2em; font-weight:600;">⬇ ダウンロードへ</a></p>
+<p style="text-align:center; margin:1.5em 0 0.5em;"><a href="#ダウンロード" style="font-size:1.2em; font-weight:600;">⬇ ダウンロードはこちら</a></p>
 
 <style>
 .chama-gallery{display:flex;gap:4px;padding:8px 0;overflow:hidden}
@@ -132,7 +132,7 @@ heroStyle: "background"
 </details>
 </div>
 
-### カラーグレーディング（LUT）
+### 色調補正（LUT）
 
 <div class="chama-feat">
 <div class="chama-gallery">
@@ -145,8 +145,8 @@ heroStyle: "background"
 <div class="cap">iPad</div>
 </div>
 <div>
-<img src="https://github.com/user-attachments/assets/554f96b2-217a-4603-93f5-1df41309f77e" alt="カラーグレーディング UI">
-<div class="cap">カラーグレーディング UI (デスクトップ)</div>
+<img src="https://github.com/user-attachments/assets/554f96b2-217a-4603-93f5-1df41309f77e" alt="色調補正 UI">
+<div class="cap">色調補正 UI (デスクトップ)</div>
 </div>
 <div>
 <img src="https://github.com/user-attachments/assets/4d49174c-2624-4b3c-a8a1-fc2b56d357c1" alt="適用結果">
@@ -165,7 +165,7 @@ heroStyle: "background"
 </details>
 </div>
 
-### チェキ（ポラロイド風フレーム）
+### チェキ風フレーム
 
 <div class="chama-feat">
 <div class="chama-gallery">
