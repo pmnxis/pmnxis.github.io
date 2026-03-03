@@ -100,7 +100,7 @@ description: "EXIF 기반 사진 프레임 + 얼굴 자동인식 프로그램, R
 
 ---
 
-## Web 버전을 포기하게 된 이유
+## Web 버전을 한번 접었던 이유
 
 나는 Web App이나 Web과 브라우저의 동작 방식에 대해서 해박하지 않다. 그럼에도 Chama Optics는 초기에 **Web(WASM)에서의 구동을 염두에 두고 있었다.** egui가 WASM을 지원하니까 "데스크탑이랑 웹이랑 동시에 되겠지"라는 막연한 기대가 있었다. 하지만 다음 두 가지 기능을 구현하면서 포기하게 되었다.
 
@@ -121,7 +121,13 @@ Drag & Drop 이외에도, WASM이 브라우저로부터 이벤트를 받을 때 
 
 예전에 수많은 데이터를 웹에 나열해야 할 일이 있었는데, 어떻게 할지 몰라서 넣을 데이터들을 CSV로 만들고 `,`와 `\n`을 `<div>` 등의 HTML 태그로 변경하는 것을 **hex editor로 전체 치환**해서 static web을 만들어 배포한 적이 있다. 21세기가 25%나 지나간 현대 프로그램 개발에 있어서 스스로도 "이게 뭐요" 싶었다.
 
-물론 WASM은 웹이기에 웹 생태계와 개발자들의 방식을 따르는 것이 보편적일 것이다. 하지만 나는 웹 개발자가 아니기 때문에 이해가 되지 않았다. 나는 **JS/Web 생태계와 매우 거리가 멀었고**, 이런 개발 환경 자체의 방향성 차이를 극복하는 것보다 네이티브 모바일 앱을 만드는 게 훨씬 자연스러웠다. v0.1.9-beta에서 공식적으로 WASM 지원을 제거했고, 그 에너지를 iOS/Android 네이티브에 쏟기로 했다.
+물론 WASM은 웹이기에 웹 생태계와 개발자들의 방식을 따르는 것이 보편적일 것이다. 하지만 나는 웹 개발자가 아니기 때문에 이해가 되지 않았다. 나는 **JS/Web 생태계와 매우 거리가 멀었고**, 이런 개발 환경 자체의 방향성 차이를 극복하는 것보다 네이티브 모바일 앱을 만드는 게 훨씬 자연스러웠다. v0.1.9-beta에서 한 차례 WASM 지원을 제거했고, 그 에너지를 iOS/Android 네이티브에 쏟기로 했다.
+
+### 그래도 다시 살려놓은 Web
+
+iOS/Android 네이티브 개발이 어느 정도 안정된 뒤, 위에서 문제가 되었던 HEIF 디코딩은 **libheif-js**(JavaScript 라이브러리)를 통한 JS FFI 브리지로 우회 해결했고, 파일 입력은 브라우저 네이티브 `<input type="file">`과 egui `DroppedFile` 조합으로 처리할 수 있게 되었다. 얼굴 인식도 **ONNX Runtime Web + WebGPU**로 브라우저에서 동작한다.
+
+다만 여전히 네이티브 대비 제한사항이 많다. WebP 내보내기 불가(JPEG 폴백), mozjpeg 등 네이티브 인코더 미사용, Rayon 병렬 처리 불가, 카메라 제조사 로고 SVG 미포함, 시스템 폰트 미지원(서버에서 폰트를 HTTP로 다운로드) 등이다. 현재는 **Technology Preview** 상태로 [GitHub Pages](https://pmnxis.github.io/chama-optics/)에서 시험해볼 수 있으며, 주력은 여전히 데스크탑과 iOS/Android 네이티브다.
 
 ---
 
@@ -733,6 +739,61 @@ object ThemeI18n {
 </div>
 
 이 구조 덕분에 번역을 추가하거나 수정할 때 **YAML 파일 하나만 고치면** 세 플랫폼 모두에 반영된다. 23개 YAML 파일, 4개 언어, 3개 플랫폼을 수동으로 동기화하는 것은 현실적으로 불가능하다 — 내가 생각한 방법은 자동화뿐이었다.
+
+### 13. Web(WASM) 버전: 브라우저에서 동작하는 사진 편집기
+
+앞서 "Web 버전을 한번 접었던 이유"에서 설명했듯이, HEIF와 Drag & Drop 문제로 한 차례 WASM 지원을 제거했다. 하지만 iOS/Android 네이티브 개발이 안정된 뒤, 문제가 되었던 부분들을 JS FFI 브리지로 우회하여 Web 버전을 Technology Preview로 다시 살려놓았다. 여기서는 그 구조를 설명한다.
+
+Web 버전은 데스크탑과 동일한 egui UI를 **WebGL 캔버스**에 렌더링한다. Cargo의 `web` feature flag로 WASM 전용 의존성(`wasm-bindgen`, `web-sys`, `js-sys`)을 활성화하고, [Trunk](https://trunkrs.dev/)으로 빌드하여 정적 HTML + WASM으로 배포한다.
+
+#### 파일 입력: 브라우저 네이티브 API
+
+데스크탑에서는 `rfd`(Rusty File Dialog)를 사용하지만, WASM에서는 **`<input type="file" multiple>`** HTML 요소를 동적으로 생성하여 파일 선택 다이얼로그를 연다. `accept="image/*,.heic,.heif"`로 이미지 파일만 필터링하고, `FileReader.readAsArrayBuffer()`로 비동기 읽기 후 `Uint8Array::to_vec()`으로 WASM 선형 메모리에 복사한다. 읽어온 파일은 `Arc<Mutex<Vec<FileData>>>` 큐에 넣어서 egui 이벤트 루프에서 프레임 단위로 폴링한다.
+
+Drag & Drop은 egui의 `DroppedFile`을 통해 처리한다. 원래 포기했던 부분이지만, egui가 브라우저의 드래그 이벤트를 내부적으로 처리해주기 때문에 별도의 DOM 이벤트 핸들링 없이도 동작한다.
+
+#### HEIF 디코딩: libheif-js를 통한 JS FFI 브리지
+
+WASM 환경에서는 C FFI로 libheif를 직접 링킹할 수 없다. 대신 **libheif-js**(JavaScript 라이브러리)를 거쳐 디코딩한다.
+
+```
+Rust WASM (HEIF 바이트) → [복사] → JavaScript → libheif-js 디코딩 → [복사] → Rust WASM (RGBA 픽셀)
+```
+
+이 방식은 "WASM 위에 WASM, 그 사이에 JS"라는 구조적 문제를 그대로 안고 간다. 24MP 이미지 기준으로 HEIF 원본 ~10-30MB가 JS 힙으로 복사되고, 디코딩된 RGBA ~96MB가 다시 WASM 메모리로 복사된다. RGBA 버퍼는 `image` 크레이트에서 HEIF를 직접 이해하지 못하므로 **JPEG 95% 품질로 재인코딩**하여 저장하는 우회 처리도 포함되어 있다. 파일이 손상되었거나 비정상적으로 큰 경우를 대비해 **30초 타임아웃**을 걸어둔다.
+
+구조적으로 납득이 되지 않는다는 생각은 여전하지만, 브라우저에서 HEIF를 지원하려면 현실적으로 이것이 유일한 방법이다.
+
+#### 얼굴 인식: ONNX Runtime Web + WebGPU
+
+데스크탑에서 ONNX Runtime + InsightFace(SCRFD det_10g)로 구현한 얼굴 인식을 Web에서도 동작시키기 위해, **ONNX Runtime Web**을 JS FFI로 호출한다. 추론 가속은 WebGPU를 우선으로 사용하고, 미지원 시 WASM CPU로 폴백한다.
+
+전처리(이미지 리사이즈, RGB 정규화, CHW 레이아웃 변환)와 후처리(앵커 디코딩, NMS)는 Rust에서 수행하고, **추론만 JS를 통해 WebGPU로** 위임하는 구조다. 데스크탑의 슬라이딩 윈도우 알고리즘(Fastest/Fast/Normal/Slow/Slowest)도 동일하게 동작한다.
+
+한 가지 특이한 우회가 있다. SCRFD 모델의 `AveragePool` 레이어에서 `ceil_mode=1`이 WebGPU 백엔드와 호환되지 않아, 모델 바이트를 처음 로드할 때 `ceil_mode=0`으로 **직접 패치**한다. 최대 1픽셀 차이가 발생할 수 있으나 얼굴 인식 정확도에는 무시할 수 있는 수준이다.
+
+#### 폰트 로딩: HTTP Fetch + 메모리 캐싱
+
+데스크탑에서는 `include_bytes!()`로 폰트를 바이너리에 임베딩하지만, WASM에서는 바이너리 크기를 줄이기 위해 **HTTP로 폰트 파일을 다운로드**한다. 앱 기동 시 `preload_fonts()`가 D2Coding, SourceHanSans, Barlow, DynaPuff, digital-7 등 7개 폰트 파일을 비동기로 가져오고, `OnceLock<HashMap<String, Vec<u8>>>`에 캐싱한다. 이후 텍스트 렌더링 시 동기적으로 캐시에서 꺼내 쓴다.
+
+폰트 파일은 빌드 시 `Trunk.toml`의 pre_build 훅이 `web_fonts/` 디렉토리로 스테이징하고, Trunk가 이를 `dist/Fonts/`로 복사하여 웹 서버에서 제공한다. 네트워크 실패에 대비해 폰트별 **15초 타임아웃**을 걸어두며, 실패한 폰트는 경고만 남기고 건너뛴다.
+
+#### 파일 내보내기: Blob + in-memory Zip
+
+WASM에서는 파일 시스템에 직접 쓸 수 없다. 대신 처리된 이미지 바이트를 `Uint8Array` → `Blob` → `Object URL`로 변환한 뒤, 숨겨진 `<a download>` 태그의 프로그래매틱 클릭으로 브라우저 다운로드를 트리거한다. 여러 장을 일괄 내보낼 때는 `zip` 크레이트로 메모리 내에서 zip을 만들어 한 번에 다운로드한다.
+
+#### 네이티브 대비 제한사항
+
+| 항목 | 데스크탑/모바일 네이티브 | Web (WASM) |
+|:---|:---|:---|
+| 이미지 인코딩 | mozjpeg, WebP, oxipng | JPEG만 가능 (WebP 불가) |
+| 병렬 처리 | Rayon 멀티코어 | 싱글 스레드 |
+| 폰트 | 바이너리 내장 + 시스템 폰트 | HTTP 다운로드, 시스템 폰트 불가 |
+| HEIF 디코딩 | 네이티브 API / libheif 직접 링킹 | libheif-js (JS FFI, 메모리 이중 복사) |
+| TIFF 지원 | 지원 | 미지원 |
+| 파일 저장 | 파일 시스템 직접 쓰기 | Blob 다운로드 |
+
+현재 Web 버전은 **Technology Preview**로, 안정적인 동작을 보장하지 않으며 일부 기능이 제한된다. 주력은 여전히 데스크탑과 iOS/Android 네이티브이지만, 설치 없이 브라우저에서 바로 시험해볼 수 있다는 점에서 접근성 측면의 의미가 있다.
 
 ---
 

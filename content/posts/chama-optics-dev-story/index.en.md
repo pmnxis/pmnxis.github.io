@@ -100,7 +100,7 @@ However, face detection uses a different strategy per platform:
 
 ---
 
-## Why I Gave Up on the Web Version
+## Why I Once Shelved the Web Version
 
 I'm not well-versed in web apps or how the web and browsers work. Despite that, Chama Optics was initially **designed with Web (WASM) in mind.** Since egui supports WASM, I had a vague expectation that "desktop and web could work simultaneously." But I gave up after trying to implement these two features:
 
@@ -121,7 +121,13 @@ I **only know C and Rust.** In other words, I'm either completely ignorant about
 
 Once I had to display a large amount of data on the web, and since I didn't know how, I created the data as CSV, then used a **hex editor to do a bulk find-and-replace** of `,` and `\n` with HTML tags like `<div>` to create a static website and deployed it. With 25% of the 21st century already behind us, even I thought "what am I doing?"
 
-Of course, since WASM is web technology, following the web ecosystem and its conventions is the norm. But since I'm not a web developer, I couldn't get on board. I was **very far removed from the JS/Web ecosystem**, and building native mobile apps felt far more natural than overcoming these fundamental differences in development philosophy. In v0.1.9-beta, I officially removed WASM support and directed that energy toward iOS/Android native development.
+Of course, since WASM is web technology, following the web ecosystem and its conventions is the norm. But since I'm not a web developer, I couldn't get on board. I was **very far removed from the JS/Web ecosystem**, and building native mobile apps felt far more natural than overcoming these fundamental differences in development philosophy. In v0.1.9-beta, I removed WASM support once and directed that energy toward iOS/Android native development.
+
+### But I Brought Back the Web Anyway
+
+After iOS/Android native development stabilized, the HEIF decoding issue was worked around via a JS FFI bridge through **libheif-js** (a JavaScript library), and file input was handled through a combination of the browser-native `<input type="file">` and egui's `DroppedFile`. Face detection also runs in the browser via **ONNX Runtime Web + WebGPU**.
+
+That said, there are still many limitations compared to native. No WebP export (JPEG fallback), no native encoders like mozjpeg, no Rayon parallel processing, no camera manufacturer logo SVGs, and no system font support (fonts are downloaded from the server via HTTP). Currently it's available as a **Technology Preview** on [GitHub Pages](https://pmnxis.github.io/chama-optics/), while the focus remains on desktop and iOS/Android native.
 
 ---
 
@@ -709,6 +715,61 @@ object ThemeI18n {
 </div>
 
 Thanks to this structure, **editing a single YAML file** reflects changes across all three platforms. Manually synchronizing 23 YAML files, 4 languages, and 3 platforms is practically impossible -- automation was the only approach I could think of.
+
+### 13. Web (WASM) Version: A Photo Editor Running in the Browser
+
+As explained in "Why I Once Shelved the Web Version" above, HEIF and Drag & Drop issues led me to remove WASM support once. But after iOS/Android native development stabilized, I worked around the problematic parts via JS FFI bridges and brought the Web version back as a Technology Preview. Here I explain that architecture.
+
+The Web version renders the same egui UI as desktop on a **WebGL canvas**. Cargo's `web` feature flag activates WASM-specific dependencies (`wasm-bindgen`, `web-sys`, `js-sys`), and builds are done with [Trunk](https://trunkrs.dev/) to deploy as static HTML + WASM.
+
+#### File Input: Browser Native API
+
+On desktop, `rfd` (Rusty File Dialog) is used, but in WASM, an **`<input type="file" multiple>`** HTML element is dynamically created to open the file selection dialog. Files are filtered with `accept="image/*,.heic,.heif"`, read asynchronously via `FileReader.readAsArrayBuffer()`, and copied to WASM linear memory with `Uint8Array::to_vec()`. Loaded files are placed in an `Arc<Mutex<Vec<FileData>>>` queue and polled per-frame from the egui event loop.
+
+Drag & Drop is handled through egui's `DroppedFile`. This was originally abandoned, but since egui handles browser drag events internally, it works without separate DOM event handling.
+
+#### HEIF Decoding: JS FFI Bridge via libheif-js
+
+In the WASM environment, libheif cannot be directly linked via C FFI. Instead, decoding goes through **libheif-js** (a JavaScript library).
+
+```
+Rust WASM (HEIF bytes) → [copy] → JavaScript → libheif-js decode → [copy] → Rust WASM (RGBA pixels)
+```
+
+This approach carries the structural problem of "WASM on top of WASM, with JS in between." For a 24MP image, the original HEIF ~10-30MB is copied to the JS heap, and the decoded RGBA ~96MB is copied back to WASM memory. Since the `image` crate cannot directly understand HEIF, a workaround of **re-encoding to JPEG at 95% quality** is also included. A **30-second timeout** is set for corrupted or abnormally large files.
+
+The architecture still feels structurally questionable, but this is realistically the only way to support HEIF in the browser.
+
+#### Face Detection: ONNX Runtime Web + WebGPU
+
+To run the face detection implemented with ONNX Runtime + InsightFace (SCRFD det_10g) on desktop in the browser as well, **ONNX Runtime Web** is called via JS FFI. Inference acceleration preferentially uses WebGPU, falling back to WASM CPU when unsupported.
+
+Preprocessing (image resize, RGB normalization, CHW layout conversion) and postprocessing (anchor decoding, NMS) are performed in Rust, with **only inference delegated to WebGPU via JS**. The desktop's sliding window algorithm (Fastest/Fast/Normal/Slow/Slowest) also works identically.
+
+One notable workaround exists. The `AveragePool` layer in the SCRFD model has `ceil_mode=1` which is incompatible with the WebGPU backend, so when the model bytes are first loaded, `ceil_mode=0` is **directly patched**. This may cause up to 1-pixel difference but is negligible for face detection accuracy.
+
+#### Font Loading: HTTP Fetch + Memory Caching
+
+On desktop, fonts are embedded in the binary via `include_bytes!()`, but in WASM, fonts are **downloaded via HTTP** to reduce binary size. At app startup, `preload_fonts()` asynchronously fetches 7 font files including D2Coding, SourceHanSans, Barlow, DynaPuff, and digital-7, caching them in `OnceLock<HashMap<String, Vec<u8>>>`. Text rendering then synchronously pulls from the cache.
+
+Font files are staged to a `web_fonts/` directory by `Trunk.toml`'s pre_build hook during build, and Trunk copies them to `dist/Fonts/` for web server delivery. A **15-second timeout** is set per font as a safeguard against network failures, and failed fonts are skipped with a warning.
+
+#### File Export: Blob + In-Memory Zip
+
+In WASM, files cannot be written directly to the filesystem. Instead, processed image bytes are converted to `Uint8Array` → `Blob` → `Object URL`, then a hidden `<a download>` tag is programmatically clicked to trigger a browser download. When batch-exporting multiple images, a zip is created in memory using the `zip` crate and downloaded at once.
+
+#### Limitations Compared to Native
+
+| Item | Desktop/Mobile Native | Web (WASM) |
+|:---|:---|:---|
+| Image Encoding | mozjpeg, WebP, oxipng | JPEG only (no WebP) |
+| Parallel Processing | Rayon multi-core | Single-threaded |
+| Fonts | Embedded in binary + system fonts | HTTP download, no system fonts |
+| HEIF Decoding | Native API / direct libheif linking | libheif-js (JS FFI, double memory copy) |
+| TIFF Support | Supported | Not supported |
+| File Saving | Direct filesystem write | Blob download |
+
+The Web version is currently a **Technology Preview** with no guarantee of stable operation and some features limited. The focus remains on desktop and iOS/Android native, but it has accessibility value in that users can try it directly in the browser without installation.
 
 ---
 
