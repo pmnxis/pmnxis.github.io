@@ -1,8 +1,8 @@
 ---
 title: "Rust가 지원하지 않던 C-SKY MCU에서 Embassy를 돌리기까지"
 date: 2026-09-26T00:00:00+09:00
-draft: true
-categories: ["Embedded"]
+draft: false
+categories: ["Embedded", "Rust"]
 tags: ["Rust", "C-SKY", "Embassy", "LLVM", "QEMU", "Korean_Article"]
 description: "C-SKY bare-metal Rust 타겟과 LLD, QEMU, Embassy를 구성하고 실제 WinnerMicro W806에서 검증한 과정"
 showHero: true
