@@ -2,9 +2,10 @@
 title: "Rustが未対応だったC-SKY MCUでEmbassyを動かすまで"
 date: 2026-09-26T00:00:00+09:00
 draft: false
-categories: ["Embedded", "Rust"]
+categories: ["Embedded"]
 tags: ["Rust", "C-SKY", "Embassy", "LLVM", "QEMU", "Japanese_Article"]
 description: "C-SKY bare-metal Rustターゲット、LLD、QEMU、Embassyを構築し、WinnerMicro W806実機で検証した記録"
+summary: "C-SKY MCU向けのbare-metal RustおよびEmbassy環境を構築し、検証した過程を紹介する。"
 showHero: true
 heroStyle: "background"
 ---

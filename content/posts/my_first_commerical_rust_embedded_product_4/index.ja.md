@@ -1,6 +1,7 @@
 ---
 title: "Developing a Mass-Produced Rust Embedded Product - 4 Leveraging Build Scripts"
 date: 2023-11-13T21:00:00+09:00
+summary: "Cargoのbuild scriptを使い、Rust組み込みファームウェアのコンパイル前にデータや設定を生成する方法を紹介する。"
 draft: false
 categories: ["My Frist Mass Production With Rust Embedded"]
 tags: ["회고록", "Rust", "Embedded", "Korean_Article"]

@@ -1,6 +1,7 @@
 ---
 title: "러스트 임베디드 양산 제품 개발기 - 3 컴파일 타임에 맡기세요"
 date: 2023-11-12T21:00:00+09:00
+summary: "Rust의 컴파일 타임 연산과 const 데이터를 활용해 임베디드 펌웨어의 RAM을 절약하는 방법을 소개한다."
 draft: false
 categories: ["My Frist Mass Production With Rust Embedded"]
 tags: ["회고록", "Rust", "Embedded", "Korean_Article"]

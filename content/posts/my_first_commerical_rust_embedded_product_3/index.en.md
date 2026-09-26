@@ -1,6 +1,7 @@
 ---
 title: "Developing a Mass-Produced Rust Embedded Product - 3 Leave It to Compile Time"
 date: 2023-11-12T21:00:00+09:00
+summary: "Using Rust compile-time evaluation and const data to conserve scarce RAM in embedded firmware."
 draft: false
 categories: ["My Frist Mass Production With Rust Embedded"]
 tags: ["회고록", "Rust", "Embedded", "Korean_Article"]

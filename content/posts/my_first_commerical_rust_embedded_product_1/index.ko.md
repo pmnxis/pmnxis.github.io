@@ -1,6 +1,7 @@
 ---
 title: "러스트 임베디드 양산 제품 개발기 - 1 개발/양산 과정부터 설명"
 date: 2023-11-02T00:49:05+09:00
+summary: "Rust 임베디드 프로젝트를 개발에서 초기 양산까지 진행한 경험과 개발 구성을 소개한다."
 draft: false
 categories: ["My Frist Mass Production With Rust Embedded"]
 tags: ["회고록", "Rust", "Embedded", "Korean_Article"]

@@ -1,6 +1,7 @@
 ---
 title: "러스트 임베디드 양산 제품 개발기 - 2 기초 공부 방법 및 특징"
 date: 2023-11-04T21:00:00+09:00
+summary: "Rust 임베디드 개발을 시작하는 개발자를 위해 특징과 장단점, 공부 방법을 소개한다."
 draft: false
 categories: ["My Frist Mass Production With Rust Embedded"]
 tags: ["회고록", "Rust", "Embedded", "Korean_Article"]

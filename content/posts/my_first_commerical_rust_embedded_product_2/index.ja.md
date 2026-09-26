@@ -1,6 +1,7 @@
 ---
 title: "Developing a Mass-Produced Rust Embedded Product - 2 Study Methods and Key Characteristics"
 date: 2023-11-04T21:00:00+09:00
+summary: "Rust組み込み開発を始める開発者向けに、特徴、長所と短所、学習方法を紹介する。"
 draft: false
 categories: ["My Frist Mass Production With Rust Embedded"]
 tags: ["회고록", "Rust", "Embedded", "Korean_Article"]

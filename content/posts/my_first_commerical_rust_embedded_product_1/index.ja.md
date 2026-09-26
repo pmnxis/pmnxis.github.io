@@ -1,6 +1,7 @@
 ---
 title: "Rust Embedded Mass Production Development Story - 1: From Development to Production"
 date: 2023-11-02T00:49:05+09:00
+summary: "Rust組み込みプロジェクトを開発から初期量産まで進めた経験と、開発構成を紹介する。"
 draft: false
 categories: ["My Frist Mass Production With Rust Embedded"]
 tags: ["회고록", "Rust", "Embedded", "Korean_Article"]

@@ -2,9 +2,10 @@
 title: "Bringing Embassy to C-SKY MCUs That Rust Did Not Support"
 date: 2026-09-26T00:00:00+09:00
 draft: false
-categories: ["Embedded", "Rust"]
+categories: ["Embedded"]
 tags: ["Rust", "C-SKY", "Embassy", "LLVM", "QEMU", "English_Article"]
 description: "Building a C-SKY bare-metal Rust target, LLD, QEMU, and Embassy stack and validating it on a WinnerMicro W806"
+summary: "Building and validating a bare-metal Rust and Embassy environment for C-SKY MCUs."
 showHero: true
 heroStyle: "background"
 ---
