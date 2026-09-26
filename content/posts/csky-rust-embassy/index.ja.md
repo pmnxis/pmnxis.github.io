@@ -13,7 +13,8 @@ heroStyle: "background"
 > 🌐 [한국어 아티클](/ko/posts/csky-rust-embassy/) | [English Article](/en/posts/csky-rust-embassy/)
 
 > 本記事では、公開されているC-SKYアーキテクチャ、汎用QEMU環境、そして
-> 市販のHLK-W806-KITで検証した内容だけを扱う。
+> 市販のHLK-W806-KITで検証した内容だけを扱う。<br>
+> csky-rust-buildroot: <https://github.com/pmnxis/csky-rust-buildroot>
 
 EspressifのESP32シリーズはXtensa LXとRISC-Vを、GigaDeviceのGD32シリーズは
 Arm Cortex-MとRISC-Vを使用している。それらほど知られてはいないが、中国国内向けの
@@ -61,6 +62,15 @@ CK805プロファイルと実機のWinnerMicro W806でEmbassy executor、timer�
 ただし、まだrustcにupstreamされた完成済みターゲットではない。公式rustupの
 `rust-lld`にも、このC-SKY bare-metal対応は含まれていない。以下の結果は
 プロジェクトローカルのcompilerとpatch seriesを使用した実験結果である。
+
+## なぜRustなのか？
+
+単純に、CよりもRustが好きだからだ。
+
+以前、関連する経験を
+[Rust組み込み初回量産開発シリーズ](/ja/categories/my-frist-mass-production-with-rust-embedded/)
+にまとめた。何より、Rust組み込み製品を一人で開発し、実際の量産から市場への
+リリースまで自分の手で進めた経験がある。
 
 ## C-SKYとCK80x
 

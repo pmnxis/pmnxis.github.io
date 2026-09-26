@@ -1,5 +1,5 @@
 ---
-title: "Bringing Embassy to C-SKY MCUs That Rust Did Not Support"
+title: "Bring-up Embassy to C-SKY MCUs That Rust Did Not Support"
 date: 2026-09-26T00:00:00+09:00
 draft: false
 categories: ["Embedded"]
@@ -13,7 +13,8 @@ heroStyle: "background"
 > 🌐 [한국어 아티클](/ko/posts/csky-rust-embassy/) | [日本語アーティクル](/ja/posts/csky-rust-embassy/)
 
 > This article covers only the public C-SKY architecture, a generic QEMU
-> environment, and validation on the commercially available HLK-W806-KIT.
+> environment, and validation on the commercially available HLK-W806-KIT.<br>
+> csky-rust-buildroot: <https://github.com/pmnxis/csky-rust-buildroot>
 
 Espressif's ESP32 series uses Xtensa LX and RISC-V, while GigaDevice's GD32
 series uses Arm Cortex-M and RISC-V. Less well known are the C-SKY-based MCUs
@@ -61,6 +62,15 @@ As of September 2026, I have verified the following:
 This is not yet a finished target upstreamed to rustc. The official rustup
 `rust-lld` does not contain this C-SKY bare-metal work either. These results use
 a project-local compiler and patch series.
+
+## Why Rust?
+
+Simply because I like Rust more than C.
+
+I previously documented my experience in the
+[My First Mass Production With Rust Embedded series](/en/categories/my-frist-mass-production-with-rust-embedded/).
+More importantly, I developed a Rust embedded product entirely on my own and
+took it all the way through mass production and release to the marketplace.
 
 ## C-SKY and CK80x
 

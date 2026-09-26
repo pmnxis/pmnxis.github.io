@@ -13,7 +13,8 @@ heroStyle: "background"
 > 🌐 [English Article](/en/posts/csky-rust-embassy/) | [日本語アーティクル](/ja/posts/csky-rust-embassy/)
 
 > 이 글은 공개 C-SKY 아키텍처, 범용 QEMU 환경과 시중에서 구할 수 있는
-> HLK-W806-KIT의 검증 내용만 다룬다.
+> HLK-W806-KIT의 검증 내용만 다룬다.<br>
+> csky-rust-buildroot: <https://github.com/pmnxis/csky-rust-buildroot>
 
 Espressif의 ESP32 시리즈는 Xtensa LX와 RISC-V를, GigaDevice의 GD32
 시리즈는 Arm Cortex-M과 RISC-V를 사용한다. 이들보다 덜 알려졌지만 중국
@@ -63,6 +64,14 @@ WinnerMicro W806에서 Embassy executor, timer와
 다만 아직 rustc에 upstream된 완성 타겟은 아니다. 공식 rustup의
 `rust-lld`에도 이 C-SKY bare-metal 작업은 들어가 있지 않다. 아래 결과는
 프로젝트 로컬 compiler와 patch series를 사용한 실험 결과다.
+
+## 왜 Rust인가?
+
+단순히 C보다 Rust를 더 좋아하기 때문이다.
+
+이전에 [Rust 임베디드 첫 양산 개발기 시리즈](/ko/categories/my-frist-mass-production-with-rust-embedded/)에
+관련 경험을 정리했다. 무엇보다 Rust로 임베디드 제품을 혼자 개발하고 실제 양산과
+시장 출시까지 직접 진행한 경험이 있다. 덕분에 보이스 피싱 당하고도 재기하는데 도움이 되었다.
 
 ## C-SKY와 CK80x
 
